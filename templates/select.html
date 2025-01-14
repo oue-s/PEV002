@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .inline-elements {
+            display: inline;
+        }
+    </style>
+    <title>Phoenix Eye Viewer</title>
+</head>
+
+<body>
+    <a href=/ style="float:right">| Viewer |</a>
+
+    <h2>日本史</h2>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">日本全史</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">華麗なる平安時代</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">怒涛の戦国時代</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">太平の世 江戸時代</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">文明開化 明治時代～昭和へ</p>
+
+    <h2>世界史</h2>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">ヨーロッパ全史</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">中国全史</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">ロマンあふれる！！ 大航海時代</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">キリスト教の歴史</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">古代エジプト史</p>
+
+    <h2>地球史</h2>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">地質年代</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">生物の勃興 四大絶滅</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">人類史</p>
+    <br>
+
+    <h2>地球温暖化特集</h2>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">過去100年の世界の平均気温(数値)</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">過去1万年の二酸化炭素濃度(水月湖 数値)</p>
+    <br>
+
+    <h2>生物学</h2>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">セミの一生</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">細胞分裂のサイクル</p>
+    <br>
+
+    <h2>(PR) スター◯ォーズ特集</h2>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">ジェダ◯とダー◯サイドの戦いの歴史</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">ルー◯・スカ◯ウォーカーの生涯</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">アナ◯ン・スカ◯ウォーカーの生涯</p>
+
+
+    <h2>ビジネスマン特集</h2>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">海運王 アリストテレス・オナシス</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">石油王 ジョン・ロックフェラー</p>
+    <br>
+    <input type="checkbox" name="items">
+    <p class="inline-elements">四国の大将 坪内 寿夫</p>
+    <br>
+
+
+    <h2>戦国武将特集</h2>
+
+    <form action="/" method="POST">
+        <button type="submit">決定 </button>
+
+        <label for="numberInput">時間軸変換:</label>
+        <select id="numberInput" name="number" required>
+            <option value="0">無変換</option>
+            <option value="1">起点を揃える</option>
+            <option value="2">起点と終点を揃える</option>
+            <option value="3">起点を揃え、任意の倍率</option>
+            <option value="0">任意のポイントを揃える</option>
+            <option value="0">人→猫 変換</option>
+            <option value="0">対数変換</option>
+        </select>
+
+        <br>
+        <input type="checkbox" name="items" value="ieyasu">
+        <p class="inline-elements">徳川家康の生涯</p>
+        <br>
+        <input type="checkbox" name="items" value="nobunaga">
+        <p class="inline-elements">織田信長の生涯</p>
+        <br>
+        <input type="checkbox" name="items" value="dummy_1">
+        <p class="inline-elements">武田信玄の生涯</p>
+        <br>
+        <input type="checkbox" name="items" value="dummy_2">
+        <p class="inline-elements">上杉謙信の生涯</p>
+        <br>
+        <input type="checkbox" name="items" value="dummy_1">
+        <p class="inline-elements">今川義元の生涯</p>
+        <br>
+        <input type="checkbox" name="items" value="dummy_2">
+        <p class="inline-elements">豊臣秀吉の生涯</p>
+        <br>
+        <input type="checkbox" name="items" value="earth_point">
+        <p class="inline-elements">(仮)地質年代</p>
+        <br>
+        <input type="checkbox" name="items" value="dummy_2">
+        <p class="inline-elements">浅野長政の生涯</p>
+        <br>
+        <input type="checkbox" name="items" value="hachimantai">
+        <p class="inline-elements">八幡平市長の生涯</p>
+        <br>
+
+
+
+    </form>
+</body>
+
+</html>
