@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ドラッグ&ドロップ選択システム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+        form {
+            width: 80%;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 60vh;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .list {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            border-right: 1px solid #ccc;
+        }
+        .list:last-child {
+            border-right: none;
+        }
+        .list h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: grab;
+        }
+        .item:active {
+            cursor: grabbing;
+        }
+        .droppable {
+            border: 2px dashed #ccc;
+            min-height: 200px;
+            background-color: #fff;
+        }
+        .drag-over {
+            background-color: #d1ffd6;
+        }
+        .remove-btn {
+            margin-left: 10px;
+            padding: 2px 5px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <h1>ドラッグ&ドロップ選択システム</h1>
+    <form action="/" method="POST" id="selectionForm">
+        <button type="submit" style="margin-top: 20px;">決定</button>
+
+        <label for="numberInput">時間軸変換:</label>
+        <select id="numberInput" name="number" required>
+            <option value="0">無変換</option>
+            <option value="1">起点を揃える</option>
+            <option value="2">起点と終点を揃える</option>
+            <option value="3">起点を揃え、任意の倍率</option>
+            <option value="0">任意のポイントを揃える</option>
+            <option value="0">人→猫 変換</option>
+            <option value="0">対数変換</option>
+        </select>
+
+        <div class="container">
+            <!-- 選択項目リスト -->
+            <div id="selectableItems" class="list">
+                <h3>選択項目</h3>
+                <div class="item" draggable="true" data-value="ieyasu">徳川家康の生涯</div>
+                <div class="item" draggable="true" data-value="nobunaga">織田信長の生涯</div>
+                <div class="item" draggable="true" data-value="dummy_1">武田信玄の生涯</div>
+                <div class="item" draggable="true" data-value="dummy_2">上杉謙信の生涯</div>
+                <div class="item" draggable="true" data-value="earth_point">(仮)地質年代</div>
+            </div>
+
+            <!-- 選択済リスト -->
+            <div id="selectedItems" class="list droppable">
+                <h3>選択済窓</h3>
+            </div>
+        </div>
+        <input type="hidden" name="items" id="selectedItemsInput">
+        
+    </form>
+
+    <script>
+        const selectableItems = document.getElementById('selectableItems');
+        const selectedItems = document.getElementById('selectedItems');
+        const selectedItemsInput = document.getElementById('selectedItemsInput');
+
+        let draggingItem = null;
+
+        // ドラッグ開始イベント
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                draggingItem = e.target;
+                e.dataTransfer.setData('text/plain', e.target.dataset.value);
+                e.target.classList.add('dragging');
+            });
+
+            item.addEventListener('dragend', () => {
+                draggingItem.classList.remove('dragging');
+                draggingItem = null;
+            });
+        });
+
+        // ドロップ可能エリアイベント
+        [selectedItems].forEach(area => {
+            area.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                area.classList.add('drag-over');
+            });
+
+            area.addEventListener('dragleave', () => {
+                area.classList.remove('drag-over');
+            });
+
+            area.addEventListener('drop', (e) => {
+                e.preventDefault();
+                area.classList.remove('drag-over');
+
+                const value = e.dataTransfer.getData('text/plain');
+                if (draggingItem && !selectedItems.contains(draggingItem)) {
+                    // 削除ボタンを追加した複製を作成
+                    const clonedItem = draggingItem.cloneNode(true);
+                    clonedItem.querySelector('.remove-btn')?.remove();
+                    clonedItem.innerHTML += `<button class="remove-btn">削除</button>`;
+
+                    // 削除ボタンの動作を設定
+                    clonedItem.querySelector('.remove-btn').addEventListener('click', () => {
+                        selectedItems.removeChild(clonedItem);
+                        updateHiddenInput();
+                    });
+
+                    selectedItems.appendChild(clonedItem);
+                    updateHiddenInput();
+                }
+            });
+        });
+
+        // 隠しフィールド更新
+        function updateHiddenInput() {
+            const selectedValues = Array.from(selectedItems.children)
+                .map(item => item.dataset.value)
+                .filter(value => value);
+            selectedItemsInput.value = JSON.stringify(selectedValues); //['["ieyasu","nobunaga"]']
+            // selectedItemsInput.value = selectedValues.join(); //['ieyasu,nobunaga']
+            // selectedItemsInput.value = JSON.stringify(selectedValues); //['["ieyasu","nobunaga"]']
+            // selectedItemsInput.value = `[${selectedValues.join(",")}]`; //['[ieyasu,nobunaga]']
+            // selectedItemsInput.value = selectedValues.join(","); //['ieyasu,nobunaga']
+            // selectedItemsInput.value = selectedValues.join(',');
+        }
+    </script>
+</body>
+</html>
+
+

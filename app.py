@@ -103,8 +103,9 @@ def index():
 
     if request.method == "POST":
         try:
-            # lectのpostメソッドのitemsから表se示したい歴史のCSVファイル名
-            items = request.form.getlist("items")
+            # selectのpostメソッドのitemsから表示したい歴史のCSVファイル名
+            # selectからのpostの形式が未定なので、ひとまずXとしてcurrent_dispに送る
+            itemsX = request.form.getlist("items")
             # flask-loginのnameメソッドより現在のユーザーを特定
             disp_his_name = f"disp_{current_user.name}"
             # lectのpostメソッドのnumberから演算処理No
@@ -112,7 +113,7 @@ def index():
             # 予備の変数 現状slopeに使う(つかいかた未定)
             a = 7
             # 指定の加工が施されたCSVファイルが作成される
-            create_crrent_disp(items, disp_his_name, calc_method, a)
+            create_crrent_disp(itemsX, disp_his_name, calc_method, a)
             return render_template("index.html")
         except IntegrityError as e:
             flash(f"{e}")
@@ -126,9 +127,16 @@ def select():
     selected_items = request.form.getlist("items")
     session["selected_items"] = selected_items
 
-    # selected_items = session.get("selected_items", [])
     return render_template("select.html", selected_items=selected_items)
-    # return render_template("select.html")
+
+
+@app.route("/select_test")
+def select_test():
+    # 前回入力値を保存する
+    selected_items = request.form.getlist("items")
+    session["selected_items"] = selected_items
+
+    return render_template("select_test.html", selected_items=selected_items)
 
 
 if __name__ == "__main__":

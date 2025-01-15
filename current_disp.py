@@ -1,4 +1,5 @@
 import csv
+import json
 
 # CSVファイルを3次元配列配列で読み込む仕様
 # 0:CSVファイルNo 1:行(row) 2:列(column)
@@ -135,10 +136,38 @@ def sum_list(his_list):
 
 
 # メインルーチン
-def create_crrent_disp(items, disp_his_name, calc_method, a):
-    # itemsで指定されたCSVファイルの数を確認して多次元配列に収納する
+def create_crrent_disp(itemsX, disp_his_name, calc_method, a):
+    # items の中身チェック(ネストリストの形対応)
+    print("0", itemsX, len(itemsX))
+    items = []
+    if len(itemsX) == 0:
+        # これは[]なのでダミーをいれる
+        print("case1")
+        items.append("dummy_1")
+    elif len(itemsX) == 1:
+        # これは[item1]か['Json文字']か[''](空選択)なので入れ子を外してダミーを知れる
+        try:
+            items = json.loads(itemsX[0])
+            print("case2")
+        except json.JSONDecodeError as e:
+            print(itemsX[0], type(itemsX[0]))
+            if itemsX[0] == "":
+                # これは['']の場合
+                items.append("dummy_1")
+                print("case5", e)
+            else:
+                items.append(itemsX[0])
+                print("case3", e)
+    else:
+        print("case4")
+        items = itemsX
+
+    print("1", items, type(items))
+
+    # itemsで指定されたCSVファイルの数を確認して3次元配列に収納する
     iCsv = len(items)
     his_list = [[]] * iCsv
+    print(items)
     for i in range(iCsv):
         with open(f"db_csv/{items[i]}.csv", "r", encoding="utf-8") as his_csv:
             reader = csv.reader(his_csv)
