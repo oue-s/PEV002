@@ -1,7 +1,27 @@
 // サイズとマージンの設定
-const margin = { top: 20, right: 20, bottom: 30, left: 150 }; // 左マージンを大きく設定
+const margin = { top: 20, right: 20, bottom: 20, left: 150 }; // 左マージンを大きく設定
 const width = 960 - margin.left - margin.right;
-const height = 300 - margin.top - margin.bottom;
+// const height = 300 - margin.top - margin.bottom;
+let numberHis = Number(numHis) //app.pyより選択されたアイテムの数をもらってくる
+const groupHeigt = 115;
+const height = groupHeigt * numberHis;
+const numEvent = 5;
+const eventOffset = 15;
+const marginXupper = 30;
+
+// デバグ用　変数が来ていることの確認 
+// document.write(numHis)
+
+let showImages = true;
+d3.select("#image-toggle").on("change", function() {
+    showImages = this.checked;  // チェックボックスの状態でフラグを更新
+});
+
+d3.select("#redraw-button").on("click", function() {
+    render();  // 再描画
+});
+
+
 
 // SVGの作成
 const svg = d3.select(".chart")
@@ -24,10 +44,8 @@ const xAxis = d3.axisBottom(x).tickFormat(d => {
     return formatYear(d);
 });
 
-// document.write(myVariable)
-
 // CSVファイルの読み込み
-d3.csv(myVariable).then(data => {
+d3.csv(currentUser).then(data => {
     // データのパース
     data.forEach(d => {
         d.startYear = +d.startYear;
@@ -36,8 +54,7 @@ d3.csv(myVariable).then(data => {
 
     // グループ化
     const groups = Array.from(new Set(data.map(d => d.group)));
-    const groupScale = d3.scaleBand().domain(groups).range([0, height]);
-
+    const groupScale = d3.scaleBand().domain(groups).range([marginXupper, height]);
     // スケールのドメイン設定
     x.domain(d3.extent(data, d => d.startYear));
 
@@ -46,6 +63,12 @@ d3.csv(myVariable).then(data => {
         .attr("class", "x axis")
         .attr("transform", `translate(0,${height})`)
         .call(xAxis);
+
+    // 軸の追加(上)
+    svg.append("g")
+        .attr("class", "x axis_upper")
+        .attr("transform", `translate(0,0)`)
+        .call(xAxis);   
 
     // グループの間に線を引く
     svg.selectAll(".group-line")
@@ -63,7 +86,7 @@ d3.csv(myVariable).then(data => {
     // グループタイトルの追加
     const groupTitles = groups.map(group => {
         const groupData = data.find(d => d.group === group);
-        return { group: group, title: groupData.groupTitle, color: groupData.groupColor };
+        return { group: group, title: groupData.groupTitle};
     });
 
     svg.selectAll(".group-title")
@@ -76,10 +99,26 @@ d3.csv(myVariable).then(data => {
         .attr("dy", "0.35em")
         .style("text-anchor", "start")
         .text(d => d.title)
-        .style("fill", d => d.color);
+        //.style("fill", d => d.color);
         
     // データの描画関数
     function render() {
+        
+        // // イベント画像の描画
+        // const images = svg.selectAll("image")
+        //     .data(data.filter(d => d.image), d => d.event);
+
+        // images.enter().append("image")
+
+        //     .merge(images)
+        //     .attr("x", d => d.startYear === d.endYear ? x(d.startYear) - 25 : (x(d.startYear) + x(d.endYear)) / 2 - 25)
+        //     .attr("y", d => groupScale(d.group) + (groupScale.bandwidth() / 4) +20)
+        //     .attr("width", 70)
+        //     .attr("height", 70)
+        //     .attr("xlink:href", d => d.image);
+
+        // images.exit().remove();        
+
         // 期間イベントの描画
         const rects = svg.selectAll("rect")
             .data(data.filter(d => d.startYear !== d.endYear), d => d.event);
@@ -88,10 +127,11 @@ d3.csv(myVariable).then(data => {
             .attr("class", d => `event event-group-${d.group}`)
             .merge(rects)
             .attr("x", d => x(d.startYear))
-            .attr("y", d => groupScale(d.group) + (groupScale.bandwidth() / 4))
+            // .attr("y", d => groupScale(d.group) + (groupScale.bandwidth() / 4))
+            .attr("y", d => groupScale(d.group) + eventOffset -2)
             .attr("width", d => x(d.endYear) - x(d.startYear))
             .attr("height", groupScale.bandwidth() / 10)
-            .attr("fill", d => d.color);
+            .attr("fill", d => d.eventColor);
 
         rects.exit().remove();
 
@@ -103,9 +143,10 @@ d3.csv(myVariable).then(data => {
             .attr("class", d => `event event-group-${d.group}`)
             .merge(circles)
             .attr("cx", d => x(d.startYear))
-            .attr("cy", d => groupScale(d.group) + (groupScale.bandwidth() / 4))
-            .attr("r", 5)
-            .attr("fill", d => d.group_color);
+            // .attr("cy", d => groupScale(d.group) + (groupScale.bandwidth() / 4))
+            .attr("cy", (d,i) => groupScale(d.group) + (eventOffset * 2)  + (i % numEvent * eventOffset))
+            .attr("r", 2)
+            .attr("fill", d => d.eventColor);
 
         circles.exit().remove();
 
@@ -116,28 +157,15 @@ d3.csv(myVariable).then(data => {
         labels.enter().append("text")
             .attr("class", d => `event-label event-group-${d.group}`)
             .merge(labels)
-            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) : (x(d.startYear) + x(d.endYear)) / 2)
-            .attr("y", d => d.startYear === d.endYear ? (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10) : (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10))
-            .attr("text-anchor", "middle")
+            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) + 5 : (x(d.startYear) + x(d.endYear)) / 2)
+            // .attr("y", d => d.startYear === d.endYear ? (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10) : (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10))
+            .attr("y", (d,i) => d.startYear === d.endYear ? (groupScale(d.group) + (eventOffset * 2) + (i % numEvent * eventOffset) +5) : (groupScale(d.group) + eventOffset -4))
+            .attr("text-anchor", d => d.startYear === d.endYear ? "" :"middle")
             .text(d => d.event)
-            .attr("fill", d => d.group_color);
+            //.attr("fill", d => d.eventColor);
 
         labels.exit().remove();
 
-        // イベント画像の描画
-        const images = svg.selectAll("image")
-            .data(data.filter(d => d.image), d => d.event);
-
-        images.enter().append("image")
-
-            .merge(images)
-            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) - 25 : (x(d.startYear) + x(d.endYear)) / 2 - 25)
-            .attr("y", d => groupScale(d.group) + (groupScale.bandwidth() / 4) +20)
-            .attr("width", 70)
-            .attr("height", 70)
-            .attr("xlink:href", d => d.image);
-
-        images.exit().remove();
     }
 
     // ズームとパンの設定
@@ -151,6 +179,7 @@ d3.csv(myVariable).then(data => {
         const newX = event.transform.rescaleX(x);
         xAxis.scale(newX);
         svg.select(".x.axis").call(xAxis);
+        svg.select(".x.axis_upper").call(xAxis);
         svg.selectAll("rect")
             .attr("x", d => newX(d.startYear))
             .attr("width", d => newX(d.endYear) - newX(d.startYear))
@@ -159,7 +188,7 @@ d3.csv(myVariable).then(data => {
             .attr("cx", d => newX(d.startYear))
             .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll(".event-label")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) +5 : (newX(d.startYear) + newX(d.endYear)) / 2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("image")
             .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 25 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25);

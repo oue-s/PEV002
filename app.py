@@ -113,8 +113,9 @@ def index():
             # 予備の変数 現状slopeに使う(つかいかた未定)
             a = 7
             # 指定の加工が施されたCSVファイルが作成される
-            create_crrent_disp(itemsX, disp_his_name, calc_method, a)
-            return render_template("index.html")
+            num_his = create_crrent_disp(itemsX, disp_his_name, calc_method, a)
+
+            return render_template("index.html", num_his=num_his)
         except IntegrityError as e:
             flash(f"{e}")
 

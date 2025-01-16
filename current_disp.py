@@ -205,6 +205,9 @@ def create_crrent_disp(itemsX, disp_his_name, calc_method, a):
         writer = csv.writer(disp_csv)
         writer.writerows(his_sum_list)
 
+    # 描画に必要な領域計算のため、表示するhisの個数を返す
+    return len(items)
+
 
 if __name__ == "__main__":
 
