@@ -110,12 +110,12 @@ def index():
             disp_his_name = f"disp_{current_user.name}"
             # lectのpostメソッドのnumberから演算処理No
             calc_method = int(request.form["number"])
-            # 予備の変数 現状slopeに使う(つかいかた未定)
-            a = 7
+            # 軸変換に必要なパラメータがテキストとして送られてくる
+            calc_option = request.form["option"]
             # 指定の加工が施されたCSVファイルが作成される
-            num_his = create_crrent_disp(itemsX, disp_his_name, calc_method, a)
+            num_his = create_crrent_disp(itemsX, disp_his_name, calc_method, calc_option)
 
-            return render_template("index.html", num_his=num_his)
+            return render_template("index.html", num_his=num_his, calc_option=calc_option)
         except IntegrityError as e:
             flash(f"{e}")
 
