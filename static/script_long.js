@@ -15,13 +15,8 @@ const marginXupper = 30;
 let showImages = true;
 d3.select("#image-toggle").on("change", function() {
     showImages = this.checked;  // チェックボックスの状態でフラグを更新
+    render();
 });
-
-d3.select("#redraw-button").on("click", function() {
-    render();  // 再描画
-});
-
-
 
 // SVGの作成
 const svg = d3.select(".chart")
@@ -104,20 +99,21 @@ d3.csv(currentUser).then(data => {
     // データの描画関数
     function render() {
         
-        // // イベント画像の描画
-        // const images = svg.selectAll("image")
-        //     .data(data.filter(d => d.image), d => d.event);
+        // イベント画像の描画
+        const images = svg.selectAll("image")
+            // .data(data.filter(d => d.image), d => d.event);
+            .data(showImages ? data.filter(d => d.image) : [], d => d.event);
 
-        // images.enter().append("image")
+        images.enter().append("image")
 
-        //     .merge(images)
-        //     .attr("x", d => d.startYear === d.endYear ? x(d.startYear) - 25 : (x(d.startYear) + x(d.endYear)) / 2 - 25)
-        //     .attr("y", d => groupScale(d.group) + (groupScale.bandwidth() / 4) +20)
-        //     .attr("width", 70)
-        //     .attr("height", 70)
-        //     .attr("xlink:href", d => d.image);
+            .merge(images)
+            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) - 75  : (x(d.startYear) + x(d.endYear)) / 2 - 25)
+            .attr("y", d => groupScale(d.group) + (eventOffset * 2))
+            .attr("width", 70)
+            .attr("height", 70)
+            .attr("xlink:href", d => d.image);
 
-        // images.exit().remove();        
+        images.exit().remove();        
 
         // 期間イベントの描画
         const rects = svg.selectAll("rect")
@@ -175,7 +171,11 @@ d3.csv(currentUser).then(data => {
 
     svg.call(zoom);
 
+    // ズーム状態を保持する変数
+    let currentTransform = d3.zoomIdentity;
+
     function zoomed(event) {
+        currentTransform = event.transform; // 現在のズーム状態を記録
         const newX = event.transform.rescaleX(x);
         xAxis.scale(newX);
         svg.select(".x.axis").call(xAxis);
@@ -191,7 +191,7 @@ d3.csv(currentUser).then(data => {
             .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) +5 : (newX(d.startYear) + newX(d.endYear)) / 2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("image")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 25 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25);
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 75 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25);
     }
 
     render();
@@ -204,4 +204,16 @@ d3.csv(currentUser).then(data => {
         // データの再描画
         render();
     });
+
+    d3.select("#re-render").on("click", () => {
+        // データの再描画
+        svg.transition()
+            .duration(750)
+            .call(zoom.transform,currentTransform);
+        // データの再描画
+        render();
+    });
+
+
+
 });
