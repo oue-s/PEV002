@@ -62,8 +62,8 @@ d3.csv(currentUser).then(data => {
     // 軸の追加(上)
     svg.append("g")
         .attr("class", "x axis_upper")
-        .attr("transform", `translate(0,0)`)
-        .call(xAxis);   
+        .attr("transform", `translate(0,-20)`)
+        .call(xAxis);
 
     // グループの間に線を引く
     svg.selectAll(".group-line")
@@ -94,11 +94,10 @@ d3.csv(currentUser).then(data => {
         .attr("dy", "0.35em")
         .style("text-anchor", "start")
         .text(d => d.title)
-        //.style("fill", d => d.color);
-        
+         
     // データの描画関数
     function render() {
-        
+      
         // イベント画像の描画
         const images = svg.selectAll("image")
             // .data(data.filter(d => d.image), d => d.event);
@@ -162,7 +161,17 @@ d3.csv(currentUser).then(data => {
 
         labels.exit().remove();
 
+        // SVG領域全てでズームとパンを有効にするためのダミーオブジェクト　未完成
+        // svg.enter().append("rect")
+        //     .attr("width", width)
+        //     .attr("height", height)
+        //     .style("fill", "none")
+        //     .style("pointer-events", "all"); // 背景全体を操作可能に
+
+        // labels.exit().remove();
     }
+
+
 
     // ズームとパンの設定
     const zoom = d3.zoom()
@@ -188,7 +197,7 @@ d3.csv(currentUser).then(data => {
             .attr("cx", d => newX(d.startYear))
             .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll(".event-label")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) +5 : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + 5 : (newX(d.startYear) + newX(d.endYear)) / 2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("image")
             .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 75 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25);

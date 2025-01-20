@@ -1,106 +1,48 @@
-<script>
-    const selectableItems = document.getElementById('selectableItems');
-    const selectedItems = document.getElementById('selectedItems');
-    const selectedItemsInput = document.getElementById('selectedItemsInput');
+// SVG背景用の矩形を追加して全体を操作可能にする
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .style("fill", "none")
+    .style("pointer-events", "all"); // 背景全体を操作可能に
 
-    let draggingItem = null;
-    let touchTimer = null;
+// ズームとパンの設定
+const zoom = d3.zoom()
+    .scaleExtent([0.1, 5000]) // 拡大縮小の範囲を設定
+    .on("zoom", zoomed);
 
-    // ドラッグ＆タッチ開始イベント
-    document.querySelectorAll('.item').forEach(item => {
-        item.addEventListener('dragstart', (e) => {
-            startDrag(e, item);
-        });
+svg.call(zoom);
 
-        item.addEventListener('touchstart', (e) => {
-            // タッチでのドラッグを開始するカスタムロジック
-            touchTimer = setTimeout(() => {
-                startDrag(e, item);
-            }, 300); // 長押しの判定時間を短縮
-        });
+// ズーム状態を保持する変数
+let currentTransform = d3.zoomIdentity;
 
-        item.addEventListener('touchend', () => {
-            clearTimeout(touchTimer);
-            endDrag();
-        });
+function zoomed(event) {
+    currentTransform = event.transform; // 現在のズーム状態を記録
 
-        item.addEventListener('dragend', () => {
-            endDrag();
-        });
-    });
+    // 軸の再スケール
+    const newX = event.transform.rescaleX(x);
+    xAxis.scale(newX);
 
-    function startDrag(event, item) {
-        draggingItem = item;
-        if (event.type === 'dragstart') {
-            event.dataTransfer.setData('text/plain', item.dataset.value);
-        }
-        item.classList.add('dragging');
-    }
+    // X軸の再描画
+    svg.select(".x.axis").call(xAxis);
+    svg.select(".x.axis_upper").call(xAxis);
 
-    function endDrag() {
-        if (draggingItem) {
-            draggingItem.classList.remove('dragging');
-            draggingItem = null;
-        }
-    }
+    // 四角形の再描画
+    svg.selectAll("rect.data-rect")
+        .attr("x", d => newX(d.startYear))
+        .attr("width", d => newX(d.endYear) - newX(d.startYear))
+        .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
 
-    // ドロップ可能エリアイベント
-    [selectedItems].forEach(area => {
-        area.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            area.classList.add('drag-over');
-        });
+    // 円の再描画
+    svg.selectAll("circle")
+        .attr("cx", d => newX(d.startYear))
+        .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
 
-        area.addEventListener('dragleave', () => {
-            area.classList.remove('drag-over');
-        });
+    // ラベルの再描画
+    svg.selectAll(".event-label")
+        .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + 5 : (newX(d.startYear) + newX(d.endYear)) / 2)
+        .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
 
-        area.addEventListener('drop', (e) => {
-            e.preventDefault();
-            area.classList.remove('drag-over');
-            handleDrop(e);
-        });
-
-        area.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            area.classList.add('drag-over');
-        });
-
-        area.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            area.classList.remove('drag-over');
-            handleDrop(e);
-        });
-    });
-
-    // ドロップ処理
-    function handleDrop(event) {
-        if (draggingItem && !selectedItems.contains(draggingItem)) {
-            const clonedItem = draggingItem.cloneNode(true);
-            clonedItem.querySelector('.remove-btn')?.remove();
-            clonedItem.innerHTML += `<button class="remove-btn">削除</button>`;
-
-            // 削除ボタンの動作を設定（タッチ対応追加）
-            clonedItem.querySelector('.remove-btn').addEventListener('click', () => {
-                selectedItems.removeChild(clonedItem);
-                updateHiddenInput();
-            });
-
-            clonedItem.querySelector('.remove-btn').addEventListener('touchstart', () => {
-                selectedItems.removeChild(clonedItem);
-                updateHiddenInput();
-            });
-
-            selectedItems.appendChild(clonedItem);
-            updateHiddenInput();
-        }
-    }
-
-    // 隠しフィールド更新
-    function updateHiddenInput() {
-        const selectedValues = Array.from(selectedItems.children)
-            .map(item => item.dataset.value)
-            .filter(value => value);
-        selectedItemsInput.value = JSON.stringify(selectedValues);
-    }
-</script>
+    // イメージの再描画
+    svg.selectAll("image")
+        .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 75 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25);
+}
