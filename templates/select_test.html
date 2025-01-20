@@ -173,7 +173,17 @@
                 <div class="item-container">
                     <div class="item" draggable="true" data-value="hachimantai">八幡平市長の生涯</div> <span class="item-text">2005更新</span>
                 </div>
-
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="dummy_1">ダミー1</div> <span class="item-text">2005更新</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="dummy_2">ダミー2</div> <span class="item-text">2005更新</span>
+                </div>
 
 
 
@@ -193,103 +203,103 @@
 
     </form>
 
-<script>
-    const selectableItems = document.getElementById('selectableItems');
-    const selectedItems = document.getElementById('selectedItems');
-    const selectedItemsInput = document.getElementById('selectedItemsInput');
+    <script>
+        const selectableItems = document.getElementById('selectableItems');
+        const selectedItems = document.getElementById('selectedItems');
+        const selectedItemsInput = document.getElementById('selectedItemsInput');
 
-    let draggingItem = null;
+        let draggingItem = null;
 
-    // ドラッグ＆タッチ開始イベント
-    document.querySelectorAll('.item').forEach(item => {
-        item.addEventListener('dragstart', (e) => {
-            startDrag(e, item);
-        });
-
-        item.addEventListener('touchstart', (e) => {
-            startDrag(e, item);
-        });
-
-        item.addEventListener('dragend', () => {
-            endDrag();
-        });
-
-        item.addEventListener('touchend', () => {
-            endDrag();
-        });
-    });
-
-    function startDrag(event, item) {
-        draggingItem = item;
-        if (event.type === 'dragstart') {
-            event.dataTransfer.setData('text/plain', item.dataset.value);
-        }
-        item.classList.add('dragging');
-    }
-
-    function endDrag() {
-        if (draggingItem) {
-            draggingItem.classList.remove('dragging');
-            draggingItem = null;
-        }
-    }
-
-    // ドロップ可能エリアイベント
-    [selectedItems].forEach(area => {
-        area.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            area.classList.add('drag-over');
-        });
-
-        area.addEventListener('dragleave', () => {
-            area.classList.remove('drag-over');
-        });
-
-        area.addEventListener('drop', (e) => {
-            e.preventDefault();
-            area.classList.remove('drag-over');
-            handleDrop(e);
-        });
-
-        area.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            area.classList.add('drag-over');
-        });
-
-        area.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            area.classList.remove('drag-over');
-            handleDrop(e);
-        });
-    });
-
-    // ドロップ処理
-    function handleDrop(event) {
-        if (draggingItem && !selectedItems.contains(draggingItem)) {
-            // クローン作成
-            const clonedItem = draggingItem.cloneNode(true);
-            clonedItem.querySelector('.remove-btn')?.remove();
-            clonedItem.innerHTML += `<button class="remove-btn">削除</button>`;
-
-            // 削除ボタンの動作を設定
-            clonedItem.querySelector('.remove-btn').addEventListener('click', () => {
-                selectedItems.removeChild(clonedItem);
-                updateHiddenInput();
+        // ドラッグ＆タッチ開始イベント
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                startDrag(e, item);
             });
 
-            selectedItems.appendChild(clonedItem);
-            updateHiddenInput();
-        }
-    }
+            item.addEventListener('touchstart', (e) => {
+                startDrag(e, item);
+            });
 
-    // 隠しフィールド更新
-    function updateHiddenInput() {
-        const selectedValues = Array.from(selectedItems.children)
-            .map(item => item.dataset.value)
-            .filter(value => value);
-        selectedItemsInput.value = JSON.stringify(selectedValues);
-    }
-</script>
+            item.addEventListener('dragend', () => {
+                endDrag();
+            });
+
+            item.addEventListener('touchend', () => {
+                endDrag();
+            });
+        });
+
+        function startDrag(event, item) {
+            draggingItem = item;
+            if (event.type === 'dragstart') {
+                event.dataTransfer.setData('text/plain', item.dataset.value);
+            }
+            item.classList.add('dragging');
+        }
+
+        function endDrag() {
+            if (draggingItem) {
+                draggingItem.classList.remove('dragging');
+                draggingItem = null;
+            }
+        }
+
+        // ドロップ可能エリアイベント
+        [selectedItems].forEach(area => {
+            area.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                area.classList.add('drag-over');
+            });
+
+            area.addEventListener('dragleave', () => {
+                area.classList.remove('drag-over');
+            });
+
+            area.addEventListener('drop', (e) => {
+                e.preventDefault();
+                area.classList.remove('drag-over');
+                handleDrop(e);
+            });
+
+            area.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                area.classList.add('drag-over');
+            });
+
+            area.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                area.classList.remove('drag-over');
+                handleDrop(e);
+            });
+        });
+
+        // ドロップ処理
+        function handleDrop(event) {
+            if (draggingItem && !selectedItems.contains(draggingItem)) {
+                // クローン作成
+                const clonedItem = draggingItem.cloneNode(true);
+                clonedItem.querySelector('.remove-btn')?.remove();
+                clonedItem.innerHTML += `<button class="remove-btn">削除</button>`;
+
+                // 削除ボタンの動作を設定
+                clonedItem.querySelector('.remove-btn').addEventListener('click', () => {
+                    selectedItems.removeChild(clonedItem);
+                    updateHiddenInput();
+                });
+
+                selectedItems.appendChild(clonedItem);
+                updateHiddenInput();
+            }
+        }
+
+        // 隠しフィールド更新
+        function updateHiddenInput() {
+            const selectedValues = Array.from(selectedItems.children)
+                .map(item => item.dataset.value)
+                .filter(value => value);
+            selectedItemsInput.value = JSON.stringify(selectedValues);
+        }
+    </script>
 
 </body>
 
