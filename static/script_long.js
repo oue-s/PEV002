@@ -94,10 +94,21 @@ d3.csv(currentUser).then(data => {
         .attr("dy", "0.35em")
         .style("text-anchor", "start")
         .text(d => d.title)
+
+    // SVG領域全体でズームとパンを有効にするためのダミーオブジェクト
+    svg.append("rect",":first-child")
+        .attr("class", "background-rect") // 任意のクラスを設定
+        .attr("x", 0)                     // 矩形のX位置
+        .attr("y", 0)                     // 矩形のY位置
+        .attr("width", width)          // 矩形の幅
+        .attr("height", height)           // SVGの高さに合わせた矩形の高さ
+        .style("fill", "gray")       // 矩形の色 (任意)
+        .style("opacity",0)           // 矩形の透明度 (任意)
+        .style("pointer-events", "all");
          
     // データの描画関数
     function render() {
-      
+
         // イベント画像の描画
         const images = svg.selectAll("image")
             // .data(data.filter(d => d.image), d => d.event);
@@ -112,10 +123,10 @@ d3.csv(currentUser).then(data => {
             .attr("height", 70)
             .attr("xlink:href", d => d.image);
 
-        images.exit().remove();        
+        images.exit().remove();
 
         // 期間イベントの描画
-        const rects = svg.selectAll("rect")
+        const rects = svg.selectAll("rect.event")
             .data(data.filter(d => d.startYear !== d.endYear), d => d.event);
 
         rects.enter().append("rect")
@@ -160,18 +171,7 @@ d3.csv(currentUser).then(data => {
             //.attr("fill", d => d.eventColor);
 
         labels.exit().remove();
-
-        // SVG領域全てでズームとパンを有効にするためのダミーオブジェクト　未完成
-        // svg.enter().append("rect")
-        //     .attr("width", width)
-        //     .attr("height", height)
-        //     .style("fill", "none")
-        //     .style("pointer-events", "all"); // 背景全体を操作可能に
-
-        // labels.exit().remove();
     }
-
-
 
     // ズームとパンの設定
     const zoom = d3.zoom()
@@ -189,7 +189,7 @@ d3.csv(currentUser).then(data => {
         xAxis.scale(newX);
         svg.select(".x.axis").call(xAxis);
         svg.select(".x.axis_upper").call(xAxis);
-        svg.selectAll("rect")
+        svg.selectAll("rect.event")
             .attr("x", d => newX(d.startYear))
             .attr("width", d => newX(d.endYear) - newX(d.startYear))
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
@@ -222,7 +222,5 @@ d3.csv(currentUser).then(data => {
         // データの再描画
         render();
     });
-
-
 
 });
