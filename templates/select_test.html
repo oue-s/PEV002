@@ -185,12 +185,7 @@
                     <div class="item" draggable="true" data-value="dummy_2">ダミー2</div> <span class="item-text">2005更新</span>
                 </div>
 
-
-
-
-
             </div>
-
 
             <!-- 選択済リスト -->
             <div id="selectedItems" class="list droppable">
@@ -209,7 +204,7 @@
         const selectedItemsInput = document.getElementById('selectedItemsInput');
 
         let draggingItem = null;
-
+        let touchTimer = null;
         // ドラッグ＆タッチ開始イベント
         document.querySelectorAll('.item').forEach(item => {
             item.addEventListener('dragstart', (e) => {
@@ -217,14 +212,18 @@
             });
 
             item.addEventListener('touchstart', (e) => {
-                startDrag(e, item);
-            });
-
-            item.addEventListener('dragend', () => {
-                endDrag();
+                // タッチでのドラッグを開始するカスタムロジック
+                touchTimer = setTimeout(() => {
+                    startDrag(e, item);
+                }, 300); // 長押しの判定時間を短縮
             });
 
             item.addEventListener('touchend', () => {
+                clearTimeout(touchTimer);
+                endDrag();
+            });
+
+            item.addEventListener('dragend', () => {
                 endDrag();
             });
         });
@@ -285,6 +284,11 @@
                 clonedItem.querySelector('.remove-btn').addEventListener('click', () => {
                     selectedItems.removeChild(clonedItem);
                     updateHiddenInput();
+                });
+
+                clonedItem.querySelector('.remove-btn').addEventListener('touchstart', () => {
+                selectedItems.removeChild(clonedItem);
+                updateHiddenInput();
                 });
 
                 selectedItems.appendChild(clonedItem);
