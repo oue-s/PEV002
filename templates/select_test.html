@@ -33,7 +33,7 @@
         }
 
         .list {
-            flex: 1;
+            flex: 2;
             padding: 10px;
             overflow-y: auto;
             background-color: #f9f9f9;
@@ -43,15 +43,15 @@
         /* 左のコンテナ: 選択項目リスト */
         #selectableItems {
             flex: 3;
-            /* 幅を2倍に設定 */
+            min-width: 200px;
             height: 100vh;
-            /* 高さを全体の70%に設定 */
+            
         }
 
         /* 右のコンテナ: 選択済リスト */
         #selectedItems {
             flex: 1;
-            /* 幅を1倍に設定 */
+            min-width: 200px;
             height: 50vh;
             /* 高さを全体の50%に設定 */
             border-right: none;
