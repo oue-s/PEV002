@@ -169,6 +169,9 @@ def create_crrent_disp(itemsX, disp_his_name, calc_method, a):
     his_list = [[]] * iCsv
     print(items)
     for i in range(iCsv):
+        # Flask単体で動かす場合は相対パス　Apacheで動かす場合は相対パス
+        # 絶対パスの場合、ユーザー名やプロジェクト名(ディレクトリ名に注意)
+        # with open(f"/home/@/@/db_csv/{items[i]}.csv", "r", encoding="utf-8") as his_csv:
         with open(f"db_csv/{items[i]}.csv", "r", encoding="utf-8") as his_csv:
             reader = csv.reader(his_csv)
             his_list[i] = [row for row in reader]
@@ -201,6 +204,9 @@ def create_crrent_disp(itemsX, disp_his_name, calc_method, a):
     his_sum_list = sum_list(his_list)
 
     # 表示する歴史ファイルを作成される(実際にはユーザー毎に名前が指定される)
+    # Flask単体で動かす場合は相対パス　Apacheで動かす場合は相対パス
+    # 絶対パスの場合、ユーザー名やプロジェクト名(ディレクトリ名に注意)
+    # with open(f"/home/@/@/static/data/{disp_his_name}.csv", "w", encoding="utf-8", newline="") as disp_csv:
     with open(f"static/data/{disp_his_name}.csv", "w", encoding="utf-8", newline="") as disp_csv:
         writer = csv.writer(disp_csv)
         writer.writerows(his_sum_list)

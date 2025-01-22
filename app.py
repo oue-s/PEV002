@@ -26,7 +26,7 @@ def unauthorized_handler():
 
 
 # ユーザー登録フォームの表示・登録処理
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register_k29kc83kf71k", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # データの検証
@@ -48,7 +48,7 @@ def register():
         )
         return render_template("index.html")
 
-    return render_template("register.html")
+    return render_template("register_k29kc83kf71k.html")
 
 
 # ログインフォームの表示・ログイン処理
@@ -88,10 +88,10 @@ def logout():
 
 
 # ユーザー削除処理
-@app.route("/unregister")
+@app.route("/unregister_hey2kdibyek33kfu")
 @login_required
 def unregister():
-    # ここにdisp.csvファイルを削除する機能を入れる
+
     current_user.delete_instance()
     logout_user()
     return redirect("/")

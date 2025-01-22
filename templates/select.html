@@ -4,147 +4,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Eye Viewer</title>
     <style>
-        .inline-elements {
-            display: inline;
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            margin: 10;
+            padding: 0;
+            /* height: 120vh; */
+        }
+
+        .horizontal-container {
+            display: flex;
+            align-items: right;
+            gap: 80px; /* 子要素間の余白 */
+        }
+
+        .calc-input {
+            font-size: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 900px;
+            height: 100vh;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .list {
+            flex: 2;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            border-right: 1px solid #ccc;
+        }
+
+        /* 左のコンテナ: 選択項目リスト */
+        #selectableItems {
+            flex: 3;
+            min-width: 200px;
+            height: 100vh;
+            
+        }
+
+        /* 右のコンテナ: 選択済リスト */
+        #selectedItems {
+            flex: 1;
+            min-width: 200px;
+            height: 50vh;
+            /* 高さを全体の50%に設定 */
+            border-right: none;
+            /* 右端の境界線を削除 */
+        }
+
+
+
+        .list:last-child {
+            border-right: none;
+        }
+
+        .item-container {
+            display: flex;
+            align-items: center;
+            /* 縦方向で中央揃え */
+            /* margin-bottom: 5px; 各アイテム間の間隔 */
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 200px;
+            padding: 2px;
+            margin-bottom: 5px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: grab;
+        }
+
+        .item-text {
+            flex: 1;
+            margin-left: 10px;
+            /* アイテム本体との間隔 */
+            font-size: 11px;
+            overflow: hidden;
+            /* テキストがはみ出る場合は隠す */
+            text-overflow: ellipsis;
+            /* 省略記号を表示 */
+
+        }
+
+        .item:active {
+            cursor: grabbing;
+        }
+
+        .droppable {
+            border: 2px dashed #ccc;
+            min-height: 200px;
+            background-color: #fff;
+        }
+
+        .drag-over {
+            background-color: #d1ffd6;
+        }
+
+        .remove-btn {
+            margin-left: 2px;
+            padding: 2px 5px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #ff1a1a;
         }
     </style>
-    <title>Phoenix Eye Viewer</title>
 </head>
 
 <body>
-    <a href=/ style="float:right">| Viewer |</a>
+    <h2>Poenix Eye View SLECTER</h2>
+    <form action="/" method="POST" id="selectionForm">
 
-    <h2>日本史</h2>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">日本全史</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">華麗なる平安時代</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">怒涛の戦国時代</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">太平の世 江戸時代</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">文明開化 明治時代～昭和へ</p>
+        <div class="horizontal-container">
+            <button type="submit">決定</button>
+            <div class="calc-input">
+                <label for="numberInput">時間軸変換:</label>
+                <select id="numberInput" name="number" required>
+                    <option value="0">無変換</option>
+                    <option value="1">起点を揃える</option>
+                    <option value="2">起点と終点を揃える</option>
+                    <option value="3">起点を揃え、任意の倍率</option>
+                    <option value="0">起点を指定する(未実装)</option>
+                    <option value="0">人→猫 変換(未実装)</option>
+                    <option value="0">対数変換(未実装)</option>
+                </select>
 
-    <h2>世界史</h2>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">ヨーロッパ全史</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">中国全史</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">ロマンあふれる！！ 大航海時代</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">キリスト教の歴史</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">古代エジプト史</p>
+                <label for="textInput">変換オプション:</label>
+                <input type="text" id="textInput" name="option" placeholder="未実装">
+            </div>
+        </div>
 
-    <h2>地球史</h2>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">地質年代</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">生物の勃興 四大絶滅</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">人類史</p>
-    <br>
+        <div class="container">
+            <!-- 選択項目リスト -->
+            <div id="selectableItems" class="list">
+                <h3>戦国武将特集</h3>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="ieyasu">徳川家康の生涯</div> <span class="item-text">2005更新 kakakakakakkakkakakakakakakakakakakakakakakakakakakkakakak</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="nobunaga">織田信長の生涯</div> <span class="item-text">2005更新</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="dummy_1">武田信玄の生涯</div> <span class="item-text">2005更新</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="dummy_2">上杉謙信の生涯</div> <span class="item-text">2005更新</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="earth_point">(仮)地質年代</div> <span class="item-text">2005更新</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="japan_standard">日本の歴史</div> <span class="item-text">2005更新</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="hachimantai">八幡平市長の生涯</div> <span class="item-text">2005更新</span>
+                </div>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <h3>以下スクロールテスト用のダミー</h3>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="dummy_1">ダミー1</div> <span class="item-text">2005更新</span>
+                </div>
+                <div class="item-container">
+                    <div class="item" draggable="true" data-value="dummy_2">ダミー2</div> <span class="item-text">2005更新</span>
+                </div>
 
-    <h2>地球温暖化特集</h2>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">過去100年の世界の平均気温(数値)</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">過去1万年の二酸化炭素濃度(水月湖 数値)</p>
-    <br>
+            </div>
 
-    <h2>生物学</h2>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">セミの一生</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">細胞分裂のサイクル</p>
-    <br>
-
-    <h2>(PR) スター◯ォーズ特集</h2>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">ジェダ◯とダー◯サイドの戦いの歴史</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">ルー◯・スカ◯ウォーカーの生涯</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">アナ◯ン・スカ◯ウォーカーの生涯</p>
-
-
-    <h2>ビジネスマン特集</h2>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">海運王 アリストテレス・オナシス</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">石油王 ジョン・ロックフェラー</p>
-    <br>
-    <input type="checkbox" name="items">
-    <p class="inline-elements">四国の大将 坪内 寿夫</p>
-    <br>
-
-
-    <h2>戦国武将特集</h2>
-
-    <form action="/" method="POST">
-        <button type="submit">決定 </button>
-
-        <label for="numberInput">時間軸変換:</label>
-        <select id="numberInput" name="number" required>
-            <option value="0">無変換</option>
-            <option value="1">起点を揃える</option>
-            <option value="2">起点と終点を揃える</option>
-            <option value="3">起点を揃え、任意の倍率</option>
-            <option value="0">任意のポイントを揃える</option>
-            <option value="0">人→猫 変換</option>
-            <option value="0">対数変換</option>
-        </select>
-
-        <br>
-        <input type="checkbox" name="items" value="ieyasu">
-        <p class="inline-elements">徳川家康の生涯</p>
-        <br>
-        <input type="checkbox" name="items" value="nobunaga">
-        <p class="inline-elements">織田信長の生涯</p>
-        <br>
-        <input type="checkbox" name="items" value="dummy_1">
-        <p class="inline-elements">武田信玄の生涯</p>
-        <br>
-        <input type="checkbox" name="items" value="dummy_2">
-        <p class="inline-elements">上杉謙信の生涯</p>
-        <br>
-        <input type="checkbox" name="items" value="dummy_1">
-        <p class="inline-elements">今川義元の生涯</p>
-        <br>
-        <input type="checkbox" name="items" value="dummy_2">
-        <p class="inline-elements">豊臣秀吉の生涯</p>
-        <br>
-        <input type="checkbox" name="items" value="earth_point">
-        <p class="inline-elements">(仮)地質年代</p>
-        <br>
-        <input type="checkbox" name="items" value="dummy_2">
-        <p class="inline-elements">浅野長政の生涯</p>
-        <br>
-        <input type="checkbox" name="items" value="hachimantai">
-        <p class="inline-elements">八幡平市長の生涯</p>
-        <br>
-
-
+            <!-- 選択済リスト -->
+            <div id="selectedItems" class="list droppable">
+                <div style="font-family: Arial, sans-serif; color: gray; font-size: 10px;">
+                    表示したい歴史をココにドラッグ&ドロップしてください
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="items" id="selectedItemsInput">
 
     </form>
+
+    <script>
+        const selectableItems = document.getElementById('selectableItems');
+        const selectedItems = document.getElementById('selectedItems');
+        const selectedItemsInput = document.getElementById('selectedItemsInput');
+
+        let draggingItem = null;
+        let touchTimer = null;
+        // ドラッグ＆タッチ開始イベント
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                startDrag(e, item);
+            });
+
+            item.addEventListener('touchstart', (e) => {
+                // タッチでのドラッグを開始するカスタムロジック
+                touchTimer = setTimeout(() => {
+                    startDrag(e, item);
+                }, 100); // 長押しの判定時間を短縮(有効ではないかも・・・・)
+            });
+
+            item.addEventListener('touchend', () => {
+                clearTimeout(touchTimer);
+                endDrag();
+            });
+
+            item.addEventListener('dragend', () => {
+                endDrag();
+            });
+        });
+
+        function startDrag(event, item) {
+            draggingItem = item;
+            if (event.type === 'dragstart') {
+                event.dataTransfer.setData('text/plain', item.dataset.value);
+            }
+            item.classList.add('dragging');
+        }
+
+        function endDrag() {
+            if (draggingItem) {
+                draggingItem.classList.remove('dragging');
+                draggingItem = null;
+            }
+        }
+
+        // ドロップ可能エリアイベント
+        [selectedItems].forEach(area => {
+            area.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                area.classList.add('drag-over');
+            });
+
+            area.addEventListener('dragleave', () => {
+                area.classList.remove('drag-over');
+            });
+
+            area.addEventListener('drop', (e) => {
+                e.preventDefault();
+                area.classList.remove('drag-over');
+                handleDrop(e);
+            });
+
+            area.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                area.classList.add('drag-over');
+            });
+
+            area.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                area.classList.remove('drag-over');
+                handleDrop(e);
+            });
+        });
+
+        // ドロップ処理
+        function handleDrop(event) {
+            if (draggingItem && !selectedItems.contains(draggingItem)) {
+                // クローン作成
+                const clonedItem = draggingItem.cloneNode(true);
+                clonedItem.querySelector('.remove-btn')?.remove();
+                clonedItem.innerHTML += `<button class="remove-btn">削除</button>`;
+
+                // 削除ボタンの動作を設定
+                clonedItem.querySelector('.remove-btn').addEventListener('click', () => {
+                    selectedItems.removeChild(clonedItem);
+                    updateHiddenInput();
+                });
+
+                clonedItem.querySelector('.remove-btn').addEventListener('touchstart', () => {
+                selectedItems.removeChild(clonedItem);
+                updateHiddenInput();
+                });
+
+                selectedItems.appendChild(clonedItem);
+                updateHiddenInput();
+            }
+        }
+
+        // 隠しフィールド更新
+        function updateHiddenInput() {
+            const selectedValues = Array.from(selectedItems.children)
+                .map(item => item.dataset.value)
+                .filter(value => value);
+            selectedItemsInput.value = JSON.stringify(selectedValues);
+        }
+    </script>
+
 </body>
 
 </html>

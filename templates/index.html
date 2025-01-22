@@ -11,6 +11,12 @@
             font-size: 13px;
         }
 
+        .horizontal-container {
+            display: flex;
+            align-items: right;
+            gap: 80px; /* 子要素間の余白 */
+        }
+
         .chart {
             background-color: #f9f9f9;
             border: 1px solid #ccc;
@@ -18,15 +24,6 @@
             margin: 10px;
         }
 
-        .event-group-1 {
-            fill: steelblue;
-            font-size: 15px;
-        }
-
-        .event-group-2 {
-            fill: darkorange;
-            font-size: 15px;
-        }
     </style>
 </head>
 
@@ -41,31 +38,34 @@
     <!-- <a href=login style="float:right">| LogIn |</a> -->
     <!-- <a href=register style="float:right">| Register |</a> -->
     <a href=logout style="float:right">| LogOut |</a>
-
     <br>
-    <a href=select>Select History</a>
-    <a href=select_test>Select History Test</a>
+    <br>
+    <br>
+
+    <div class="horizontal-container">
+        <a href=select>Select History</a>
+        <!-- <a href=select_test>Select History Test</a> -->
+
+        <div class="button-container">
+            <button class="button" id="show-all-button">▶　全期間表示　◀</button>
+        </div>
+
+        <label>
+            <input type="checkbox" id="image-toggle" checked>
+            画像を表示
+        </label>
+
+        <div class="button-container">
+            <button class="button" id="re-render">画像表示を更新</button>
+        </div>
+
+    </div>
 
     <script>
-        // var myVariable = "/static/data/disp_guest_01.csv";
-
         var currentUser = "/static/data/disp_" + "{{ current_user.name }}" + ".csv"
         var numHis = "{{ num_his }}"
-
     </script>
 
-    <div class="button-container">
-        <button class="button" id="show-all-button">All Period</button>
-    </div>
-
-    <label>
-        <input type="checkbox" id="image-toggle" checked>
-        画像を表示
-    </label>
-
-    <div class="button-container">
-        <button class="button" id="re-render">再表示</button>
-    </div>
 
     <div class="chart"></div>
 
