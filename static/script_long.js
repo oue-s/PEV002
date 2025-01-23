@@ -5,7 +5,7 @@ const width = 960 - margin.left - margin.right;
 let numberHis = Number(numHis) //app.pyより選択されたアイテムの数をもらってくる
 const groupHeigt = 115;
 const height = groupHeigt * numberHis;
-const numEvent = 5;
+const numEvent = 4;
 const eventOffset = 15;
 const marginXupper = 30;
 
@@ -45,6 +45,7 @@ d3.csv(currentUser).then(data => {
     data.forEach(d => {
         d.startYear = +d.startYear;
         d.endYear = d.endYear ? +d.endYear : d.startYear;
+        // d.imageCitation = d.imageCitation
     });
 
     // グループ化
@@ -93,6 +94,8 @@ d3.csv(currentUser).then(data => {
         .attr("y", d => groupScale(d.group) + groupScale.bandwidth() / 2)
         .attr("dy", "0.35em")
         .style("text-anchor", "start")
+        .style("font-size","20px")
+        //.style("fill","red")
         .text(d => d.title)
 
     // SVG領域全体でズームとパンを有効にするためのダミーオブジェクト
@@ -125,6 +128,8 @@ d3.csv(currentUser).then(data => {
 
         images.exit().remove();
 
+
+
         // 期間イベントの描画
         const rects = svg.selectAll("rect.event")
             .data(data.filter(d => d.startYear !== d.endYear), d => d.event);
@@ -142,19 +147,19 @@ d3.csv(currentUser).then(data => {
         rects.exit().remove();
 
         // 期間を持たないイベントの描画
-        const circles = svg.selectAll("circle")
-            .data(data.filter(d => d.startYear === d.endYear), d => d.event);
+        // const circles = svg.selectAll("circle")
+        //     .data(data.filter(d => d.startYear === d.endYear), d => d.event);
 
-        circles.enter().append("circle")
-            .attr("class", d => `event event-group-${d.group}`)
-            .merge(circles)
-            .attr("cx", d => x(d.startYear))
-            // .attr("cy", d => groupScale(d.group) + (groupScale.bandwidth() / 4))
-            .attr("cy", (d,i) => groupScale(d.group) + (eventOffset * 2)  + (i % numEvent * eventOffset))
-            .attr("r", 2)
-            .attr("fill", d => d.eventColor);
+        // circles.enter().append("circle")
+        //     .attr("class", d => `event event-group-${d.group}`)
+        //     .merge(circles)
+        //     .attr("cx", d => x(d.startYear))
+        //     // .attr("cy", d => groupScale(d.group) + (groupScale.bandwidth() / 4))
+        //     .attr("cy", (d,i) => groupScale(d.group) + (eventOffset * 2)  + (i % numEvent * eventOffset))
+        //     .attr("r", 2)
+        //     .attr("fill", d => d.eventColor);
 
-        circles.exit().remove();
+        // circles.exit().remove();
 
         // イベントラベルの描画
         const labels = svg.selectAll(".event-label")
@@ -163,14 +168,33 @@ d3.csv(currentUser).then(data => {
         labels.enter().append("text")
             .attr("class", d => `event-label event-group-${d.group}`)
             .merge(labels)
-            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) + 5 : (x(d.startYear) + x(d.endYear)) / 2)
+            .attr("x", d => d.startYear === d.endYear ? x(d.startYear)-6 : (x(d.startYear) + x(d.endYear)) / 2)
             // .attr("y", d => d.startYear === d.endYear ? (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10) : (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10))
             .attr("y", (d,i) => d.startYear === d.endYear ? (groupScale(d.group) + (eventOffset * 2) + (i % numEvent * eventOffset) +5) : (groupScale(d.group) + eventOffset -4))
             .attr("text-anchor", d => d.startYear === d.endYear ? "" :"middle")
-            .text(d => d.event)
+            .text(d => d.startYear === d.endYear ? `・${d.event}`:d.event)
             //.attr("fill", d => d.eventColor);
 
         labels.exit().remove();
+
+        // イベント画像引用の描画
+        const citations = svg.selectAll(".imageCitation")
+            //.data(data.filter(d => d.imageCitation), d => d.event);
+            .data(showImages ? data.filter(d => d.imageCitation) : [], d => d.event);
+
+        citations.enter().append("text")
+            .attr("class", d => `imageCitation event-group-${d.group}`)
+            .merge(citations)
+            .attr("x", d => x(d.startYear) -75)
+            // .attr("y", d => d.startYear === d.endYear ? (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10) : (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10))
+            .attr("y", d => (groupScale(d.group) + eventOffset*7))
+            // .attr("text-anchor", "start")
+            .text(d => d.imageCitation)
+            .style("font-size","8px")
+            .style("fill","gray")
+
+        citations.exit().remove();
+
     }
 
     // ズームとパンの設定
@@ -197,10 +221,15 @@ d3.csv(currentUser).then(data => {
             .attr("cx", d => newX(d.startYear))
             .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll(".event-label")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + 5 : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 6 : (newX(d.startYear) + newX(d.endYear)) / 2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("image")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 75 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25);
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 75 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25)
+            .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
+        svg.selectAll(".imageCitation")
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) -75 : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);            
+
     }
 
     render();
