@@ -1,18 +1,36 @@
 // サイズとマージンの設定
-const margin = { top: 20, right: 20, bottom: 20, left: 150 }; // 左マージンを大きく設定
-const width = 960 - margin.left - margin.right;
-// const height = 300 - margin.top - margin.bottom;
+const margin = { top: 30, right: 20, bottom: 20, left: 150 }; // SVG全体のマージン
+const width = 960;//有効描画範囲の横幅
+const height1 = 15;//最上部表示レーンの高さ 期間ありイベントのtext
+const height2 = 15;//最上部表示レーンの高さ 期間ありイベント
+const eventOffset = 15;//通常表示レーンの高さ
+const numEvent = 4;//通常表示レーンの数
+const height3 = 15;//最下部表示レーンの高さ 引用text
+const groupHeigt = height1 + height2 + eventOffset * numEvent + height3;//一つのグループの高さ
 let numberHis = Number(numHis) //app.pyより選択されたアイテムの数をもらってくる
-const groupHeigt = 115;
-const height = groupHeigt * numberHis;
-const numEvent = 4;
-const eventOffset = 15;
-const marginXupper = 30;
+const height = groupHeigt * numberHis;//有効描画範囲の高さ
+
+const modifyAxisUpper = -20
+
+const modifyImageXoffset = -75
+const widthImage = 80;
+const heightImage = 80;
+
+const heightRectEvent = 10;
+
+const modifyEventXoffset = -6; //文字の・が時間軸と一致するように微調整
+const modifyEventYoffset = 0;
+const modifyTextYoffset = 12; //textオブジェクトのY軸起点がテキストの中央になっているための補正
+
+const modifyImageCitationXoffset = -75;
+
+
+const marginXupper = 0;
 
 // デバグ用　変数が来ていることの確認 
 // document.write(numHis)
 
-let showImages = true;
+let showImages = false;
 d3.select("#image-toggle").on("change", function() {
     showImages = this.checked;  // チェックボックスの状態でフラグを更新
     render();
@@ -50,7 +68,8 @@ d3.csv(currentUser).then(data => {
 
     // グループ化
     const groups = Array.from(new Set(data.map(d => d.group)));
-    const groupScale = d3.scaleBand().domain(groups).range([marginXupper, height]);
+    // const groupScale = d3.scaleBand().domain(groups).range([marginXupper, height]);
+    const groupScale = d3.scaleBand().domain(groups).range([0,height]);
     // スケールのドメイン設定
     x.domain(d3.extent(data, d => d.startYear));
 
@@ -63,7 +82,7 @@ d3.csv(currentUser).then(data => {
     // 軸の追加(上)
     svg.append("g")
         .attr("class", "x axis_upper")
-        .attr("transform", `translate(0,-20)`)
+        .attr("transform", `translate(0,${modifyAxisUpper})`)
         .call(xAxis);
 
     // グループの間に線を引く
@@ -120,10 +139,10 @@ d3.csv(currentUser).then(data => {
         images.enter().append("image")
 
             .merge(images)
-            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) - 75  : (x(d.startYear) + x(d.endYear)) / 2 - 25)
-            .attr("y", d => groupScale(d.group) + (eventOffset * 2))
-            .attr("width", 70)
-            .attr("height", 70)
+            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) + modifyImageXoffset  : (x(d.startYear) + x(d.endYear)) / 2)
+            .attr("y", d => groupScale(d.group) + height1)
+            .attr("width", widthImage)
+            .attr("height", heightImage)
             .attr("xlink:href", d => d.image);
 
         images.exit().remove();
@@ -138,10 +157,9 @@ d3.csv(currentUser).then(data => {
             .attr("class", d => `event event-group-${d.group}`)
             .merge(rects)
             .attr("x", d => x(d.startYear))
-            // .attr("y", d => groupScale(d.group) + (groupScale.bandwidth() / 4))
-            .attr("y", d => groupScale(d.group) + eventOffset -2)
+            .attr("y", d => groupScale(d.group) + height1)
             .attr("width", d => x(d.endYear) - x(d.startYear))
-            .attr("height", groupScale.bandwidth() / 10)
+            .attr("height", heightRectEvent)
             .attr("fill", d => d.eventColor);
 
         rects.exit().remove();
@@ -168,12 +186,10 @@ d3.csv(currentUser).then(data => {
         labels.enter().append("text")
             .attr("class", d => `event-label event-group-${d.group}`)
             .merge(labels)
-            .attr("x", d => d.startYear === d.endYear ? x(d.startYear)-6 : (x(d.startYear) + x(d.endYear)) / 2)
-            // .attr("y", d => d.startYear === d.endYear ? (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10) : (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10))
-            .attr("y", (d,i) => d.startYear === d.endYear ? (groupScale(d.group) + (eventOffset * 2) + (i % numEvent * eventOffset) +5) : (groupScale(d.group) + eventOffset -4))
+            .attr("x", d => d.startYear === d.endYear ? x(d.startYear) + modifyEventXoffset : (x(d.startYear) + x(d.endYear)) / 2)
+            .attr("y", (d,i) => d.startYear === d.endYear ? (groupScale(d.group) + modifyTextYoffset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset) : (groupScale(d.group) + modifyTextYoffset))
             .attr("text-anchor", d => d.startYear === d.endYear ? "" :"middle")
             .text(d => d.startYear === d.endYear ? `・${d.event}`:d.event)
-            //.attr("fill", d => d.eventColor);
 
         labels.exit().remove();
 
@@ -185,9 +201,8 @@ d3.csv(currentUser).then(data => {
         citations.enter().append("text")
             .attr("class", d => `imageCitation event-group-${d.group}`)
             .merge(citations)
-            .attr("x", d => x(d.startYear) -75)
-            // .attr("y", d => d.startYear === d.endYear ? (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10) : (groupScale(d.group) + (groupScale.bandwidth() / 4) - 10))
-            .attr("y", d => (groupScale(d.group) + eventOffset*7))
+            .attr("x", d => x(d.startYear) + modifyImageCitationXoffset)
+            .attr("y", d => (groupScale(d.group) + modifyTextYoffset + height1 + height2 + eventOffset*numEvent))
             // .attr("text-anchor", "start")
             .text(d => d.imageCitation)
             .style("font-size","8px")
@@ -221,13 +236,13 @@ d3.csv(currentUser).then(data => {
             .attr("cx", d => newX(d.startYear))
             .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll(".event-label")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 6 : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + modifyEventXoffset : (newX(d.startYear) + newX(d.endYear)) / 2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("image")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) - 75 : (newX(d.startYear) + newX(d.endYear)) / 2 - 25)
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + modifyImageXoffset : (newX(d.startYear) + newX(d.endYear)) / 2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll(".imageCitation")
-            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) -75 : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + modifyImageCitationXoffset : (newX(d.startYear) + newX(d.endYear)) / 2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);            
 
     }
