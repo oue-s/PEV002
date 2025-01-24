@@ -1,0 +1,27 @@
+﻿startYear,startMonth,startDay,endYear,endMonth,endDay,event,image,group,groupTitle,eventColor,imageCitation,
+-5000,1,1,-3125,1,1,先王朝時代,,11001,古代エジプト,#4D93D9,,
+-3125,1,1,-2686,1,1,初期王朝時代(1-2王朝),,11001,古代エジプト,#44B3E1,,
+-2686,1,1,-2181,1,1,古王国(3-6王朝),,11001,古代エジプト,#47D359,,
+-2181,1,1,-2055,1,1,第1中間期(7-10王朝),,11001,古代エジプト,#E49EDD,,
+-2055,1,1,-1795,1,1,中王国(11-12王朝),,11001,古代エジプト,#BE5014,,
+-1795,1,1,-1550,1,1,第2中間期(13-17王朝),,11001,古代エジプト,#47D359,,
+-1550,1,1,-1069,1,1,新王国(18-20王朝),,11001,古代エジプト,#4D93D9,,
+-1069,1,1,-664,1,1,第3中間期(大司祭　21-26王朝),,11001,古代エジプト,#BE5014,,
+-664,1,1,-332,1,1,末期王国(27ー31王朝),,11001,古代エジプト,#44B3E1,,
+-332,1,1,-30,1,1,プトレマイオス朝,,11001,古代エジプト,#47D359,,
+-3150,1,1,,,,ナルメル王(1),,11001,古代エジプト,,,
+-2925,1,1,,,,セメルケト王(1),,11001,古代エジプト,,,
+-2890,1,1,,,,ヘテプセケメイ王(2),,11001,古代エジプト,,,
+-2753,1,1,,,,セネド王(2),,11001,古代エジプト,,,
+-2668,1,1,,,,ジョセル王(3)　▲階段プラミッド,https://upload.wikimedia.org/wikipedia/commons/6/60/Saqqara_BW_5.jpg,11001,古代エジプト,,"Berthold Werner, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons"
+-2613,1,1,,,,スネフェル王(4)　▲赤いピラミッド　▲屈折プラミッド　▲メイドゥーム?,https://upload.wikimedia.org/wikipedia/commons/e/e4/Pyramid_of_sneferu_Meidum_01.jpg,11001,古代エジプト,,"Gene_poole, CC BY-SA 3.0 <http://creativecommons.org/licenses/by-sa/3.0/>, via Wikimedia Commons"
+-2589,1,1,,,,クフ王(4)　▲三大ピラミッド(最大),https://upload.wikimedia.org/wikipedia/commons/6/62/Giza_pyramid_complex_japanese_%28map%29.svg,11001,古代エジプト,,"Wikiwikiyarou origined by MesserWoland, CC BY 3.0 <https://creativecommons.org/licenses/by/3.0>, via Wikimedia Commons"
+-2558,1,1,,,,カフラー王(4)　▲三大プラミッド(中央),,11001,古代エジプト,,,
+-2532,1,1,,,,メンカウラー王(4)　▲三大プラミッド(最小),,11001,古代エジプト,,,
+-1897,1,1,,,,センウセレト2世(12)　▲ラフーンのピラミッド,,11001,古代エジプト,,,
+-1860,1,1,,,,アメンエムハト3世(12) 以降、▲ピラミッドはつくられなくなる,,11001,古代エジプト,,,
+-1479,1,1,,,,トトメス3世(18)　ナイル下流、メソポタミアへの出兵　最大領土,,11001,古代エジプト,,,
+-1334,1,1,,,,ツタンカーメン(18),https://upload.wikimedia.org/wikipedia/commons/3/38/Tutanchamun_Maske.jpg,11001,古代エジプト,,"CC BY-SA 3.0 <http://creativecommons.org/licenses/by-sa/3.0/>, via Wikimedia Commons"
+-1325,1,1,,,,アイ(18),,11001,古代エジプト,,,
+-1279,1,1,,,,ラムセス2世(19)　ヒッタイトと世界初の平和条約,https://upload.wikimedia.org/wikipedia/commons/0/03/RamsesIIEgypt.jpg,11001,古代エジプト,,"Hajor, CC BY-SA 1.0 <https://creativecommons.org/licenses/by-sa/1.0>, via Wikimedia Commons"
+-51,1,1,,,,クレオパトラ7世　一般的にクレオパトラと呼ばれている女王,https://upload.wikimedia.org/wikipedia/commons/c/c3/Cleopatra_and_Caesar_by_Jean-Leon-Gerome.jpg,11001,古代エジプト,,"Jean-Léon Gérôme, Public domain, via Wikimedia Commons"
