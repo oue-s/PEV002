@@ -1,3 +1,5 @@
 .venv
 .env
 PEV002.wsgi
+data
+__pycashe__
