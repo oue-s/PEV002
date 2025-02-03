@@ -1,5 +1,5 @@
 .venv
 .env
 PEV002.wsgi
-data
+static/data
 __pycashe__

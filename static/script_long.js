@@ -29,6 +29,8 @@ const marginXupper = 0;
 
 // デバグ用　変数が来ていることの確認 
 // document.write(numHis)
+// 現在の倍率の表示
+document.write(d3.zoomIdentity);
 
 let showImages = false;
 d3.select("#image-toggle").on("change", function() {
