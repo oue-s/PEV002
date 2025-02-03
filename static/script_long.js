@@ -29,8 +29,6 @@ const marginXupper = 0;
 
 // デバグ用　変数が来ていることの確認 
 // document.write(numHis)
-// 現在の倍率の表示
-document.write(d3.zoomIdentity);
 
 let showImages = false;
 d3.select("#image-toggle").on("change", function() {
@@ -224,8 +222,21 @@ d3.csv(currentUser).then(data => {
     // ズーム状態を保持する変数
     let currentTransform = d3.zoomIdentity;
 
+    // デバク用 zoomにより連続的に変化する変数を表示する位置
+    const scaleText = svg.append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("fill", "black")
+        .style("font-size", "16px");
+
     function zoomed(event) {
         currentTransform = event.transform; // 現在のズーム状態を記録
+
+        //デバク用 検証->コンソールに変数値を表示
+        console.log(currentTransform.k);
+        //デバグ用 SVG内に変数値を表示する
+        scaleText.text(`Zoom Scale in SVG: ${currentTransform.k.toFixed(2)}`);
+
         const newX = event.transform.rescaleX(x);
         xAxis.scale(newX);
         svg.select(".x.axis").call(xAxis);
