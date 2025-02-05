@@ -77,7 +77,15 @@ d3.csv(currentUser).then(data => {
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", `translate(0,${height})`)
-        .call(xAxis);
+        // .call(xAxis);
+
+        .call(
+            xAxis
+                .tickSize(-height)
+                .tickSizeOuter(0)
+            )
+        .selectAll("line")  // すべての目盛り線に適用
+        .attr("stroke-dasharray", "4 2","red");// 点線のパターン;
 
     // 軸の追加(上)
     svg.append("g")
@@ -239,7 +247,9 @@ d3.csv(currentUser).then(data => {
 
         const newX = event.transform.rescaleX(x);
         xAxis.scale(newX);
-        svg.select(".x.axis").call(xAxis);
+        svg.select(".x.axis").call(xAxis.tickSize(-height).tickSizeOuter(0))
+            .selectAll("line") // すべての目盛り線に適用
+            .attr("stroke-dasharray", "4 2","red");// 点線のパターン;
         svg.select(".x.axis_upper").call(xAxis);
         svg.selectAll("rect.event")
             .attr("x", d => newX(d.startYear))
