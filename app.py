@@ -27,6 +27,7 @@ def unauthorized_handler():
 
 # ユーザー登録フォームの表示・登録処理
 @app.route("/register_k29kc83kf71k", methods=["GET", "POST"])
+@login_required
 def register():
     if request.method == "POST":
         # データの検証
@@ -97,9 +98,9 @@ def unregister():
     return redirect("/")
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/view", methods=["GET", "POST"])
 @login_required
-def index():
+def view():
 
     if request.method == "POST":
         try:
@@ -115,29 +116,22 @@ def index():
             # 指定の加工が施されたCSVファイルが作成される
             num_his = create_crrent_disp(itemsX, disp_his_name, calc_method, calc_option)
 
-            return render_template("index.html", num_his=num_his, calc_option=calc_option)
+            return render_template("view.html", num_his=num_his, calc_option=calc_option)
         except IntegrityError as e:
             flash(f"{e}")
 
-    return render_template("index.html")
+    return render_template("view.html")
 
 
-@app.route("/select")
-def select():
+@app.route("/")
+@login_required
+def index():
+
     # 前回入力値を保存する
     selected_items = request.form.getlist("items")
     session["selected_items"] = selected_items
 
-    return render_template("select.html", selected_items=selected_items)
-
-
-@app.route("/select_test")
-def select_test():
-    # 前回入力値を保存する
-    selected_items = request.form.getlist("items")
-    session["selected_items"] = selected_items
-
-    return render_template("select_test.html", selected_items=selected_items)
+    return render_template("index.html", selected_items=selected_items)
 
 
 if __name__ == "__main__":
