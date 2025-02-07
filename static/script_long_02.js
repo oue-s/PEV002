@@ -10,7 +10,7 @@ const groupHeigt = height1 + height2 + eventOffset * numEvent + height3;//一つ
 let numberHis = Number(numHis) //app.pyより選択されたアイテムの数をもらってくる
 const height = groupHeigt * numberHis;//有効描画範囲の高さ
 
-const modifyAxisUpper = -20
+const modifyAxisUpper = -10
 
 const modifyImageXoffset = -75
 const widthImage = 70;
@@ -77,26 +77,6 @@ d3.csv(currentUser).then(data => {
     // スケールのドメイン設定
     x.domain(d3.extent(data, d => d.startYear));
 
-    // 軸の追加
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", `translate(0,${height})`)
-        // .call(xAxis);
-
-        .call(
-            xAxis
-                .tickSize(-height)
-                .tickSizeOuter(0)
-            )
-        .selectAll("line")  // すべての目盛り線に適用
-        .attr("stroke-dasharray", "4 2","red");// 点線のパターン;
-
-    // 軸の追加(上)
-    svg.append("g")
-        .attr("class", "x axis_upper")
-        .attr("transform", `translate(0,${modifyAxisUpper})`)
-        .call(xAxis);
-
     // グループの間に線を引く
     svg.selectAll(".group-line")
         .data(groups)
@@ -108,7 +88,41 @@ d3.csv(currentUser).then(data => {
         .attr("y1", d => groupScale(d) + groupScale.bandwidth())
         .attr("y2", d => groupScale(d) + groupScale.bandwidth())
         .attr("stroke", "#ccc")
-        .attr("stroke-width", 1);
+        .attr("stroke-width", 0.5);
+
+    // 軸(下)を追加（実線）
+    const xAxisGroup = svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0,${height})`)
+        .call(xAxis.tickSize(-height).tickSizeOuter(0)); // 補助線を描画      
+    // 軸の線(下)設定
+    xAxisGroup.select("path") // 軸の線
+        .attr("stroke", "black") // 軸の色
+        .attr("stroke-width", 1) // 軸の太さ
+        .attr("stroke-dasharray", ""); // 実線にする（デフォルト）
+    // 補助線(下)設定
+    xAxisGroup.selectAll("line") // 目盛りの線（補助線を含む）
+        .attr("stroke", "gray") // 補助線の色
+        .attr("stroke-width", 0.5) // 軸の太さ
+        .attr("stroke-dasharray", "4 2"); // 点線パターン
+
+    // 軸(上)を追加（実線）
+    const xAxisUpperGroup = svg.append("g")
+        .attr("class", "x axis_upper")
+        .attr("transform", `translate(0,${modifyAxisUpper})`)
+        .call(xAxis.tickSize(0).tickSizeOuter(0)); // 補助線を描画      
+    // 軸の線(上)設定
+    xAxisUpperGroup.select("path") // 軸の線
+        .attr("stroke", "black") // 軸の色
+        .attr("stroke-width", 1) // 軸の太さ
+        .attr("stroke-dasharray", ""); // 実線にする（デフォルト）
+    // 補助線(上)設定
+    xAxisUpperGroup.selectAll("line") // 目盛りの線（補助線を含む）
+        .attr("stroke", "gray") // 補助線の色
+        .attr("stroke-dasharray", "4 2"); // 点線パターン
+    // 数値(上)設定
+    xAxisUpperGroup.selectAll("text") 
+        .attr("dy", "-1em");
 
     // グループタイトルの追加
     const groupTitles = groups.map(group => {
@@ -268,10 +282,25 @@ d3.csv(currentUser).then(data => {
 
         const newX = event.transform.rescaleX(x);
         xAxis.scale(newX);
-        svg.select(".x.axis").call(xAxis.tickSize(-height).tickSizeOuter(0))
-            .selectAll("line") // すべての目盛り線に適用
-            .attr("stroke-dasharray", "4 2","red");// 点線のパターン;
-        svg.select(".x.axis_upper").call(xAxis);
+
+        svg.select(".x.axis").call(xAxis.tickSize(-height).tickSizeOuter(0));
+        // 軸の線(下)を設定
+        xAxisGroup.select("path") // 軸の線
+            .attr("stroke", "black") // 軸の色
+            .attr("stroke-width", 1) // 軸の太さ
+            .attr("stroke-dasharray", ""); // 実線にする（デフォルト）
+        // 補助線(下)を設定
+        xAxisGroup.selectAll("line") // 目盛りの線（補助線を含む）
+            .attr("stroke", "gray") // 補助線の色
+            .attr("stroke-width", 0.5) // 軸の太さ
+            .attr("stroke-dasharray", "4 2"); // 点線パターン
+
+        svg.select(".x.axis_upper").call(xAxis.tickSize(1).tickSizeOuter(0));
+        // 数値(上)に設定
+        xAxisUpperGroup.selectAll("text") 
+            .attr("dy", "-1em");
+
+
 
         svg.selectAll("image.eventImage")
             .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + modifyImageXoffset : (newX(d.startYear) + newX(d.endYear)) / 2)
