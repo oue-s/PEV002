@@ -6,9 +6,10 @@ const height2 = 15;//最上部表示レーンの高さ 期間ありイベント
 const eventOffset = 15;//通常表示レーンの高さ
 const numEvent = 4;//通常表示レーンの数
 const height3 = 15;//最下部表示レーンの高さ 引用text
-const groupHeigt = height1 + height2 + eventOffset * numEvent + height3;//一つのグループの高さ
+let groupHeight = height1 + height2 + eventOffset * numEvent + height3;//一つのグループの高さ
 let numberHis = Number(numHis) //app.pyより選択されたアイテムの数をもらってくる
-const height = groupHeigt * numberHis;//有効描画範囲の高さ
+let height = groupHeight * numberHis;//有効描画範囲の高さ
+const tickHeight = height;
 
 const modifyAxisUpper = -10
 
@@ -30,6 +31,12 @@ const modifyImageCitationXoffset = -75;
 
 
 const marginXupper = 0;
+
+// ズーム状態を保持する変数
+let currentTransform;
+let currentTransform_0;
+
+
 
 // デバグ用　変数が来ていることの確認 
 // document.write(numHis)
@@ -73,28 +80,17 @@ d3.csv(currentUser).then(data => {
     // グループ化
     const groups = Array.from(new Set(data.map(d => d.group)));
     // const groupScale = d3.scaleBand().domain(groups).range([marginXupper, height]);
-    const groupScale = d3.scaleBand().domain(groups).range([0,height]);
+    let groupScale = d3.scaleBand().domain(groups).range([0,height]);
     // スケールのドメイン設定
     x.domain(d3.extent(data, d => d.startYear));
 
-    // グループの間に線を引く
-    svg.selectAll(".group-line")
-        .data(groups)
-        .enter()
-        .append("line")
-        .attr("class", "group-line")
-        .attr("x1", 0)
-        .attr("x2", width)
-        .attr("y1", d => groupScale(d) + groupScale.bandwidth())
-        .attr("y2", d => groupScale(d) + groupScale.bandwidth())
-        .attr("stroke", "#ccc")
-        .attr("stroke-width", 0.5);
+
 
     // 軸(下)を追加（実線）
     const xAxisGroup = svg.append("g")
         .attr("class", "x axis")
         .attr("transform", `translate(0,${height})`)
-        .call(xAxis.tickSize(-height).tickSizeOuter(0)); // 補助線を描画      
+        .call(xAxis.tickSize(-tickHeight+modifyAxisUpper).tickSizeOuter(0)); // 補助線を描画      
     // 軸の線(下)設定
     xAxisGroup.select("path") // 軸の線
         .attr("stroke", "black") // 軸の色
@@ -119,29 +115,13 @@ d3.csv(currentUser).then(data => {
     // 補助線(上)設定
     xAxisUpperGroup.selectAll("line") // 目盛りの線（補助線を含む）
         .attr("stroke", "gray") // 補助線の色
+        .attr("stroke-width", 0.5) // 軸の太さ
         .attr("stroke-dasharray", "4 2"); // 点線パターン
     // 数値(上)設定
     xAxisUpperGroup.selectAll("text") 
         .attr("dy", "-1em");
 
-    // グループタイトルの追加
-    const groupTitles = groups.map(group => {
-        const groupData = data.find(d => d.group === group);
-        return { group: group, title: groupData.groupTitle};
-    });
 
-    svg.selectAll(".group-title")
-        .data(groupTitles)
-        .enter()
-        .append("text")
-        .attr("class", "group-title")
-        .attr("x", -margin.left + 10)
-        .attr("y", d => groupScale(d.group) + groupScale.bandwidth() / 2)
-        .attr("dy", "0.35em")
-        .style("text-anchor", "start")
-        .style("font-size","20px")
-        //.style("fill","red")
-        .text(d => d.title)
 
     // SVG領域全体でズームとパンを有効にするためのダミーオブジェクト
     svg.append("rect",":first-child")
@@ -156,6 +136,38 @@ d3.csv(currentUser).then(data => {
          
     // データの描画関数
     function render() {
+
+        // グループの間に線を引く
+        svg.selectAll(".group-line")
+            .data(groups)
+            .enter()
+            .append("line")
+            .attr("class", "group-line")
+            .attr("x1", 0)
+            .attr("x2", width)
+            .attr("y1", d => groupScale(d) + groupScale.bandwidth())
+            .attr("y2", d => groupScale(d) + groupScale.bandwidth())
+            .attr("stroke", "#ccc")
+            .attr("stroke-width", 0.5);
+
+        // グループタイトルの追加
+        const groupTitles = groups.map(group => {
+            const groupData = data.find(d => d.group === group);
+            return { group: group, title: groupData.groupTitle};
+        });
+
+        svg.selectAll(".group-title")
+            .data(groupTitles)
+            .enter()
+            .append("text")
+            .attr("class", "group-title")
+            .attr("x", -margin.left + 10)
+            .attr("y", d => groupScale(d.group) + groupScale.bandwidth() / 2)
+            .attr("dy", "0.35em")
+            .style("text-anchor", "start")
+            .style("font-size","15px")
+            //.style("fill","red")
+            .text(d => d.title)
 
         // イベント画像の描画
         const images = svg.selectAll("image.eventImage")
@@ -251,9 +263,9 @@ d3.csv(currentUser).then(data => {
 
         labels.exit().remove();
 
-
-
     }
+
+    currentTransform_0 = d3.zoomIdentity;
 
     // ズームとパンの設定
     const zoom = d3.zoom()
@@ -262,8 +274,7 @@ d3.csv(currentUser).then(data => {
 
     svg.call(zoom);
 
-    // ズーム状態を保持する変数
-    let currentTransform = d3.zoomIdentity;
+
 
     // デバク用 zoomにより連続的に変化する変数を表示する位置
     const scaleText = svg.append("text")
@@ -275,15 +286,33 @@ d3.csv(currentUser).then(data => {
     function zoomed(event) {
         currentTransform = event.transform; // 現在のズーム状態を記録
 
+        // grupeScaleの変更
+        let scaleEscape = 0;
+        if(currentTransform.k < 2){
+            scaleEscape = -10000
+            groupHeight = height1 + height2
+            height = groupHeight * numberHis
+            groupScale = d3.scaleBand().domain(groups).range([0,height]);
+        }else{
+            scaleEscape = 0
+            groupHeight = height1 + height2 + eventOffset * numEvent + height3
+            height = groupHeight * numberHis 
+            groupScale = d3.scaleBand().domain(groups).range([0,height]);     
+        }  
+
         //デバク用 検証->コンソールに変数値を表示
+        console.log(currentTransform_0.k);
         console.log(currentTransform.k);
         //デバグ用 SVG内に変数値を表示する
-        // scaleText.text(`Zoom Scale in SVG: ${currentTransform.k.toFixed(2)}`);
+        // scaleText.text(`Zoom Scale in SVG: ${currentTransform_0.k.toFixed(2)},${currentTransform.k.toFixed(2)},${scaleEscape}`);
+        currentTransform_0 = currentTransform;
+
+
 
         const newX = event.transform.rescaleX(x);
         xAxis.scale(newX);
 
-        svg.select(".x.axis").call(xAxis.tickSize(-height).tickSizeOuter(0));
+        svg.select(".x.axis").call(xAxis.tickSize(-tickHeight+modifyAxisUpper).tickSizeOuter(0));
         // 軸の線(下)を設定
         xAxisGroup.select("path") // 軸の線
             .attr("stroke", "black") // 軸の色
@@ -295,12 +324,18 @@ d3.csv(currentUser).then(data => {
             .attr("stroke-width", 0.5) // 軸の太さ
             .attr("stroke-dasharray", "4 2"); // 点線パターン
 
-        svg.select(".x.axis_upper").call(xAxis.tickSize(1).tickSizeOuter(0));
+        svg.select(".x.axis_upper").call(xAxis.tickSize(0).tickSizeOuter(0));
         // 数値(上)に設定
         xAxisUpperGroup.selectAll("text") 
             .attr("dy", "-1em");
 
+        svg.selectAll(".group-title")
+            .attr("y", d => groupScale(d.group) + groupScale.bandwidth() / 2)
+            .attr("dy", "0.35em")
 
+        svg.selectAll(".group-line")
+            .attr("y1", d => scaleEscape + groupScale(d) + groupScale.bandwidth())
+            .attr("y2", d => scaleEscape + groupScale(d) + groupScale.bandwidth())
 
         svg.selectAll("image.eventImage")
             .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + modifyImageXoffset : (newX(d.startYear) + newX(d.endYear)) / 2)
@@ -312,16 +347,25 @@ d3.csv(currentUser).then(data => {
         svg.selectAll("rect.type01")
             .attr("x", d => newX(d.startYear))
             .attr("width", d => newX(d.endYear) - newX(d.startYear))
+            .attr("y", d => groupScale(d.group) + height1)
+            
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("text.type01")
             .attr("x", d => (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("y", (d,i) => groupScale(d.group) + modifyTextYoffset)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
 
         svg.selectAll("circle.type02")
             .attr("cx", d => newX(d.startYear))
+            .attr("cy", (d,i) => d.dispPos !== "" ?
+                     (scaleEscape + groupScale(d.group) + modifyCircleYofset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
+                     : (scaleEscape + roupScale(d.group) + modifyCircleYofset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
             .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("text.type02")
             .attr("x", d => newX(d.startYear) + modifyEventXoffset)
+            .attr("y", (d,i) => d.dispPos !== "" ?
+                     (scaleEscape + groupScale(d.group) + modifyTextYoffset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
+                     : (scaleEscape + groupScale(d.group) + modifyTextYoffset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
 
     }
