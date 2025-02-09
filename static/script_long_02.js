@@ -33,19 +33,15 @@ const modifyImageCitationXoffset = -75;
 const marginXupper = 0;
 
 // ズーム状態を保持する変数
-let currentTransform;
-let currentTransform_0;
+let currentTransform ;
+let currentTransform_0 ;
 
 
 
 // デバグ用　変数が来ていることの確認 
-// document.write(numHis)
+// document.write(showImages)
 
 let showImages = false;
-d3.select("#image-toggle").on("change", function() {
-    showImages = this.checked;  // チェックボックスの状態でフラグを更新
-    render();
-});
 
 // SVGの作成
 const svg = d3.select(".chart")
@@ -288,7 +284,7 @@ d3.csv(currentUser).then(data => {
 
         // grupeScaleの変更
         let scaleEscape = 0;
-        if(currentTransform.k < 2){
+        if(currentTransform.k < 1){
             scaleEscape = -10000
             groupHeight = height1 + height2
             height = groupHeight * numberHis
@@ -301,9 +297,8 @@ d3.csv(currentUser).then(data => {
         }  
 
         //デバク用 検証->コンソールに変数値を表示
-        console.log(currentTransform_0.k);
-        console.log(currentTransform.k);
-        //デバグ用 SVG内に変数値を表示する
+        console.log(currentTransform_0.k,currentTransform.k);
+          //デバグ用 SVG内に変数値を表示する
         // scaleText.text(`Zoom Scale in SVG: ${currentTransform_0.k.toFixed(2)},${currentTransform.k.toFixed(2)},${scaleEscape}`);
         currentTransform_0 = currentTransform;
 
@@ -339,9 +334,11 @@ d3.csv(currentUser).then(data => {
 
         svg.selectAll("image.eventImage")
             .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + modifyImageXoffset : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("y", d => scaleEscape + groupScale(d.group) + height1+ height2)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("text.imageCitation")
             .attr("x", d => d.startYear === d.endYear ? newX(d.startYear) + modifyImageCitationXoffset : (newX(d.startYear) + newX(d.endYear)) / 2)
+            .attr("y", d => (scaleEscape + groupScale(d.group) + modifyTextYoffset + height1 + height2 + eventOffset*numEvent))
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);            
 
         svg.selectAll("rect.type01")
@@ -359,7 +356,7 @@ d3.csv(currentUser).then(data => {
             .attr("cx", d => newX(d.startYear))
             .attr("cy", (d,i) => d.dispPos !== "" ?
                      (scaleEscape + groupScale(d.group) + modifyCircleYofset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
-                     : (scaleEscape + roupScale(d.group) + modifyCircleYofset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
+                     : (scaleEscape + groupScale(d.group) + modifyCircleYofset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
             .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
         svg.selectAll("text.type02")
             .attr("x", d => newX(d.startYear) + modifyEventXoffset)
@@ -382,12 +379,48 @@ d3.csv(currentUser).then(data => {
     });
 
     d3.select("#re-render").on("click", () => {
-        // データの再描画
         svg.transition()
             .duration(750)
             .call(zoom.transform,currentTransform);
         // データの再描画
         render();
     });
+
+    d3.select("#image-toggle").on("change",function() {
+        showImages = this.checked;  // チェックボックスの状態でフラグを更新
+        svg.transition()
+            .duration(750)
+            .call(zoom.transform,currentTransform);
+        // データの再描画
+        render();
+    });
+
+
+    d3.select("#btnA").on("click",() => {
+    console.log(selectedCondition);
+    svg.transition()
+        .duration(750)
+        .call(zoom.transform,currentTransform);
+    // データの再描画
+    render();
+    });
+    d3.select("#btnB").on("click",() => {
+    console.log(selectedCondition);
+    svg.transition()
+        .duration(750)
+        .call(zoom.transform,currentTransform);
+    // データの再描画
+    render();
+    });
+    d3.select("#btnC").on("click",() => {
+    console.log(selectedCondition);
+    svg.transition()
+        .duration(750)
+        .call(zoom.transform,currentTransform);
+    // データの再描画
+    render();
+    });
+
+
 
 });

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他的条件選択ボタン</title>
+    <style>
+        .button {
+            padding: 2px 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 10px;
+            border-radius: 5px;
+            background-color: lightgray;
+            transition: background 0.3s;
+        }
+        .selected {
+            background-color: dodgerblue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="button" id="btnA" onclick="selectCondition('A')">条件A</button>
+    <button class="button" id="btnB" onclick="selectCondition('B')">条件B</button>
+    <button class="button" id="btnC" onclick="selectCondition('C')">条件C</button>
+
+
+    
+
+    <p>選択された条件: <span id="selectedCondition">A</span></p>
+
+    <script>
+        let selectedCondition = 'A'; // デフォルトでAを選択
+
+        function selectCondition(condition) {
+            if (selectedCondition === condition) {
+                selectedCondition = null; // 選択解除
+            } else {
+                selectedCondition = condition; // 新しい選択
+            }
+            updateUI();
+        }
+
+        function updateUI() {
+            ['A', 'B', 'C'].forEach(condition => {
+                let button = document.getElementById('btn' + condition);
+                if (selectedCondition === condition) {
+                    button.classList.add('selected');
+                } else {
+                    button.classList.remove('selected');
+                }
+            });
+
+            document.getElementById('selectedCondition').textContent = 
+                selectedCondition ? selectedCondition : 'なし';
+        }
+
+        // ページ読み込み時にデフォルト状態を適用
+        window.onload = updateUI;
+    </script>
+
+</body>
+</html>
+
+
