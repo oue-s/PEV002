@@ -33,15 +33,18 @@ const modifyImageCitationXoffset = -75;
 const marginXupper = 0;
 
 // ズーム状態を保持する変数
-let currentTransform ;
-let currentTransform_0 ;
+let currentTransform = d3.zoomIdentity;
+let currentTransform_0 = d3.zoomIdentity;
+
+// grupeScaleの変更
+let scaleEscape = 0;
 
 
 
 // デバグ用　変数が来ていることの確認 
 // document.write(showImages)
 
-let showImages = false;
+showImages = false;
 
 // SVGの作成
 const svg = d3.select(".chart")
@@ -261,16 +264,12 @@ d3.csv(currentUser).then(data => {
 
     }
 
-    currentTransform_0 = d3.zoomIdentity;
-
     // ズームとパンの設定
     const zoom = d3.zoom()
         .scaleExtent([0.1, 5000]) // 拡大縮小の範囲を設定
         .on("zoom", zoomed);
 
     svg.call(zoom);
-
-
 
     // デバク用 zoomにより連続的に変化する変数を表示する位置
     const scaleText = svg.append("text")
@@ -282,19 +281,28 @@ d3.csv(currentUser).then(data => {
     function zoomed(event) {
         currentTransform = event.transform; // 現在のズーム状態を記録
 
-        // grupeScaleの変更
-        let scaleEscape = 0;
-        if(currentTransform.k < 1){
+        // 表示内容をコントロール
+        if(selectedCondition === "B"){
+            scaleEscape = 0
+            groupHeight = height1 + height2 + eventOffset * numEvent + height3
+            height = groupHeight * numberHis 
+            groupScale = d3.scaleBand().domain(groups).range([0,height]);
+        }else if(selectedCondition === "C"){
             scaleEscape = -10000
             groupHeight = height1 + height2
             height = groupHeight * numberHis
-            groupScale = d3.scaleBand().domain(groups).range([0,height]);
+            groupScale = d3.scaleBand().domain(groups).range([0,height]);   
+        }else if(currentTransform.k < 1){
+            scaleEscape = -10000
+            groupHeight = height1 + height2
+            height = groupHeight * numberHis
+            groupScale = d3.scaleBand().domain(groups).range([0,height]);   
         }else{
             scaleEscape = 0
             groupHeight = height1 + height2 + eventOffset * numEvent + height3
             height = groupHeight * numberHis 
-            groupScale = d3.scaleBand().domain(groups).range([0,height]);     
-        }  
+            groupScale = d3.scaleBand().domain(groups).range([0,height]);  
+        }
 
         //デバク用 検証->コンソールに変数値を表示
         console.log(currentTransform_0.k,currentTransform.k);
@@ -386,8 +394,8 @@ d3.csv(currentUser).then(data => {
         render();
     });
 
-    d3.select("#image-toggle").on("change",function() {
-        showImages = this.checked;  // チェックボックスの状態でフラグを更新
+    d3.select("#toggleButton").on("click",() => {
+        console.log(button.textContent,showImages);
         svg.transition()
             .duration(750)
             .call(zoom.transform,currentTransform);

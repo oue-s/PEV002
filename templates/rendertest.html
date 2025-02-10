@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Zoom with Threshold</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        svg {
+            border: 1px solid black;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>D3.js Zoom - 閾値を超えた時だけ遅くする</h2>
+    <svg id="canvas" width="800" height="600"></svg>
+
+    <script>
+        const width = 800, height = 600;
+        const scaleThreshold = 2.0; // ズーム閾値
+        let prevScale = 1;  // 直前のスケール値
+
+        const svg = d3.select("#canvas");
+        const g = svg.append("g");
+
+        // サンプルの図形
+        g.append("rect")
+            .attr("x", 200)
+            .attr("y", 200)
+            .attr("width", 200)
+            .attr("height", 200)
+            .attr("fill", "steelblue");
+
+        // ズーム設定
+        const zoom = d3.zoom()
+            .scaleExtent([0.5, 5]) // 最小0.5倍、最大5倍
+            .on("zoom", zoomed);
+
+        svg.call(zoom);
+
+        function zoomed(event) {
+            const transform = event.transform;
+
+            // 閾値を通過したら遅延レンダリング
+            if ((prevScale < scaleThreshold && transform.k >= scaleThreshold) ||
+                (prevScale > scaleThreshold && transform.k <= scaleThreshold)) {
+                
+                console.log("閾値を通過！レンダリングを遅くします…");
+
+                setTimeout(() => {
+                    g.attr("transform", transform);
+                }, 100); // 100ms 遅延
+            } else {
+                // 通常のレンダリング
+                g.attr("transform", transform);
+            }
+
+            prevScale = transform.k; // 直前のスケールを更新
+        }
+    </script>
+
+</body>
+</html>

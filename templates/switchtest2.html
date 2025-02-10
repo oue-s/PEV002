@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボタンのON/OFF</title>
+    <style>
+        .button-t {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: lightgray; /* 初期状態 (0) */
+        }
+
+        .button-t.on {
+            background-color: lightblue; /* ON 状態 (1) */
+        }
+    </style>
+</head>
+<body>
+
+    <button id="toggleButton" class="button-t">0</button>
+
+    <script>
+        const button = document.getElementById("toggleButton");
+
+        button.addEventListener("click", function() {
+            if (button.textContent === "0") {
+                button.textContent = "1"; // 状態を1に変更
+                button.classList.add("on"); // クラスを追加（色変更）
+            } else {
+                button.textContent = "0"; // 状態を0に戻す
+                button.classList.remove("on"); // クラスを削除（元の色に戻す）
+            }
+        });
+    </script>
+
+</body>
+</html>

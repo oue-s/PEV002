@@ -20,15 +20,15 @@
         .horizontal-container-s {
             display: flex;
             align-items: right;
-            gap: 40px; /* 子要素間の余白 */
+            gap: 10px; /* 子要素間の余白 */
         }
 
         .button {
-            padding: 2px 10px;
-            margin: 5px;
+            padding: 0px 30px;
+            margin: 0px;
             border: none;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 13px;
             border-radius: 5px;
             background-color: lightgray;
             transition: background 0.3s;
@@ -38,10 +38,19 @@
             color: white;
         }
 
-
-
-
-
+        .button-t {
+            padding: 0px 30px;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: lightgray; /* 初期状態 (0) */
+        }
+        .button-t.on {
+            background-color: dodgerblue; /* ON 状態 (1) */
+            color: white;
+        }
 
         .chart {
             background-color: #f9f9f9;
@@ -64,17 +73,42 @@
         <a href=/>home</a>
         <button class="button_p" id="show-all-button">▶　全期間表示　◀</button>
         <div class="horizontal-container-s">
-            <input type="checkbox" id="image-toggle">
-            画像
+            画像表示
+            <button id="toggleButton" class="button-t">Off</button>
         </div>
+
         <div class="horizontal-container-s">
-            <button class="button" id="btnA" onclick="selectCondition('A')">条件A</button>
-            <button class="button" id="btnB" onclick="selectCondition('B')">条件B</button>
-            <button class="button" id="btnC" onclick="selectCondition('C')">条件C</button>
+            詳細歴史表示
+            <button class="button" id="btnA" onclick="selectCondition('A')">Auto</button>
+            <button class="button" id="btnB" onclick="selectCondition('B')">常時On</button>
+            <button class="button" id="btnC" onclick="selectCondition('C')">常時Off</button>
         </div>
         <button class="button_p" id="re-render">画像表示を更新</button>
         
     </div>
+
+    <script>
+        const button = document.getElementById("toggleButton");
+        let showImages = false;
+        button.addEventListener("click", function() {
+            if (button.textContent === "Off") {
+                button.textContent = "On"; // 状態を1に変更
+                button.classList.add("on"); // クラスを追加（色変更）
+                showImages = true;
+            } else {
+                button.textContent = "Off"; // 状態を0に戻す
+                button.classList.remove("on"); // クラスを削除（元の色に戻す）
+                showImages = false;
+            }
+        });
+    </script>
+
+
+
+
+
+
+
 
     <script>
         let selectedCondition = 'A'; // デフォルトでAを選択
