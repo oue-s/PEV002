@@ -21,10 +21,10 @@ const heightRectEvent = 10;
 
 const modifyEventXoffset = -6; //文字の・が時間軸と一致するように微調整
 const modifyEventYoffset = 0;
-const modifyTextYoffset = 12; //textオブジェクトのY軸起点がテキストの中央になっているための補正
+const modifyTextYoffset = 11; //textオブジェクトのY軸起点がテキストの中央になっているための補正
 
 const modifyCircleYofset = 7;//circleオブジェクトのY軸起点が補正
-const rCircle = 5;//circleオブジェクトの半径
+const rCircle = 3;//circleオブジェクトの半径
 
 
 const modifyImageCitationXoffset = -75;
@@ -43,6 +43,7 @@ let scaleEscape = 0;
 
 // デバグ用　変数が来ていることの確認 
 // document.write(showImages)
+console.log("auto_detail_value",auto_detail_value)
 
 showImages = false;
 
@@ -180,7 +181,9 @@ d3.csv(currentUser).then(data => {
             .attr("y", d => groupScale(d.group) + height1+ height2)
             .attr("width", widthImage)
             .attr("height", heightImage)
-            .attr("xlink:href", d => d.image);
+            .attr("xlink:href", d => d.image)
+            .on("click" , (event,d) => d.detailLink !== "" ?  window.open(d.detailLink) :  undefined)
+            .on("mouseover" , (event,d) => d.detailLink !== "" ? d3.select(event.target).style("cursor", "pointer") : undefined);
 
         images.exit().remove();
 
@@ -226,6 +229,7 @@ d3.csv(currentUser).then(data => {
             .attr("x", d => (x(d.startYear) + x(d.endYear)) / 2)
             .attr("y", (d,i) => groupScale(d.group) + modifyTextYoffset)
             .attr("text-anchor", "middle")
+            .attr("font-size","13px")
             .text(d => d.event)
 
         lLabels.exit().remove();
@@ -292,7 +296,7 @@ d3.csv(currentUser).then(data => {
             groupHeight = height1 + height2
             height = groupHeight * numberHis
             groupScale = d3.scaleBand().domain(groups).range([0,height]);   
-        }else if(currentTransform.k < 1){
+        }else if(currentTransform.k < auto_detail_value){
             scaleEscape = -10000
             groupHeight = height1 + height2
             height = groupHeight * numberHis

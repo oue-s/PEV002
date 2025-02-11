@@ -114,9 +114,14 @@ def view():
             # 軸変換に必要なパラメータがテキストとして送られてくる
             calc_option = request.form["option"]
             # 指定の加工が施されたCSVファイルが作成される
-            num_his = create_crrent_disp(itemsX, disp_his_name, calc_method, calc_option)
+            disp_conf = create_crrent_disp(itemsX, disp_his_name, calc_method, calc_option)
+            # 表示に必要なデータを取り出す
+            num_his = disp_conf[0]
+            auto_detail_value = disp_conf[1]
 
-            return render_template("view.html", num_his=num_his, calc_option=calc_option)
+            return render_template(
+                "view.html", num_his=num_his, calc_option=calc_option, auto_detail_value=auto_detail_value
+            )
         except IntegrityError as e:
             flash(f"{e}")
 

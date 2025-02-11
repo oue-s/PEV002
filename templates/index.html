@@ -17,19 +17,24 @@
         }
 
         nav ul {
-        display: flex; /* Flexboxを有効にする */
-        list-style: none; /* リストの点を消す */
-        padding: 0; /* 余白を消す */
+            display: flex;
+            /* Flexboxを有効にする */
+            list-style: none;
+            /* リストの点を消す */
+            padding: 0;
+            /* 余白を消す */
         }
 
         nav li {
-        margin-right: 20px; /* 要素間の間隔 */
+            margin-right: 20px;
+            /* 要素間の間隔 */
         }
 
         .horizontal-container {
             display: flex;
             align-items: right;
-            gap: 80px; /* 子要素間の余白 */
+            gap: 80px;
+            /* 子要素間の余白 */
         }
 
         .calc-input {
@@ -61,7 +66,7 @@
             flex: 3;
             min-width: 200px;
             height: 100vh;
-            
+
         }
 
         /* 右のコンテナ: 選択済リスト */
@@ -143,7 +148,7 @@
 </head>
 
 <body>
-    <h2>Poenix Eye View (prototype)</h2>
+    <h2>Phoenix Eye View (prototype)</h2>
 
     <nav>
         <ul>
@@ -162,8 +167,8 @@
         </ul>
     </nav>
 
-<br>
-<br>
+    <br>
+    <br>
 
     <form action="view" method="POST" id="selectionForm">
 
@@ -176,13 +181,13 @@
                     <option value="1">起点を揃える</option>
                     <option value="2">起点と終点を揃える</option>
                     <option value="3">起点を揃え、任意の倍率</option>
-                    <option value="0">起点を指定する(未実装)</option>
+                    <option value="4">任意の歴史の起点をかえる</option>
                     <option value="0">人→猫 変換(未実装)</option>
                     <option value="0">対数変換(未実装)</option>
                 </select>
 
                 <label for="textInput">変換オプション:</label>
-                <input type="text" id="textInput" name="option" placeholder="未実装">
+                <input type="text" id="textInput" name="option" size="40" placeholder="オプションなし">
             </div>
         </div>
 
@@ -240,6 +245,32 @@
         <input type="hidden" name="items" id="selectedItemsInput">
 
     </form>
+
+    <script>
+        document.getElementById("numberInput").addEventListener("change", function () {
+            const textInput = document.getElementById("textInput");
+            const selectedValue = this.value;
+
+            // プレースホルダーの内容を変更
+            const placeholderTexts = {
+                "0": "オプションなし",
+                "1": "オプションなし",
+                "2": "オプションなし",
+                "3": "倍率を入力（例: 1.5）",
+                "4": "対象歴史と起点を指定（例: 1-1534）",
+                "5": "人→猫の変換（未実装）",
+                "6": "対数変換（未実装）"
+            };
+
+            textInput.placeholder = placeholderTexts[selectedValue] || "オプションなし";
+        });
+    </script>
+
+
+
+
+
+
 
     <script>
         const selectableItems = document.getElementById('selectableItems');
@@ -330,8 +361,8 @@
                 });
 
                 clonedItem.querySelector('.remove-btn').addEventListener('touchstart', () => {
-                selectedItems.removeChild(clonedItem);
-                updateHiddenInput();
+                    selectedItems.removeChild(clonedItem);
+                    updateHiddenInput();
                 });
 
                 selectedItems.appendChild(clonedItem);
