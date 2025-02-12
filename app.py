@@ -163,6 +163,12 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/policy")
+@login_required
+def policy():
+    return render_template("policy.html")
+
+
 if __name__ == "__main__":
     # 使用するポートを明示
     app.run(port=8000, debug=True)
