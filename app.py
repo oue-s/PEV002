@@ -139,6 +139,30 @@ def index():
     return render_template("index.html", selected_items=selected_items)
 
 
+@app.route("/howto")
+@login_required
+def howto():
+    return render_template("howto.html")
+
+
+@app.route("/blog")
+@login_required
+def blog():
+    return render_template("blog.html")
+
+
+@app.route("/aboutus")
+@login_required
+def aboutus():
+    return render_template("aboutus.html")
+
+
+@app.route("/contact")
+@login_required
+def contact():
+    return render_template("contact.html")
+
+
 if __name__ == "__main__":
     # 使用するポートを明示
     app.run(port=8000, debug=True)

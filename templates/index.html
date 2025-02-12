@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phoenix Eye Viewer</title>
+    <title>Phoenix Eye View</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -149,20 +148,15 @@
 
 <body>
     <h2>Phoenix Eye View (prototype)</h2>
+    <div font-size="10px">ID:{{ current_user.name }}</div>
 
     <nav>
         <ul>
-            <li>
-                {% if current_user.is_authenticated %}
-                ようこそ{{ current_user.name }} さん
-                {% else %}
-                ログインしていません
-                {% endif %}
-            </li>
-            <li><a href="#">How To Use</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="howto">How To Use</a></li>
+            <li><a href="blog">Blog</a></li>
+            <li><a href="aboutus">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
             <li><a href=logout>LogOut</a></li>
         </ul>
     </nav>

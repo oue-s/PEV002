@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phoenix Eye View</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 13px;
+        }
+
+        nav ul {
+            display: flex;
+            /* Flexboxを有効にする */
+            list-style: none;
+            /* リストの点を消す */
+            padding: 0;
+            /* 余白を消す */
+        }
+
+        nav li {
+            margin-right: 20px;
+            /* 要素間の間隔 */
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Phoenix Eye View (prototype)</h2>
+    <div font-size="10px">ID:{{ current_user.name }}</div>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="howto">How To Use</a></li>
+            <li><a href="blog">Blog</a></li>
+            <li><a href="aboutus">About Us</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href=logout>LogOut</a></li>
+        </ul>
+    </nav>
+
+    <h3>使い方</h3>
+
+</body>
+
+</html>
