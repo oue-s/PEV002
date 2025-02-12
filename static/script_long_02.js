@@ -1,5 +1,5 @@
 // サイズとマージンの設定
-const margin = { top: 30, right: 20, bottom: 20, left: 150 }; // SVG全体のマージン
+const margin = { top: 40, right: 20, bottom: 20, left: 150 }; // SVG全体のマージン
 const width = 960;//有効描画範囲の横幅
 const height1 = 15;//最上部表示レーンの高さ 期間ありイベントのtext
 const height2 = 15;//最上部表示レーンの高さ 期間ありイベント
@@ -9,8 +9,13 @@ const height3 = 15;//最下部表示レーンの高さ 引用text
 let groupHeight = height1 + height2 + eventOffset * numEvent + height3;//一つのグループの高さ
 let numberHis = Number(numHis) //app.pyより選択されたアイテムの数をもらってくる
 let height = groupHeight * numberHis;//有効描画範囲の高さ
-const tickHeight = height;
 
+const modifyLogoXoffset = 10
+const modifyLogoYoffset = -20
+const modifyIDXoffset = 140
+const modifyIDYoffset = -5
+
+const tickHeight = height;
 const modifyAxisUpper = -10
 
 const modifyImageXoffset = -75
@@ -32,6 +37,8 @@ const modifyImageCitationXoffset = -75;
 
 const marginXupper = 0;
 
+let dispID = currentId;
+
 // ズーム状態を保持する変数
 let currentTransform = d3.zoomIdentity;
 let currentTransform_0 = d3.zoomIdentity;
@@ -44,6 +51,8 @@ let scaleEscape = 0;
 // デバグ用　変数が来ていることの確認 
 // document.write(showImages)
 console.log("auto_detail_value",auto_detail_value)
+console.log(currentId)
+console.log(dispID)
 
 showImages = false;
 
@@ -58,6 +67,25 @@ const svg = d3.select(".chart")
 // スケールの設定
 const x = d3.scaleLinear().domain([-1e8, new Date().getFullYear()]).range([0, width]);
 const y = d3.scaleBand().range([0, height]);
+
+// 簡易ロゴ表示
+svg.append("text")
+    .attr("x", -margin.left + modifyLogoXoffset)
+    .attr("y", modifyLogoYoffset) 
+    // .attr("text-anchor", "middle") // 中央揃え
+    // .style("font-style", "italic")
+    .style("font-weight", "bold")
+    .style("font-size", "15px")
+    .style("fill", "black")
+    .text("Phoenix Eye View");
+// ID表示
+svg.append("text")
+    .attr("x", -margin.left + modifyIDXoffset)
+    .attr("y", modifyIDYoffset) 
+    .attr("text-anchor", "end") 
+    .style("font-size", "10px")
+    .style("fill", "black")
+    .text(`ID:${currentId}`);
 
 // 年の表記を指数に
 const formatYear = d3.format("d");

@@ -69,12 +69,6 @@
 </head>
 
 <body>
-    {% if current_user.is_authenticated %}
-    Phoenix Eye Veiw ID:{{ current_user.name }}
-    {% else %}
-    ログインしていません
-    {% endif %}
-    <br>
     <div class="horizontal-container">
         <a href= />home</a>
         <button class="button_p" id="show-all-button">▶　全期間表示　◀</button>
@@ -139,6 +133,7 @@
 
     <script>
         var currentUser = "/static/data/disp_" + "{{ current_user.name }}" + ".csv"
+        var currentId = "{{ current_user.name }}"
         var numHis = "{{ num_his }}"
         var auto_detail_value = "{{ auto_detail_value }}"
     </script>
