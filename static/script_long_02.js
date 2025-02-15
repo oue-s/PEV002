@@ -12,6 +12,9 @@ let height = groupHeight * numberHis;//有効描画範囲の高さ
 
 const modifyLogoXoffset = 10
 const modifyLogoYoffset = -20
+const s_rectHeight = 5
+const s_rectWidth = 5
+
 const modifyIDXoffset = 140
 const modifyIDYoffset = -5
 
@@ -24,8 +27,9 @@ const heightImage = 70;
 
 const heightRectEvent = 10;
 
-const modifyEventXoffset = -6; //文字の・が時間軸と一致するように微調整
-const modifyEventYoffset = 0;
+const modifyEventXoffset = 0; 
+const modifyEventYoffset = 7;
+const modifyTextXoffset = -6; //文字の・が時間軸と一致するように微調整
 const modifyTextYoffset = 11; //textオブジェクトのY軸起点がテキストの中央になっているための補正
 
 const modifyCircleYofset = 7;//circleオブジェクトのY軸起点が補正
@@ -262,33 +266,50 @@ d3.csv(currentUser).then(data => {
 
         lLabels.exit().remove();
 
-        // イベントの描画
-        const circles = svg.selectAll("circle.type02")
+        // 詳細イベントの描画
+        // const circles = svg.selectAll("circle.type02")
+        //     .data(data.filter(d => d.eventType === "2"), d => d.event);
+
+        // circles.enter().append("circle")
+        //     .attr("class", d => `type02 event-group-${d.group}`)
+        //     .merge(circles)
+        //     .attr("cx", d => x(d.startYear))
+        //     .attr("cy", (d,i) => d.dispPos !== "" ?
+        //              (groupScale(d.group) + modifyCircleYofset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset)) 
+        //              : (groupScale(d.group) + modifyCircleYofset + (height1 + height2) + (i % numEvent * eventOffset)))
+        //     .attr("r", rCircle)
+        //     .attr("fill", d => d.eventColor);
+
+        // circles.exit().remove();
+
+        // 期間詳細イベントの描画
+        const rects2 = svg.selectAll("rect.type02")
             .data(data.filter(d => d.eventType === "2"), d => d.event);
 
-        circles.enter().append("circle")
+        rects2.enter().append("rect")
             .attr("class", d => `type02 event-group-${d.group}`)
-            .merge(circles)
-            .attr("cx", d => x(d.startYear))
-            .attr("cy", (d,i) => d.dispPos !== "" ?
-                     (groupScale(d.group) + modifyCircleYofset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
-                     : (groupScale(d.group) + modifyCircleYofset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
-            .attr("r", rCircle)
+            .merge(rects2)
+            .attr("x", d => x(d.startYear)-(s_rectWidth / 2))
+            .attr("y", (d,i) => d.dispPos !== "" ?
+                     (groupScale(d.group) -(s_rectHeight /2) + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
+                     : (groupScale(d.group) -(s_rectHeight /2) + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
+            .attr("width", d => x(d.endYear) - x(d.startYear) === 0 ? s_rectWidth : x(d.endYear) - x(d.startYear) + (s_rectWidth / 2))
+            .attr("height", s_rectHeight)
             .attr("fill", d => d.eventColor);
 
-        circles.exit().remove();
+        rects2.exit().remove();
 
-        // イベントラベルの描画
+        // 詳細イベントラベルの描画
         const labels = svg.selectAll("text.type02")
             .data(data.filter(d => d.eventType === "2"), d => d.event);
 
         labels.enter().append("text")
             .attr("class", d => `type02 event-group-${d.group}`)
             .merge(labels)
-            .attr("x", d => x(d.startYear) + modifyEventXoffset)
+            .attr("x", d => x(d.endYear) - x(d.startYear) === 0 ? x(d.startYear) + modifyTextXoffset : x(d.endYear) + modifyTextXoffset)
             .attr("y", (d,i) => d.dispPos !== "" ?
-                     (groupScale(d.group) + modifyTextYoffset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
-                     : (groupScale(d.group) + modifyTextYoffset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
+                     (groupScale(d.group) + modifyTextYoffset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset)) 
+                     : (groupScale(d.group) + modifyTextYoffset + (height1 + height2) + (i % numEvent * eventOffset)))
             // .attr("text-anchor", "" )
             .text(d => `・${d.event}`)
 
@@ -392,17 +413,26 @@ d3.csv(currentUser).then(data => {
             .attr("y", (d,i) => groupScale(d.group) + modifyTextYoffset)
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
 
-        svg.selectAll("circle.type02")
-            .attr("cx", d => newX(d.startYear))
-            .attr("cy", (d,i) => d.dispPos !== "" ?
-                     (scaleEscape + groupScale(d.group) + modifyCircleYofset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
-                     : (scaleEscape + groupScale(d.group) + modifyCircleYofset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
-            .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
-        svg.selectAll("text.type02")
-            .attr("x", d => newX(d.startYear) + modifyEventXoffset)
+        // svg.selectAll("circle.type02")
+        //     .attr("cx", d => newX(d.startYear))
+        //     .attr("cy", (d,i) => d.dispPos !== "" ?
+        //              (scaleEscape + groupScale(d.group) + modifyCircleYofset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset)) 
+        //              : (scaleEscape + groupScale(d.group) + modifyCircleYofset + (height1 + height2) + (i % numEvent * eventOffset)))
+        //     .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
+
+        svg.selectAll("rect.type02")
+            .attr("x", d => newX(d.startYear)-(s_rectWidth / 2))
+            .attr("width", d => newX(d.endYear) - newX(d.startYear) === 0 ? s_rectWidth : newX(d.endYear) - newX(d.startYear) + (s_rectWidth / 2))
             .attr("y", (d,i) => d.dispPos !== "" ?
-                     (scaleEscape + groupScale(d.group) + modifyTextYoffset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset) + modifyEventYoffset) 
-                     : (scaleEscape + groupScale(d.group) + modifyTextYoffset + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
+                     (scaleEscape + groupScale(d.group) -(s_rectHeight /2) + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset + modifyEventYoffset)) 
+                     : (scaleEscape + groupScale(d.group) -(s_rectHeight /2) + (height1 + height2) + (i % numEvent * eventOffset) + modifyEventYoffset))
+            // .style("display", d => (newX(d.startYear) < 0 || newX(d.startYear) > width) ? "none" : null);
+            .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
+        svg.selectAll("text.type02")
+            .attr("x", d => newX(d.endYear) - newX(d.startYear) === 0 ? newX(d.startYear) + modifyTextXoffset : newX(d.endYear) + modifyTextXoffset)
+            .attr("y", (d,i) => d.dispPos !== "" ?
+                     (scaleEscape + groupScale(d.group) + modifyTextYoffset + (height1 + height2) + ((Number(d.dispPos)-1) % numEvent * eventOffset)) 
+                     : (scaleEscape + groupScale(d.group) + modifyTextYoffset + (height1 + height2) + (i % numEvent * eventOffset)))
             .style("display", d => (newX(d.endYear) < 0 || newX(d.startYear) > width) ? "none" : null);
 
     }
