@@ -1,10 +1,16 @@
-﻿startYear,startMonth,startDay,endYear,endMonth,endDay,event,image,group,groupTitle,eventColor,imageCitation
-1534,5,1,,,,織田信秀の嫡男として誕生,,6,織田信長,
-1548,1,1,,,,濃姫を娶る,https://www.touken-world.jp/wp/wp-content/uploads/2020/05/2fdf84803842d5dac9abae74a6de7a4b.jpg,6,織田信長,
-1551,3,1,,,,家督を継ぐ,,6,織田信長,
-1560,5,1,,,,桶狭間の戦い,https://www.touken-world-ukiyoe.jp/app/uploads/2020/07/b78870a2433f99d91d1e588b359aaae2-1024x1522.jpg,6,織田信長,
-1567,11,1,,,,天下布武を使用,static/img/nobunaga_tenkafubu.jpg,6,織田信長,
-1571,9,1,,,,延暦寺焼き討ち,https://www.touken-world.jp/wp/wp-content/uploads/2019/01/234ec3a4b7798f16f915a812282169dd.jpg,6,織田信長,
-1575,5,1,,,,長篠の戦い,static/img/nobunaga_nagasino.jpg,6,織田信長,
-1579,5,1,,,,安土城天守閣完成,static/img/nobunaga_azuchi.jpg,6,織田信長,
-1582,6,1,,,,本能寺の変,static/img/nobunaga_honnoji.jpg,6,織田信長,
+﻿startYear,startMonth,startDay,endYear,endMonth,endDay,group,groupTitle,eventType,dispPos,event,eventColor,detailLink,image,imageCitation
+1521,1,1,,,,10003,武田信玄,2,2,武田信玄誕生,,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,"月岡芳年, Public domain, via Wikimedia Commons"
+1540,1,1,,,,10003,武田信玄,2,3,武田家家督相続,,,,
+1553,1,1,,,,10003,武田信玄,2,4,上杉謙信と初戦(川中島の戦い),,,,
+1545,1,1,,,,10003,武田信玄,2,2,高遠合戦,,,,
+1552,1,1,,,,10003,武田信玄,2,3,小岩嶽城,,,,
+1555,1,1,,,,10003,武田信玄,2,4,第二次川中島の戦い,,,,
+1557,1,1,,,,10003,武田信玄,2,2,第三次川中島の戦い,,,,
+1559,1,1,,,,10003,武田信玄,2,3,永禄の飢饉　甲斐国に大規模な水害,,,,
+1561,1,1,,,,10003,武田信玄,2,4,第四次川中島の戦い,,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,https://upload.wikimedia.org/wikipedia/commons/a/a6/Sengoku_period_battle.jpg,"[1], Public domain, via Wikimedia Commons"
+1564,1,1,,,,10003,武田信玄,2,2,第五次川中島の戦い,,,,
+1568,1,1,,,,10003,武田信玄,2,3,駿河侵攻開始,,,,
+1573,1,1,,,,10003,武田信玄,2,4,野田城の戦い後、甲斐に帰途中に死去,,,,
+1521,1,1,1573,1,1,10003,武田信玄,1,,武田信玄,#3C7D22,,,
+1582,1,1,,,,10003,武田信玄,2,2,武田家滅亡,,,,
+1533,1,1,1564,1,1,10003,武田信玄,2,1,川中島の戦い,,,,
