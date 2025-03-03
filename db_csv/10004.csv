@@ -1,15 +1,18 @@
 ﻿startYear,startMonth,startDay,endYear,endMonth,endDay,group,groupTitle,eventType,dispPos,event,eventColor,detailLink,image,imageCitation
-1530,1,1,,,,10004,上杉謙信(輝虎),2,1,誕生,,https://upload.wikimedia.org/wikipedia/commons/8/88/Uesugi_Kenshin_Portrait_from_Uesugi_Shrine.png,https://upload.wikimedia.org/wikipedia/commons/8/88/Uesugi_Kenshin_Portrait_from_Uesugi_Shrine.png,"See page for author, Public domain, via Wikimedia Commons"
-1543,1,1,,,,10004,上杉謙信(輝虎),2,2,元服　景虎と改名,,,,
-1544,1,1,,,,10004,上杉謙信(輝虎),2,3,初陣で勝利を収める,,,,
-1553,1,1,,,,10004,上杉謙信(輝虎),2,4,川中島合戦,,,,
-1555,1,1,,,,10004,上杉謙信(輝虎),2,1,第二次川中島合戦,,,,
-1557,1,1,,,,10004,上杉謙信(輝虎),2,2,第三次川中島合戦,,,,
-1561,1,1,,,,10004,上杉謙信(輝虎),2,3,第四次川中島合戦,,https://upload.wikimedia.org/wikipedia/commons/a/a6/Sengoku_period_battle.jpg,https://upload.wikimedia.org/wikipedia/commons/a/a6/Sengoku_period_battle.jpg,"[1], Public domain, via Wikimedia Commons"
-1564,1,1,,,,10004,上杉謙信(輝虎),2,4,第五次川中島合戦,,,,
-1567,1,1,,,,10004,上杉謙信(輝虎),2,1,唐沢山城の戦い,,,,
-1568,1,1,,,,10004,上杉謙信(輝虎),2,2,越中へ進出,,,,
-1569,1,1,,,,10004,上杉謙信(輝虎),2,3,越相同盟,,,,
-1577,1,1,,,,10004,上杉謙信(輝虎),2,4,手取川の戦い,,,,
-1578,1,1,,,,10004,上杉謙信(輝虎),2,1,春日山城で急死　(戒名　謙信),,https://upload.wikimedia.org/wikipedia/commons/0/06/KasugayamaCastle-print.jpg,https://upload.wikimedia.org/wikipedia/commons/0/06/KasugayamaCastle-print.jpg,"See page for author, Public domain, via Wikimedia Commons"
-1530,1,1,1578,1,1,10004,,1,,上杉謙信(輝虎),#3C7D22,,,
+1530,1,1,,,,10004,上杉謙信,2,,誕生,,https://upload.wikimedia.org/wikipedia/commons/8/88/Uesugi_Kenshin_Portrait_from_Uesugi_Shrine.png,https://upload.wikimedia.org/wikipedia/commons/8/88/Uesugi_Kenshin_Portrait_from_Uesugi_Shrine.png,"See page for author, Public domain, via Wikimedia Commons"
+1543,1,1,,,,10004,上杉謙信,2,,元服　「長尾景虎」と改名,,https://ja.wikipedia.org/wiki/%E4%B8%8A%E6%9D%89%E8%AC%99%E4%BF%A1,,
+1544,1,1,,,,10004,上杉謙信,2,,栃尾城の戦い初陣　,,https://ja.wikipedia.org/wiki/%E6%A0%83%E5%B0%BE%E5%9F%8E%E3%81%AE%E6%88%A6%E3%81%84,,
+1548,1,1,,,,10004,上杉謙信,2,,家督を相続　守護代となる,,,,
+1551,1,1,,,,10004,上杉謙信,2,,越後統一,,https://ja.wikipedia.org/wiki/%E5%9D%82%E6%88%B8%E5%9F%8E%E3%81%AE%E6%88%A6%E3%81%84,,
+1553,1,1,,,,10004,上杉謙信,2,,川中島合戦,,https://ja.wikipedia.org/wiki/%E5%B7%9D%E4%B8%AD%E5%B3%B6%E3%81%AE%E6%88%A6%E3%81%84,,
+1555,1,1,,,,10004,上杉謙信,2,,第二次川中島合戦,,https://upload.wikimedia.org/wikipedia/commons/2/28/BattleKawanakajima.jpg,https://upload.wikimedia.org/wikipedia/commons/2/28/BattleKawanakajima.jpg,"日本語: 原著者：勝川春亭（文政7年没）、模写：歌川広重（寛政9年-安政5年）English:  after Katsukawa Shuntei (died in 1824) by Hiroshige(1797-1858), Public domain, ウィキメディア・コモンズ経由で"
+1557,1,1,,,,10004,上杉謙信,2,,第三次川中島合戦,,,,
+1561,1,1,,,,10004,上杉謙信,2,,第四次川中島合戦,,https://upload.wikimedia.org/wikipedia/commons/a/a6/Sengoku_period_battle.jpg,https://upload.wikimedia.org/wikipedia/commons/a/a6/Sengoku_period_battle.jpg,"[1], Public domain, via Wikimedia Commons"
+1561,1,1,,,,10004,上杉謙信,2,,山内上杉家の家督と関東管領職を相続、名を上杉 政虎（まさとら）と改める,,,,
+1564,1,1,,,,10004,上杉謙信,2,,第五次川中島合戦,,,,
+1569,1,1,,,,10004,上杉謙信,2,,越相同盟,,https://ja.wikipedia.org/wiki/%E8%B6%8A%E7%9B%B8%E5%90%8C%E7%9B%9F,,
+1569,1,1,,,,10004,上杉謙信,2,,出家　「上杉謙信」と名乗る,,,,
+1572,1,1,,,,10004,上杉謙信,2,,織田信長と同盟,,,,
+1576,1,1,,,,10004,上杉謙信,2,,本願寺との講和と織田信長との対立(信長包囲網),,https://ja.wikipedia.org/wiki/%E7%9F%B3%E5%B1%B1%E6%9C%AC%E9%A1%98%E5%AF%BA,,
+1578,1,1,,,,10004,上杉謙信,2,,春日山城で急死　(戒名　謙信),,https://upload.wikimedia.org/wikipedia/commons/0/06/KasugayamaCastle-print.jpg,https://upload.wikimedia.org/wikipedia/commons/0/06/KasugayamaCastle-print.jpg,"See page for author, Public domain, via Wikimedia Commons"
+1530,1,1,1578,1,1,10004,上杉謙信,1,,上杉謙信,#3C7D22,,,
