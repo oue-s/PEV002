@@ -1,18 +1,20 @@
 ﻿startYear,startMonth,startDay,endYear,endMonth,endDay,group,groupTitle,eventType,dispPos,event,eventColor,detailLink,image,imageCitation
-1537,1,1,,,,1005,豊臣秀吉,2,1,誕生,,https://upload.wikimedia.org/wikipedia/commons/0/09/Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png,https://upload.wikimedia.org/wikipedia/commons/0/09/Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png,"Kanō Mitsunobu (狩野 光信, 1565–1608), Public domain, via Wikimedia Commons"
-1553,1,1,,,,1005,豊臣秀吉,2,2,竹中半兵衛と出会う,,,,
-1554,1,1,,,,1005,豊臣秀吉,2,3,織田信長に従える,,,,
-1570,1,1,,,,1005,豊臣秀吉,2,4,金ケ崎の引き口,,,,
-1573,1,1,,,,1005,豊臣秀吉,2,1,木下から羽柴に改める,,,,
-1575,1,1,,,,1005,豊臣秀吉,2,2,長篠の戦いに参加,,,,
-1582,1,1,,,,1005,豊臣秀吉,2,3,本能寺の変　中国大返し,,,,
-1583,1,1,,,,1005,豊臣秀吉,2,4,賤ヶ岳の戦いに勝利,,,,
-1585,1,1,,,,1005,豊臣秀吉,2,1,関白に任命される,,,,
-1586,1,1,,,,1005,豊臣秀吉,2,2,豊臣の姓を賜る,,,,
-1588,1,1,,,,1005,豊臣秀吉,2,3,刀狩令を発布,,,,
-1590,1,1,,,,1005,豊臣秀吉,2,4,小田原攻め,,,,
-1592,1,1,,,,1005,豊臣秀吉,2,1,朝鮮出兵を開始,,,,
-1594,1,1,,,,1005,豊臣秀吉,2,2,伏見城を築城,,https://upload.wikimedia.org/wikipedia/commons/c/ca/Fushimi2.jpg,https://upload.wikimedia.org/wikipedia/commons/c/ca/Fushimi2.jpg,"投稿者がファイル作成, Public domain, via Wikimedia Commons"
-1595,1,1,,,,1005,豊臣秀吉,2,3,秀次事件が発生,,,,
-1598,1,1,,,,1005,豊臣秀吉,2,4,死去,,,,
+1537,1,1,,,,1005,豊臣秀吉,2,,尾張国にて誕生,,https://upload.wikimedia.org/wikipedia/commons/0/09/Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png,https://upload.wikimedia.org/wikipedia/commons/0/09/Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png,"Kanō Mitsunobu (狩野 光信, 1565–1608), Public domain, via Wikimedia Commons"
+1550,1,1,,,,1005,豊臣秀吉,2,,「木下藤吉郎」を名乗り　松下之綱(今川方)に仕える(詳細不明),,,,
+1554,1,1,,,,1005,豊臣秀吉,2,,織田信長に仕える,,,,
+1561,1,1,,,,1005,豊臣秀吉,2,,ねねと結婚する,,https://ja.wikipedia.org/wiki/%E9%AB%98%E5%8F%B0%E9%99%A2,,
+1566,1,1,,,,1005,豊臣秀吉,2,,金ヶ崎の退き口　織田信長を、無事に撤退させる功績,,https://ja.wikipedia.org/wiki/%E9%87%91%E3%83%B6%E5%B4%8E%E3%81%AE%E6%88%A6%E3%81%84,,
+1573,1,1,,,,1005,豊臣秀吉,2,,「木下」から「羽柴」に改める,,https://ja.wikipedia.org/wiki/%E8%B1%8A%E8%87%A3%E7%A7%80%E5%90%89,,
+1575,1,1,,,,1005,豊臣秀吉,2,,長篠の戦いに参加(織田方),,https://upload.wikimedia.org/wikipedia/commons/8/85/Bab%C5%8Dsaku.jpg,https://upload.wikimedia.org/wikipedia/commons/8/85/Bab%C5%8Dsaku.jpg,"立花左近, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, ウィキメディア・コモンズ経由で"
+1582,1,1,,,,1005,豊臣秀吉,2,,本能寺の変　中国大返し,,https://ja.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E8%BF%94%E3%81%97,,
+1583,1,1,,,,1005,豊臣秀吉,2,,賤ヶ岳の戦いに勝利　大阪城造営,,https://upload.wikimedia.org/wikipedia/commons/3/3c/Osaka_Castle_Keep_tower_of_%E3%80%8CA_figure_of_camp_screen_of_the_Osaka_summer%E3%80%8D.jpg,https://upload.wikimedia.org/wikipedia/commons/3/3c/Osaka_Castle_Keep_tower_of_%E3%80%8CA_figure_of_camp_screen_of_the_Osaka_summer%E3%80%8D.jpg,"Several painters commissioned by Kuroda Nagamasa., Public domain, ウィキメディア・コモンズ経由で"
+1585,1,1,,,,1005,豊臣秀吉,2,,関白に任命される,,,,
+1586,1,1,,,,1005,豊臣秀吉,2,,「豊臣」の姓を賜る,,,,
+1588,1,1,,,,1005,豊臣秀吉,2,,刀狩令を発布,,https://ja.wikipedia.org/wiki/%E5%88%80%E7%8B%A9,,
+1590,1,1,,,,1005,豊臣秀吉,2,,小田原攻め,,https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%BE%81%E4%BC%90,,
+1592,1,1,,,,1005,豊臣秀吉,2,,朝鮮出兵(文禄の役),,https://ja.wikipedia.org/wiki/%E6%96%87%E7%A6%84%E3%83%BB%E6%85%B6%E9%95%B7%E3%81%AE%E5%BD%B9,https://upload.wikimedia.org/wikipedia/commons/e/ec/Siege-of-Busanjin-1592.jpg,"不明Unknown author, Public domain, ウィキメディア・コモンズ経由で"
+1593,1,1,,,,1005,豊臣秀吉,2,,側室淀殿　後継者となる秀頼を出産,,https://ja.wikipedia.org/wiki/%E6%B7%80%E6%AE%BF,https://upload.wikimedia.org/wikipedia/commons/b/be/Yodo-dono_cropped.jpg,"奈良県立美術館収蔵『傳 淀殿畫像』 / Nara Museum of Art, Public domain, ウィキメディア・コモンズ経由で"
+1594,1,1,,,,1005,豊臣秀吉,2,,伏見城を築城,,https://upload.wikimedia.org/wikipedia/commons/c/ca/Fushimi2.jpg,https://upload.wikimedia.org/wikipedia/commons/c/ca/Fushimi2.jpg,"投稿者がファイル作成, Public domain, via Wikimedia Commons"
+1597,1,1,,,,1005,豊臣秀吉,2,,朝鮮出兵(慶長の役),,,,
+1598,1,1,,,,1005,豊臣秀吉,2,,死去,,,,
 1537,1,1,1598,1,1,1005,豊臣秀吉,1,,豊臣秀吉,#3C7D22,,,

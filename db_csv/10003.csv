@@ -1,15 +1,19 @@
 ﻿startYear,startMonth,startDay,endYear,endMonth,endDay,group,groupTitle,eventType,dispPos,event,eventColor,detailLink,image,imageCitation
-1521,1,1,,,,10003,武田信玄,2,1,武田信玄誕生,,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,"月岡芳年, Public domain, via Wikimedia Commons"
-1540,1,1,,,,10003,武田信玄,2,2,武田家家督相続,,,,
-1553,1,1,,,,10003,武田信玄,2,3,上杉謙信と初戦(川中島の戦い),,,,
-1545,1,1,,,,10003,武田信玄,2,4,高遠合戦,,,,
-1552,1,1,,,,10003,武田信玄,2,1,小岩嶽城,,,,
-1555,1,1,,,,10003,武田信玄,2,2,第二次川中島の戦い,,,,
-1557,1,1,,,,10003,武田信玄,2,3,第三次川中島の戦い,,,,
-1559,1,1,,,,10003,武田信玄,2,4,永禄の飢饉　甲斐国に大規模な水害,,,,
-1561,1,1,,,,10003,武田信玄,2,1,第四次川中島の戦い,,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,https://upload.wikimedia.org/wikipedia/commons/a/a6/Sengoku_period_battle.jpg,"[1], Public domain, via Wikimedia Commons"
-1564,1,1,,,,10003,武田信玄,2,2,第五次川中島の戦い,,,,
-1568,1,1,,,,10003,武田信玄,2,3,駿河侵攻開始,,,,
-1573,1,1,,,,10003,武田信玄,2,4,野田城の戦い後、甲斐に帰途中に死去,,,,
+1521,1,1,,,,10003,武田信玄,2,,甲斐国にて誕生,,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,"月岡芳年, Public domain, via Wikimedia Commons"
+1533,1,1,,,,10003,武田信玄,2,,上杉の方を正室として迎える,,https://ja.wikipedia.org/wiki/%E6%AD%A6%E7%94%B0%E4%BF%A1%E7%8E%84,,
+1536,1,1,,,,10003,武田信玄,2,,元服　晴信と改める,,,,
+1541,1,1,,,,10003,武田信玄,2,,信虎の駿河追放　家督相続,,,,
+1543,1,1,,,,10003,武田信玄,2,,信濃へ侵攻,,,,
+1545,1,1,,,,10003,武田信玄,2,,勝頼の母となる諏訪御料人(湖衣姫)の輿入れ,,https://ja.wikipedia.org/wiki/%E8%AB%8F%E8%A8%AA%E5%BE%A1%E6%96%99%E4%BA%BA,,
+1551,1,1,,,,10003,武田信玄,2,,信濃平定,,,,
+1553,1,1,,,,10003,武田信玄,2,,上杉謙信と初戦(川中島の戦い),,https://ja.wikipedia.org/wiki/%E5%B7%9D%E4%B8%AD%E5%B3%B6%E3%81%AE%E6%88%A6%E3%81%84,,
+1555,1,1,,,,10003,武田信玄,2,,第二次川中島の戦い,,https://upload.wikimedia.org/wikipedia/commons/a/a2/SaiRiverJoinsChikumaRiver.jpg,https://upload.wikimedia.org/wikipedia/commons/a/a2/SaiRiverJoinsChikumaRiver.jpg,"Bloglider at Japanese Wikipedia, CC BY-SA 3.0 <http://creativecommons.org/licenses/by-sa/3.0/>, via Wikimedia Commons"
+1557,1,1,,,,10003,武田信玄,2,,第三次川中島の戦い,,https://upload.wikimedia.org/wikipedia/commons/2/28/BattleKawanakajima.jpg,https://upload.wikimedia.org/wikipedia/commons/2/28/BattleKawanakajima.jpg,"日本語: 原著者：勝川春亭（文政7年没）、模写：歌川広重（寛政9年-安政5年）English:  after Katsukawa Shuntei (died in 1824) by Hiroshige(1797-1858), Public domain, ウィキメディア・コモンズ経由で"
+1559,1,1,,,,10003,武田信玄,2,,出家　「徳栄軒信玄」と号す,,,,
+1561,1,1,,,,10003,武田信玄,2,,第四次川中島の戦い,,https://upload.wikimedia.org/wikipedia/commons/0/0e/Takeda_Daizen_no_tay%C5%AB_Harunobu_Ny%C5%ABd%C5%8D_Shingen.jpg,https://upload.wikimedia.org/wikipedia/commons/a/a6/Sengoku_period_battle.jpg,"[1], Public domain, via Wikimedia Commons"
+1564,1,1,,,,10003,武田信玄,2,,第五次川中島の戦い,,,,
+1568,1,1,,,,10003,武田信玄,2,,駿河侵攻開始,,,,
+1569,1,1,,,,10003,武田信玄,2,,上杉家と和睦(甲越和与),,https://ja.wikipedia.org/wiki/%E7%94%B2%E8%B6%8A%E5%90%8C%E7%9B%9F,,
+1573,1,1,,,,10003,武田信玄,2,,野田城の戦い後、甲斐に帰途中に死去,,https://ja.wikipedia.org/wiki/%E9%87%8E%E7%94%B0%E5%9F%8E%E3%81%AE%E6%88%A6%E3%81%84,,
+1582,1,1,,,,10003,武田信玄,2,,武田家滅亡,,https://ja.wikipedia.org/wiki/%E6%AD%A6%E7%94%B0%E6%B0%8F,,
 1521,1,1,1573,1,1,10003,武田信玄,1,,武田信玄,#3C7D22,,,
-1582,1,1,,,,10003,武田信玄,2,1,武田家滅亡,,,,
