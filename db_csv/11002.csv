@@ -1,7 +1,10 @@
 ﻿startYear,startMonth,startDay,endYear,endMonth,endDay,group,groupTitle,eventType,dispPos,event,eventColor,detailLink,image,imageCitation
 -1680,1,1,-1500,1,1,11002,ヒッタイト,1,,古王国,#4D93D9,,,
 -1500,1,1,-1400,1,1,11002,ヒッタイト,1,,中王国,#44B3E1,,,
--1400,1,1,-1210,1,1,11002,ヒッタイト,1,,新王国,#47D359,,,
--1370,1,1,,,,11002,ヒッタイト,2,1,シュッピルリウマ1世　(中興の祖　ミタンニ攻略),,,,
--1330,1,1,,,,11002,ヒッタイト,2,2,ムルシリ2世(シュッピルリウマ1世の息子),,,,
--1295,1,1,,,,11002,ヒッタイト,2,3,ムワタリ2世(ムルシリ2世の息子　ラムセス2世とカデシュで戦う),,,,
+-1430,1,1,-1210,1,1,11002,ヒッタイト,1,,新王国,#47D359,,,
+-2000,1,1,,,,11002,ヒッタイト,2,,アナトリアに移動,,https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%83%E3%82%BF%E3%82%A4%E3%83%88%E3%81%AE%E6%AD%B4%E5%8F%B2,https://upload.wikimedia.org/wikipedia/commons/3/37/Mass_migration_of_Greece_and_Turkey_in_1900BCE.svg,"Esemono, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons"
+-1595,1,1,,,,11002,ヒッタイト,2,,ムルシリ1世古バビロニアを滅ぼす,,https://ja.wikipedia.org/wiki/%E3%83%A0%E3%83%AB%E3%82%B7%E3%83%AA1%E4%B8%96,,
+-1370,1,1,,,,11002,ヒッタイト,2,,シュッピルリウマ1世　ミタンニ攻略,,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%83%83%E3%83%94%E3%83%AB%E3%83%AA%E3%82%A6%E3%83%9E1%E4%B8%96,,
+-1330,1,1,,,,11002,ヒッタイト,2,,ムルシリ2　シリア遠征(粘土板文書の記録多数),,https://ja.wikipedia.org/wiki/%E3%83%A0%E3%83%AB%E3%82%B7%E3%83%AA2%E4%B8%96,,
+-1295,1,1,,,,11002,ヒッタイト,2,,ムワタリ2世　ラムセス2世と戦う(カデシュの戦い),,https://ja.wikipedia.org/wiki/%E3%83%A0%E3%83%AB%E3%82%B7%E3%83%AA2%E4%B8%96,https://upload.wikimedia.org/wikipedia/commons/7/7b/Hittite_Chariot.jpg,"See page for author, Public domain, via Wikimedia Commons"
+-1200,1,1,,,,11002,ヒッタイト,2,,海の民により崩壊(通説),,https://ja.wikipedia.org/wiki/%E6%B5%B7%E3%81%AE%E6%B0%91,,

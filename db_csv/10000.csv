@@ -1,61 +1,193 @@
 ﻿startYear,startMonth,startDay,endYear,endMonth,endDay,group,groupTitle,eventType,dispPos,event,eventColor,detailLink,image,imageCitation
--5000,1,1,-500,1,1,10000,日本の歴史,1,,縄文時代,#4D93D9,,,
--500,1,1,250,1,1,10000,日本の歴史,1,,弥生時代,#44B3E1,,,
-250,1,1,593,1,1,10000,日本の歴史,1,,古墳時代,#47D359,,,
-593,1,1,710,1,1,10000,日本の歴史,1,,飛鳥時代,#E49EDD,,,
-710,1,1,794,1,1,10000,日本の歴史,1,,奈良時代,#BE5014,,,
-794,1,1,1192,1,1,10000,日本の歴史,1,,平安時代,#4D93D9,,,
-1192,1,1,1333,1,1,10000,日本の歴史,1,,鎌倉時代,#44B3E1,,,
-1336,1,1,1573,1,1,10000,日本の歴史,1,,室町時代,#47D359,,,
-1573,1,1,1603,1,1,10000,日本の歴史,1,,安土桃山時代,#E49EDD,,,
-1603,1,1,1868,1,1,10000,日本の歴史,1,,江戸時代,#BE5014,,,
-1868,1,1,1912,1,1,10000,日本の歴史,1,,明治時代,#4D93D9,,,
-1912,1,1,1926,1,1,10000,日本の歴史,1,,大正時代,#44B3E1,,,
-1926,1,1,1989,1,1,10000,日本の歴史,1,,昭和時代,#47D359,,,
-1989,1,1,2019,1,1,10000,日本の歴史,1,,平成時代,#E49EDD,,,
-2019,1,1,2025,1,1,10000,日本の歴史,1,,令和時代,#BE5014,,,
-1467,1,1,,,,10000,日本の歴史,2,,応仁の乱が始まる,,,,
-1488,1,1,,,,10000,日本の歴史,2,,加賀の一向一揆,,,,
-1543,1,1,,,,10000,日本の歴史,2,,鉄砲伝来,,,,
-1588,1,1,,,,10000,日本の歴史,2,,刀狩令,,,,
-1590,1,1,,,,10000,日本の歴史,2,,秀吉全国統一,,,,
-57,1,1,,,,10000,日本の歴史,2,,倭奴国王が後漢に遣使,,,
-239,1,1,,,,10000,日本の歴史,2,,卑弥呼が魏に遣使,,,
-538,1,1,,,,10000,日本の歴史,2,,仏教公伝,,,
-604,1,1,,,,10000,日本の歴史,2,,十七条憲法制定,,,
-645,1,1,,,,10000,日本の歴史,2,,大化の改新,,,
-663,1,1,,,,10000,日本の歴史,2,,白村江の戦い,,,
-701,1,1,,,,10000,日本の歴史,2,,大宝律令制定,,,
-710,1,1,,,,10000,日本の歴史,2,,平城京遷都,,,
-794,1,1,,,,10000,日本の歴史,2,,平安京遷都,,,
-894,1,1,,,,10000,日本の歴史,2,,遣唐使廃止,,,
-1086,1,1,,,,10000,日本の歴史,2,,白河上皇院政開始,,,
-1185,1,1,,,,10000,日本の歴史,2,,壇ノ浦の戦い,,,
-1192,1,1,,,,10000,日本の歴史,2,,鎌倉幕府成立,,,
-1274,1,1,,,,10000,日本の歴史,2,,文永の役,,,
-1281,1,1,,,,10000,日本の歴史,2,,弘安の役,,,
-1336,1,1,,,,10000,日本の歴史,2,,南北朝時代開始,,,
-1467,1,1,,,,10000,日本の歴史,2,,応仁の乱,,,
-1543,1,1,,,,10000,日本の歴史,2,,鉄砲伝来,,,
-1549,1,1,,,,10000,日本の歴史,2,,キリスト教伝来,,,
-1560,1,1,,,,10000,日本の歴史,2,,桶狭間の戦い,,,
-1575,1,1,,,,10000,日本の歴史,2,,長篠の戦い,,,
-1582,1,1,,,,10000,日本の歴史,2,,本能寺の変,,,
-1590,1,1,,,,10000,日本の歴史,2,,小田原征伐,,,
-1600,1,1,,,,10000,日本の歴史,2,,関ヶ原の戦い,,,
-1603,1,1,,,,10000,日本の歴史,2,,江戸幕府開府,,,
-1639,1,1,,,,10000,日本の歴史,2,,鎖国完成,,,
-1853,1,1,,,,10000,日本の歴史,2,,ペリー来航,,,
-1867,1,1,,,,10000,日本の歴史,2,,大政奉還,,,
-1868,1,1,,,,10000,日本の歴史,2,,明治維新,,,
-1889,1,1,,,,10000,日本の歴史,2,,大日本帝国憲法発布,,,
-1923,1,1,,,,10000,日本の歴史,2,,関東大震災,,,
-1941,1,1,,,,10000,日本の歴史,2,,太平洋戦争開戦,,,
-1945,8,15,,,,10000,日本の歴史,2,,終戦,,,
-1947,1,1,,,,10000,日本の歴史,2,,日本国憲法施行,,,
-1956,1,1,,,,10000,日本の歴史,2,,国連加盟,,,
-1964,1,1,,,,10000,日本の歴史,2,,東京オリンピック開催,,,
-1973,1,1,,,,10000,日本の歴史,2,,オイルショック,,,
-1989,1,1,,,,10000,日本の歴史,2,,平成時代開始,,,
-2011,3,11,,,,10000,日本の歴史,2,,東日本大震災,,,
-2019,1,1,,,,10000,日本の歴史,2,,令和時代開始,,,
+-5000,1,1,-500,1,1,10000,日本の歴史(詳細版),1,,縄文時代,#4D93D9,,,
+-500,1,1,250,1,1,10000,日本の歴史(詳細版),1,,弥生時代,#44B3E1,,,
+250,1,1,593,1,1,10000,日本の歴史(詳細版),1,,古墳時代,#47D359,,,
+593,1,1,710,1,1,10000,日本の歴史(詳細版),1,,飛鳥時代,#E49EDD,,,
+710,1,1,794,1,1,10000,日本の歴史(詳細版),1,,奈良時代,#BE5014,,,
+794,1,1,1192,1,1,10000,日本の歴史(詳細版),1,,平安時代,#4D93D9,,,
+1192,1,1,1333,1,1,10000,日本の歴史(詳細版),1,,鎌倉時代,#44B3E1,,,
+1336,1,1,1573,1,1,10000,日本の歴史(詳細版),1,,室町時代,#47D359,,,
+1573,1,1,1603,1,1,10000,日本の歴史(詳細版),1,,安土桃山時代,#E49EDD,,,
+1603,1,1,1868,1,1,10000,日本の歴史(詳細版),1,,江戸時代,#BE5014,,,
+1868,1,1,1912,1,1,10000,日本の歴史(詳細版),1,,明治時代,#4D93D9,,,
+1912,1,1,1926,1,1,10000,日本の歴史(詳細版),1,,大正時代,#44B3E1,,,
+1926,1,1,1989,1,1,10000,日本の歴史(詳細版),1,,昭和時代,#47D359,,,
+1989,1,1,2019,1,1,10000,日本の歴史(詳細版),1,,平成時代,#E49EDD,,,
+2019,1,1,2025,1,1,10000,日本の歴史(詳細版),1,,令和時代,#BE5014,,,
+-3500,1,1,,,,10000,日本の歴史(詳細版),2,,山内丸山遺跡,,https://ja.wikipedia.org/wiki/%E4%B8%89%E5%86%85%E4%B8%B8%E5%B1%B1%E9%81%BA%E8%B7%A1,https://upload.wikimedia.org/wikipedia/commons/1/1d/140913_Sannai-Maruyama_site_Aomori_Japan01bs6bs6.jpg,"663highland, CC BY-SA 3.0 <http://creativecommons.org/licenses/by-sa/3.0/>, via Wikimedia Commons"
+-1000,1,1,,,,10000,日本の歴史(詳細版),2,,稲作が始まる(菜畑遺跡など),,https://ja.wikipedia.org/wiki/%E8%8F%9C%E7%95%91%E9%81%BA%E8%B7%A1,https://upload.wikimedia.org/wikipedia/commons/5/5a/Nabatake_Site_rice_field.JPG,"Pekachu, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons"
+-660,1,1,,,,10000,日本の歴史(詳細版),2,,神武天皇即位(伝説),,https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%AD%A6%E5%A4%A9%E7%9A%87,https://upload.wikimedia.org/wikipedia/commons/0/0d/Tenn%C5%8D_Jimmu_image_01.jpg,"Renzō Kita, Public domain, via Wikimedia Commons"
+-300,1,1,,,,10000,日本の歴史(詳細版),2,,環壕集落(吉野ケ里遺跡),,https://ja.wikipedia.org/wiki/%E5%90%89%E9%87%8E%E3%83%B6%E9%87%8C%E9%81%BA%E8%B7%A1,https://upload.wikimedia.org/wikipedia/commons/3/38/Yoshinogari-iseki_zenkei.JPG,"Saigen Jiro, CC0, via Wikimedia Commons"
+57,1,1,,,,10000,日本の歴史(詳細版),2,,倭奴国王が後漢に遣使,,https://ja.wikipedia.org/wiki/%E5%A5%B4%E5%9B%BD,,
+239,1,1,,,,10000,日本の歴史(詳細版),2,,卑弥呼が魏に遣使,,https://ja.wikipedia.org/wiki/%E5%8D%91%E5%BC%A5%E5%91%BC,,
+350,1,1,,,,10000,日本の歴史(詳細版),2,,ヤマト王権の成立(？),,https://ja.wikipedia.org/wiki/%E3%83%A4%E3%83%9E%E3%83%88%E7%8E%8B%E6%A8%A9,https://upload.wikimedia.org/wikipedia/commons/8/8a/Unebi-yama.jpg,"ウォーレンさわかみ, CC BY-SA 2.1 JP <https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en>, via Wikimedia Commons"
+391,1,1,404,1,1,10000,日本の歴史(詳細版),2,1,倭・高句麗戦争,,https://ja.wikipedia.org/wiki/%E5%80%AD%E3%83%BB%E9%AB%98%E5%8F%A5%E9%BA%97%E6%88%A6%E4%BA%89,,
+538,1,1,,,,10000,日本の歴史(詳細版),2,,仏教公伝,,https://ja.wikipedia.org/wiki/%E4%BB%8F%E6%95%99%E5%85%AC%E4%BC%9D,,
+587,1,1,,,,10000,日本の歴史(詳細版),2,,蘇我氏が物部氏を滅ぼす(丁未の変),,https://ja.wikipedia.org/wiki/%E4%B8%81%E6%9C%AA%E3%81%AE%E4%B9%B1,,
+593,1,1,,,,10000,日本の歴史(詳細版),2,,推古天皇即位　聖徳太子の摂政開始,,https://ja.wikipedia.org/wiki/%E8%81%96%E5%BE%B3%E5%A4%AA%E5%AD%90,https://upload.wikimedia.org/wikipedia/commons/4/45/Sh%C5%8Dtoku_Taishi_Sh%C5%8Dmanky%C5%8D_K%C5%8Dsan.jpg,"Taishi Town, Hyogo Prefecture [1], Public domain, via Wikimedia Commons"
+604,1,1,,,,10000,日本の歴史(詳細版),2,,十七条憲法制定,,https://ja.wikipedia.org/wiki/%E5%8D%81%E4%B8%83%E6%9D%A1%E6%86%B2%E6%B3%95,,
+607,1,1,,,,10000,日本の歴史(詳細版),2,,小野妹子を隋に遣わす(遣隋使),,https://ja.wikipedia.org/wiki/%E5%B0%8F%E9%87%8E%E5%A6%B9%E5%AD%90,,
+607,1,1,,,,10000,日本の歴史(詳細版),2,,法隆寺創建,,https://ja.wikipedia.org/wiki/%E6%B3%95%E9%9A%86%E5%AF%BA,https://upload.wikimedia.org/wikipedia/commons/e/e4/Horyu-ji45s2s4500.jpg,"663highland, CC BY-SA 3.0 <http://creativecommons.org/licenses/by-sa/3.0/>, via Wikimedia Commons"
+630,1,1,,,,10000,日本の歴史(詳細版),2,,犬上御田鍬を唐に派遣(遣唐使初め),,https://ja.wikipedia.org/wiki/%E7%8A%AC%E4%B8%8A%E5%BE%A1%E7%94%B0%E9%8D%AC,,
+645,1,1,,,,10000,日本の歴史(詳細版),2,,中大兄皇子と中臣鎌足による蘇我氏宗家誅滅（乙巳の変）,,https://ja.wikipedia.org/wiki/%E4%B9%99%E5%B7%B3%E3%81%AE%E5%A4%89,https://upload.wikimedia.org/wikipedia/commons/3/32/Irukaansatsuzu.jpg,"Gukei Sumiyoshi, Public domain, via Wikimedia Commons"
+645,1,1,,,,10000,日本の歴史(詳細版),2,,大化の改新,,,,
+663,1,1,,,,10000,日本の歴史(詳細版),2,,白村江の戦い(日本・百済vs唐・新羅),,https://ja.wikipedia.org/wiki/%E7%99%BD%E6%9D%91%E6%B1%9F%E3%81%AE%E6%88%A6%E3%81%84,,
+672,1,1,,,,10000,日本の歴史(詳細版),2,,壬申の乱　飛鳥京に遷都,,https://ja.wikipedia.org/wiki/%E5%A3%AC%E7%94%B3%E3%81%AE%E4%B9%B1,,
+694,1,1,,,,10000,日本の歴史(詳細版),2,,藤原京に遷都,,https://ja.wikipedia.org/wiki/%E8%97%A4%E5%8E%9F%E4%BA%AC,https://upload.wikimedia.org/wikipedia/commons/f/fb/210401_One-thousandth_scale_model_of_Aramashinomiyako.jpg,"名古屋太郎, CC0, via Wikimedia Commons"
+701,1,1,,,,10000,日本の歴史(詳細版),2,,大宝律令制定　国号を日本に改める,,https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%AE%9D%E5%BE%8B%E4%BB%A4,,
+710,1,1,,,,10000,日本の歴史(詳細版),2,,平城京遷都,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%9F%8E%E4%BA%AC,,
+712,1,1,,,,10000,日本の歴史(詳細版),2,,『古事記』成立,,https://ja.wikipedia.org/wiki/%E5%8F%A4%E4%BA%8B%E8%A8%98,,
+720,1,1,,,,10000,日本の歴史(詳細版),2,,『日本書紀』成立,,https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E6%9B%B8%E7%B4%80,,
+741,1,1,,,,10000,日本の歴史(詳細版),2,,聖武天皇　国分寺・国分尼寺建立,,https://ja.wikipedia.org/wiki/%E5%9B%BD%E5%88%86%E5%AF%BA,,
+743,1,1,,,,10000,日本の歴史(詳細版),2,,墾田永年私財法,,https://ja.wikipedia.org/wiki/%E5%A2%BE%E7%94%B0%E6%B0%B8%E5%B9%B4%E7%A7%81%E8%B2%A1%E6%B3%95,,
+752,1,1,,,,10000,日本の歴史(詳細版),2,,東大寺大仏の開眼,,https://ja.wikipedia.org/wiki/%E6%9D%B1%E5%A4%A7%E5%AF%BA%E7%9B%A7%E8%88%8E%E9%82%A3%E4%BB%8F%E5%83%8F,https://upload.wikimedia.org/wikipedia/commons/7/7a/Daibutsu_of_Todaiji_4.jpg,"Mafue, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons"
+754,1,1,,,,10000,日本の歴史(詳細版),2,,鑑真　来朝し律宗を伝える,,https://ja.wikipedia.org/wiki/%E9%91%91%E7%9C%9F,https://upload.wikimedia.org/wikipedia/commons/c/ce/Ganjin_wajyo_portrait.JPG,"OGAWA SEIYOU(1894-1960) a famous  photographer in Japan}, Public domain, via Wikimedia Commons"
+759,1,1,,,,10000,日本の歴史(詳細版),2,,『万葉集』成立,,https://ja.wikipedia.org/wiki/%E4%B8%87%E8%91%89%E9%9B%86,,
+784,1,1,,,,10000,日本の歴史(詳細版),2,,長岡京に遷都,,https://ja.wikipedia.org/wiki/%E9%95%B7%E5%B2%A1%E4%BA%AC,,
+788,1,1,,,,10000,日本の歴史(詳細版),2,,最澄が延暦寺を建立,,https://ja.wikipedia.org/wiki/%E5%BB%B6%E6%9A%A6%E5%AF%BA,,
+794,1,1,,,,10000,日本の歴史(詳細版),2,,平安京遷都,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%AE%89%E4%BA%AC,,
+801,1,1,,,,10000,日本の歴史(詳細版),2,,坂上田村麻呂、蝦夷を平定,,https://ja.wikipedia.org/wiki/%E5%9D%82%E4%B8%8A%E7%94%B0%E6%9D%91%E9%BA%BB%E5%91%82,https://upload.wikimedia.org/wikipedia/commons/8/8d/Sakanoue_Tamuramaro_sw.jpg,"Katalog, Public domain, via Wikimedia Commons"
+816,1,1,,,,10000,日本の歴史(詳細版),2,,空海が高野山金剛峯寺を建立,,https://ja.wikipedia.org/wiki/%E9%87%91%E5%89%9B%E5%B3%AF%E5%AF%BA,https://upload.wikimedia.org/wikipedia/commons/e/e1/Danjogaran_Koyasan16n4272.jpg,"663highland, CC BY-SA 3.0 <http://creativecommons.org/licenses/by-sa/3.0/>, via Wikimedia Commons"
+842,1,1,,,,10000,日本の歴史(詳細版),2,,承和の変（藤原氏による最初の他氏排斥事変）,,https://ja.wikipedia.org/wiki/%E6%89%BF%E5%92%8C%E3%81%AE%E5%A4%89,,
+864,1,1,,,,10000,日本の歴史(詳細版),2,,富士山噴火(貞観大噴火)青木ヶ原樹海形成,,https://ja.wikipedia.org/wiki/%E8%B2%9E%E8%A6%B3%E5%A4%A7%E5%99%B4%E7%81%AB,https://upload.wikimedia.org/wikipedia/commons/d/d9/Kodaki_fuji_frm_shojinko.jpg,"名古屋太郎, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons"
+869,1,1,,,,10000,日本の歴史(詳細版),2,,貞観地震(三陸沖),,https://ja.wikipedia.org/wiki/%E8%B2%9E%E8%A6%B3%E5%9C%B0%E9%9C%87,,
+887,1,1,,,,10000,日本の歴史(詳細版),2,,藤原基経、関白となる(初の関白),,https://ja.wikipedia.org/wiki/%E8%97%A4%E5%8E%9F%E5%9F%BA%E7%B5%8C,,
+894,1,1,,,,10000,日本の歴史(詳細版),2,,遣唐使廃止,,,,
+905,1,1,,,,10000,日本の歴史(詳細版),2,,『古今和歌集』成立,,https://ja.wikipedia.org/wiki/%E5%8F%A4%E4%BB%8A%E5%92%8C%E6%AD%8C%E9%9B%86,,
+935,1,1,941,1,1,10000,日本の歴史(詳細版),2,1,承平天慶の乱,,https://ja.wikipedia.org/wiki/%E6%89%BF%E5%B9%B3%E5%A4%A9%E6%85%B6%E3%81%AE%E4%B9%B1,,
+939,1,1,,,,10000,日本の歴史(詳細版),2,2,平将門の乱,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%B0%86%E9%96%80,https://upload.wikimedia.org/wikipedia/commons/8/87/Taira_no_Masakado_01.jpg,"See page for author, Public domain, via Wikimedia Commons"
+969,1,1,,,,10000,日本の歴史(詳細版),2,3,安和の変(藤原氏による他氏排斥事件),,https://ja.wikipedia.org/wiki/%E5%AE%89%E5%92%8C%E3%81%AE%E5%A4%89,,
+995,1,1,,,,10000,日本の歴史(詳細版),2,,京都で天然痘流行,,,,
+1016,1,1,,,,10000,日本の歴史(詳細版),2,,藤原道長　摂政に就任,,https://ja.wikipedia.org/wiki/%E8%97%A4%E5%8E%9F%E9%81%93%E9%95%B7,https://upload.wikimedia.org/wikipedia/commons/7/72/Fujiwara_no_Michinaga_2.jpg,"See page for author, Public domain, via Wikimedia Commons"
+1019,1,1,,,,10000,日本の歴史(詳細版),2,,女真の一派が九州へ侵攻(刀伊の入寇),,https://ja.wikipedia.org/wiki/%E5%88%80%E4%BC%8A%E3%81%AE%E5%85%A5%E5%AF%87,,
+1028,1,1,,,,10000,日本の歴史(詳細版),2,,平忠常の乱,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%BF%A0%E5%B8%B8%E3%81%AE%E4%B9%B1,,
+1051,1,1,,,,10000,日本の歴史(詳細版),2,,前九年の役,,https://ja.wikipedia.org/wiki/%E5%89%8D%E4%B9%9D%E5%B9%B4%E3%81%AE%E5%BD%B9,,
+1083,1,1,,,,10000,日本の歴史(詳細版),2,,後三年の役,,https://ja.wikipedia.org/wiki/%E5%BE%8C%E4%B8%89%E5%B9%B4%E3%81%AE%E5%BD%B9,,
+1086,1,1,,,,10000,日本の歴史(詳細版),2,,白河上皇院政開始,,https://ja.wikipedia.org/wiki/%E7%99%BD%E6%B2%B3%E5%A4%A9%E7%9A%87,https://upload.wikimedia.org/wikipedia/commons/e/ef/Emperor_Shirakawa.jpg,"See page for author, Public domain, via Wikimedia Commons"
+1096,1,1,,,,10000,日本の歴史(詳細版),2,,永長地震(南海トラフ),,https://ja.wikipedia.org/wiki/%E6%B0%B8%E9%95%B7%E5%9C%B0%E9%9C%87,,
+1098,1,1,,,,10000,日本の歴史(詳細版),2,,源義家　武士初の殿上人となる,,https://ja.wikipedia.org/wiki/%E6%BA%90%E7%BE%A9%E5%AE%B6,https://upload.wikimedia.org/wikipedia/commons/5/53/Minamoto_no_Yoshiie.jpg,"菊池容斎, Public domain, via Wikimedia Commons"
+1132,1,1,,,,10000,日本の歴史(詳細版),2,,平忠盛、昇殿を許される,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%BF%A0%E7%9B%9B,https://upload.wikimedia.org/wikipedia/commons/f/f9/Taira_no_Tadamori.jpg,"Hannah, Public domain, via Wikimedia Commons"
+1156,1,1,,,,10000,日本の歴史(詳細版),2,,朝廷が後白河天皇方と崇徳上皇方に分かれ衝突(保元の乱),,https://ja.wikipedia.org/wiki/%E4%BF%9D%E5%85%83%E3%81%AE%E4%B9%B1,,
+1159,1,1,,,,10000,日本の歴史(詳細版),2,,平治の乱　平氏の台頭,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E6%B2%BB%E3%81%AE%E4%B9%B1,,
+1167,1,1,,,,10000,日本の歴史(詳細版),2,,平清盛　太政大臣に就任,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E6%B8%85%E7%9B%9B,https://upload.wikimedia.org/wikipedia/commons/7/76/Taira_no_Kiyomori%2CTenshiSekkanMiei.jpg,"藤原豪信, Public domain, via Wikimedia Commons"
+1173,1,1,,,,10000,日本の歴史(詳細版),2,,日宋貿易,,https://ja.wikipedia.org/wiki/%E6%97%A5%E5%AE%8B%E8%B2%BF%E6%98%93,,
+1180,1,1,1185,1,1,10000,日本の歴史(詳細版),2,1,治承・寿永の乱（源平合戦）,,https://ja.wikipedia.org/wiki/%E6%B2%BB%E6%89%BF%E3%83%BB%E5%AF%BF%E6%B0%B8%E3%81%AE%E4%B9%B1,https://upload.wikimedia.org/wikipedia/commons/7/78/Genpei_kassen.jpg,"Motonobu Denkinobu (伝狩野元信), Public domain, via Wikimedia Commons"
+1180,1,1,,,,10000,日本の歴史(詳細版),2,2,富士川の戦い,,https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%A3%AB%E5%B7%9D%E3%81%AE%E6%88%A6%E3%81%84,,
+1184,1,1,,,,10000,日本の歴史(詳細版),2,3,一ノ谷の戦い,,https://ja.wikipedia.org/wiki/%E4%B8%80%E3%83%8E%E8%B0%B7%E3%81%AE%E6%88%A6%E3%81%84,,
+1185,1,1,,,,10000,日本の歴史(詳細版),2,4,壇ノ浦の戦い,,https://ja.wikipedia.org/wiki/%E5%A3%87%E3%83%8E%E6%B5%A6%E3%81%AE%E6%88%A6%E3%81%84,,
+1189,1,1,,,,10000,日本の歴史(詳細版),2,,奥州合戦(義経死亡),,https://ja.wikipedia.org/wiki/%E5%A5%A5%E5%B7%9E%E5%90%88%E6%88%A6,,
+1192,1,1,,,,10000,日本の歴史(詳細版),2,,頼朝、征夷大将軍に任ぜられる,,https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%80%89%E5%B9%95%E5%BA%9C,,
+1203,1,1,,,,10000,日本の歴史(詳細版),2,,北条時政が執権につく,,https://ja.wikipedia.org/wiki/%E5%8C%97%E6%9D%A1%E6%99%82%E6%94%BF,,
+1212,1,1,,,,10000,日本の歴史(詳細版),2,,『方丈記』成立,,https://ja.wikipedia.org/wiki/%E6%96%B9%E4%B8%88%E8%A8%98,,
+1219,1,1,,,,10000,日本の歴史(詳細版),2,,源実朝　暗殺される(源氏将軍が断絶),,https://ja.wikipedia.org/wiki/%E6%BA%90%E5%AE%9F%E6%9C%9D,,
+1232,1,1,,,,10000,日本の歴史(詳細版),2,,武家政権の法令制定(御成敗式目),,https://ja.wikipedia.org/wiki/%E5%BE%A1%E6%88%90%E6%95%97%E5%BC%8F%E7%9B%AE,,
+1268,1,1,,,,10000,日本の歴史(詳細版),2,,北条時宗が執権に就く,,https://ja.wikipedia.org/wiki/%E5%8C%97%E6%9D%A1%E6%99%82%E5%AE%97,,
+1274,1,1,,,,10000,日本の歴史(詳細版),2,,文永の役(蒙古襲来),,https://ja.wikipedia.org/wiki/%E5%85%83%E5%AF%87#%E6%96%87%E6%B0%B8%E3%81%AE%E5%BD%B9,https://upload.wikimedia.org/wikipedia/commons/1/19/M%C5%8Dko_Sh%C5%ABrai_Ekotoba.jpg,Public domain
+1281,1,1,,,,10000,日本の歴史(詳細版),2,,弘安の役(蒙古襲来),,https://upload.wikimedia.org/wikipedia/commons/2/2a/Takezaki_suenaga_ekotoba3.jpg,https://upload.wikimedia.org/wikipedia/commons/2/2a/Takezaki_suenaga_ekotoba3.jpg,"日本語: 竹崎季長English:  Takezaki Suenaga, Public domain, via Wikimedia Commons"
+1293,1,1,,,,10000,日本の歴史(詳細版),2,,鎌倉大地震(相模トラフ),,https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%80%89%E5%A4%A7%E5%9C%B0%E9%9C%87,,
+1331,1,1,,,,10000,日本の歴史(詳細版),2,4,『徒然草』成立,,https://ja.wikipedia.org/wiki/%E5%BE%92%E7%84%B6%E8%8D%89,,
+1331,1,1,1333,1,1,10000,日本の歴史(詳細版),2,1,元弘の乱,,https://ja.wikipedia.org/wiki/%E5%85%83%E5%BC%98%E3%81%AE%E4%B9%B1,,
+1331,1,1,,,,10000,日本の歴史(詳細版),2,2,後醍醐天皇　挙兵,,https://ja.wikipedia.org/wiki/%E5%BE%8C%E9%86%8D%E9%86%90%E5%A4%A9%E7%9A%87,https://upload.wikimedia.org/wikipedia/commons/0/0b/Emperor_Godaigo_by_Monkan-b%C5%8D_K%C5%8Dshin.jpg,"Monkan-bō Kōshin, Public domain, via Wikimedia Commons"
+1333,1,1,,,,10000,日本の歴史(詳細版),2,3,東勝寺合戦　鎌倉幕府が滅亡,,https://ja.wikipedia.org/wiki/%E6%9D%B1%E5%8B%9D%E5%AF%BA%E5%90%88%E6%88%A6,,
+1334,1,1,,,,10000,日本の歴史(詳細版),2,2,建武の新政。後醍醐天皇による親政,,https://ja.wikipedia.org/wiki/%E5%BB%BA%E6%AD%A6%E3%81%AE%E6%96%B0%E6%94%BF,,
+1336,1,1,1392,1,1,10000,日本の歴史(詳細版),2,1,南北朝時代,#0070C0,https://ja.wikipedia.org/wiki/%E5%8D%97%E5%8C%97%E6%9C%9D%E6%99%82%E4%BB%A3_(%E6%97%A5%E6%9C%AC),,
+1336,1,1,,,,10000,日本の歴史(詳細版),2,3,建武の乱,,https://ja.wikipedia.org/wiki/%E5%BB%BA%E6%AD%A6%E3%81%AE%E4%B9%B1,,
+1336,1,1,,,,10000,日本の歴史(詳細版),2,4,後醍醐天皇、吉野へ,,https://ja.wikipedia.org/wiki/%E5%8D%97%E6%9C%9D_(%E6%97%A5%E6%9C%AC),,
+1338,1,1,,,,10000,日本の歴史(詳細版),2,2,足利尊氏、征夷大将軍に(室町幕府),,https://ja.wikipedia.org/wiki/%E5%AE%A4%E7%94%BA%E5%B9%95%E5%BA%9C,,
+1378,1,1,,,,10000,日本の歴史(詳細版),2,3,足利義満、室町に花の御所を造営,,https://ja.wikipedia.org/wiki/%E8%8A%B1%E3%81%AE%E5%BE%A1%E6%89%80,https://upload.wikimedia.org/wikipedia/commons/a/a7/Hana-no-Gosho-Flower-Palace-Kyoto.png,"日本語: 京都アスニー収蔵English: Collection of Kyoto Asney archive, Public domain, via Wikimedia Commons"
+1392,1,1,,,,10000,日本の歴史(詳細版),2,4,南北朝合一（明徳の和約）,,https://ja.wikipedia.org/wiki/%E6%98%8E%E5%BE%B3%E3%81%AE%E5%92%8C%E7%B4%84,,
+1394,1,1,,,,10000,日本の歴史(詳細版),2,,足利義満、太政大臣となる,,https://ja.wikipedia.org/wiki/%E8%B6%B3%E5%88%A9%E7%BE%A9%E6%BA%80,,
+1397,1,1,,,,10000,日本の歴史(詳細版),2,,足利義満　金閣寺を譲り受け改築,,https://ja.wikipedia.org/wiki/%E9%B9%BF%E8%8B%91%E5%AF%BA,,
+1401,1,1,,,,10000,日本の歴史(詳細版),2,,勘合貿易開始,,https://ja.wikipedia.org/wiki/%E6%97%A5%E6%98%8E%E8%B2%BF%E6%98%93,,
+1467,1,1,1573,1,1,10000,日本の歴史(詳細版),2,1,戦国時代,#C00000,,,
+1467,1,1,1477,1,1,10000,日本の歴史(詳細版),2,2,応仁の乱,,https://ja.wikipedia.org/wiki/%E5%BF%9C%E4%BB%81%E3%81%AE%E4%B9%B1,https://upload.wikimedia.org/wikipedia/commons/a/a9/Shinnyod%C5%8D_engi%2C_vol.3_%28part%29.jpg,"掃部助久国掃部助久国, Public domain, via Wikimedia Commons"
+1485,1,1,,,,10000,日本の歴史(詳細版),2,2,山城国一揆,,,,
+1488,1,1,,,,10000,日本の歴史(詳細版),2,3,加賀の一向一揆,,https://ja.wikipedia.org/wiki/%E5%8A%A0%E8%B3%80%E4%B8%80%E5%90%91%E4%B8%80%E6%8F%86,,
+1489,1,1,,,,10000,日本の歴史(詳細版),2,4,足利義政、銀閣を完成,,https://ja.wikipedia.org/wiki/%E6%85%88%E7%85%A7%E5%AF%BA,,
+1498,1,1,,,,10000,日本の歴史(詳細版),2,2,明応地震(南海トラフ),,https://ja.wikipedia.org/wiki/%E6%98%8E%E5%BF%9C%E5%9C%B0%E9%9C%87,,
+1543,1,1,,,,10000,日本の歴史(詳細版),2,3,鉄砲伝来,,https://ja.wikipedia.org/wiki/%E9%89%84%E7%A0%B2%E4%BC%9D%E6%9D%A5,,
+1549,1,1,,,,10000,日本の歴史(詳細版),2,4,キリスト教伝来,,https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B7%E3%82%B9%E3%82%B3%E3%83%BB%E3%82%B6%E3%83%93%E3%82%A8%E3%83%AB,https://upload.wikimedia.org/wikipedia/commons/d/db/Franciscus_de_Xabier.jpg,"Kobe City Museum, Public domain, via Wikimedia Commons"
+1553,1,1,1564,1,1,10000,日本の歴史(詳細版),2,2,川中島の戦い,,https://ja.wikipedia.org/wiki/%E5%B7%9D%E4%B8%AD%E5%B3%B6%E3%81%AE%E6%88%A6%E3%81%84,,
+1555,1,1,,,,10000,日本の歴史(詳細版),2,3,厳島の戦い,,https://ja.wikipedia.org/wiki/%E5%8E%B3%E5%B3%B6%E3%81%AE%E6%88%A6%E3%81%84,,
+1560,1,1,,,,10000,日本の歴史(詳細版),2,4,桶狭間の戦い,,https://ja.wikipedia.org/wiki/%E6%A1%B6%E7%8B%AD%E9%96%93%E3%81%AE%E6%88%A6%E3%81%84,,
+2573,1,1,,,,10000,日本の歴史(詳細版),2,2,槇島城の戦い(足利義昭追放),,https://ja.wikipedia.org/wiki/%E6%A7%87%E5%B3%B6%E5%9F%8E%E3%81%AE%E6%88%A6%E3%81%84,,
+1575,1,1,,,,10000,日本の歴史(詳細版),2,,長篠の戦い,,https://ja.wikipedia.org/wiki/%E9%95%B7%E7%AF%A0%E3%81%AE%E6%88%A6%E3%81%84,https://upload.wikimedia.org/wikipedia/commons/7/79/Battle-of-Nagashino-Map-Folding-Screen-1575.png,"Unknown author (Edo period, circa 18th century), Public domain, via Wikimedia Commons"
+1576,1,1,,,,10000,日本の歴史(詳細版),2,,安土城の築城開始,,https://ja.wikipedia.org/wiki/%E5%AE%89%E5%9C%9F%E5%9F%8E,https://upload.wikimedia.org/wikipedia/commons/b/b0/%E8%BF%91%E6%B1%9F%E5%9B%BD%E8%92%B2%E7%94%9F%E9%83%A1%E5%AE%89%E5%9C%9F%E5%9F%8E%E4%B9%8B.jpg,"Iwasaki Ōu 岩崎鴎雨, Public domain, via Wikimedia Commons"
+1582,1,1,,,,10000,日本の歴史(詳細版),2,,本能寺の変,,https://ja.wikipedia.org/wiki/%E6%9C%AC%E8%83%BD%E5%AF%BA%E3%81%AE%E5%A4%89,,
+1585,1,1,,,,10000,日本の歴史(詳細版),2,,豊臣政権確立,,https://ja.wikipedia.org/wiki/%E8%B1%8A%E8%87%A3%E6%94%BF%E6%A8%A9,,
+1590,1,1,,,,10000,日本の歴史(詳細版),2,,小田原征伐,,https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%94%B0%E5%8E%9F%E5%BE%81%E4%BC%90,,
+1590,1,1,,,,10000,日本の歴史(詳細版),2,,秀吉全国統一,,,,
+1600,1,1,,,,10000,日本の歴史(詳細版),2,,関ヶ原の戦い,,https://ja.wikipedia.org/wiki/%E9%96%A2%E3%83%B6%E5%8E%9F%E3%81%AE%E6%88%A6%E3%81%84,https://upload.wikimedia.org/wikipedia/commons/9/9f/Sekigaharascreen.jpg,"User LordAmeth on en.wikipediaCollection of The Town of Sekigahara Archive of History and Cultural Anthropology, Public domain, via Wikimedia Commons"
+1603,1,1,,,,10000,日本の歴史(詳細版),2,,江戸幕府開府,,https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E5%B9%95%E5%BA%9C,https://upload.wikimedia.org/wikipedia/commons/e/ed/Edo_l122.jpg,"See page for author, Public domain, via Wikimedia Commons"
+1611,1,1,,,,10000,日本の歴史(詳細版),2,,慶長三陸地震(三陸沖),,https://ja.wikipedia.org/wiki/%E6%85%B6%E9%95%B7%E4%B8%89%E9%99%B8%E5%9C%B0%E9%9C%87,,
+1615,1,1,,,,10000,日本の歴史(詳細版),2,,大阪夏の陣(豊臣氏滅亡),,https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E3%81%AE%E9%99%A3,,
+1615,1,1,,,,10000,日本の歴史(詳細版),2,,武家諸法度,,https://ja.wikipedia.org/wiki/%E6%AD%A6%E5%AE%B6%E8%AB%B8%E6%B3%95%E5%BA%A6,,
+1623,1,1,,,,10000,日本の歴史(詳細版),2,,【3】徳川家光　将軍就任,,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%85%89,https://upload.wikimedia.org/wikipedia/commons/b/b7/Iemitu.jpg,"English:  The author creates a file.日本語: 投稿者がファイル作成, Public domain, via Wikimedia Commons"
+1624,1,1,,,,10000,日本の歴史(詳細版),2,,スペイン人来航禁止,,,,
+1628,1,1,,,,10000,日本の歴史(詳細版),2,,踏絵の制度開始,,https://ja.wikipedia.org/wiki/%E8%B8%8F%E3%81%BF%E7%B5%B5,,
+1635,1,1,,,,10000,日本の歴史(詳細版),2,,参勤交代確立,,https://ja.wikipedia.org/wiki/%E5%8F%82%E5%8B%A4%E4%BA%A4%E4%BB%A3,,
+1639,1,1,,,,10000,日本の歴史(詳細版),2,,ポルトガル人来航禁止,,,,
+1641,1,1,,,,10000,日本の歴史(詳細版),2,,オランダ人を出島に移す(鎖国完成),,https://ja.wikipedia.org/wiki/%E9%8E%96%E5%9B%BD,https://upload.wikimedia.org/wikipedia/commons/f/ff/Nagasaki_bay_siebold.jpg,"Philipp Franz von Siebold, Public domain, via Wikimedia Commons"
+1642,1,1,,,,10000,日本の歴史(詳細版),2,,寛永の大飢饉,,https://ja.wikipedia.org/wiki/%E5%AF%9B%E6%B0%B8%E3%81%AE%E5%A4%A7%E9%A3%A2%E9%A5%89,,
+1657,1,1,,,,10000,日本の歴史(詳細版),2,,明暦の大火,,https://ja.wikipedia.org/wiki/%E6%98%8E%E6%9A%A6%E3%81%AE%E5%A4%A7%E7%81%AB,https://upload.wikimedia.org/wikipedia/commons/2/2c/Meireki_fire.JPG,"田代幸春, Public domain, via Wikimedia Commons"
+1657,1,1,,,,10000,日本の歴史(詳細版),2,,徳川光圀『大日本史』の編纂開始,,https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%97%A5%E6%9C%AC%E5%8F%B2,,
+1683,1,1,,,,10000,日本の歴史(詳細版),2,,八百屋お七事件,,https://ja.wikipedia.org/wiki/%E5%85%AB%E7%99%BE%E5%B1%8B%E3%81%8A%E4%B8%83,https://upload.wikimedia.org/wikipedia/commons/c/c7/Tukiokayositosi-YaoyaOsichi.png,"月岡芳年 TukiokaYositosi（1839-1892）, Public domain, via Wikimedia Commons"
+1687,1,1,,,,10000,日本の歴史(詳細版),2,,生類憐れみの令(【5】徳川綱吉),,https://ja.wikipedia.org/wiki/%E7%94%9F%E9%A1%9E%E6%86%90%E3%82%8C%E3%81%BF%E3%81%AE%E4%BB%A4,,
+1701,1,1,,,,10000,日本の歴史(詳細版),2,,赤穂事件(忠臣蔵),,https://ja.wikipedia.org/wiki/%E8%B5%A4%E7%A9%82%E4%BA%8B%E4%BB%B6,https://upload.wikimedia.org/wikipedia/commons/d/d2/Kanadehon-Chushingura-Stage-3-Utagawa-Kuniteru.png,"Utagawa Kuniteru (歌川国輝), Public domain, via Wikimedia Commons"
+1707,1,1,,,,10000,日本の歴史(詳細版),2,4,宝永地震(南海トラフ)　富士山宝永大噴火,,https://ja.wikipedia.org/wiki/%E5%AE%9D%E6%B0%B8%E5%A4%A7%E5%99%B4%E7%81%AB,https://upload.wikimedia.org/wikipedia/commons/3/38/%E5%AE%9D%E6%B0%B8%E5%A4%A7%E5%99%B4%E7%81%AB%E3%82%92%E6%8F%8F%E3%81%84%E3%81%9F%E7%B5%B5%E5%9B%B3%E3%80%8C%E5%A4%9C%E3%83%AB%E3%81%AE%E6%99%AF%E6%B0%97%E3%80%8D%28%E9%9D%99%E5%B2%A1%E7%9C%8C%E6%B2%BC%E6%B4%A5%E5%B8%82%E5%9C%9F%E5%B1%8B%E5%8D%9A%E6%B0%8F%E6%89%80%E8%94%B5%29.jpg,"内閣府 防災担当, Public domain, via Wikimedia Commons"
+1716,1,1,1742,1,1,10000,日本の歴史(詳細版),2,1,享保の改革,,https://ja.wikipedia.org/wiki/%E4%BA%AB%E4%BF%9D%E3%81%AE%E6%94%B9%E9%9D%A9,,
+1716,1,1,,,,10000,日本の歴史(詳細版),2,2,【8】徳川吉宗　将軍就任,,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%90%89%E5%AE%97,https://upload.wikimedia.org/wikipedia/commons/5/50/Tokugawa_Yoshimune.jpg,"日本語: 狩野忠信English:  Kanō Tadanobu, Public domain, via Wikimedia Commons"
+1721,1,1,,,,10000,日本の歴史(詳細版),2,3,目安箱設置,,https://ja.wikipedia.org/wiki/%E7%9B%AE%E5%AE%89%E7%AE%B1,,
+1742,1,1,,,,10000,日本の歴史(詳細版),2,4,公事方御定書,,https://ja.wikipedia.org/wiki/%E5%85%AC%E4%BA%8B%E6%96%B9%E5%BE%A1%E5%AE%9A%E6%9B%B8,,
+1767,1,1,1786,1,1,10000,日本の歴史(詳細版),2,1,田沼の政治,,https://ja.wikipedia.org/wiki/%E7%94%B0%E6%B2%BC%E6%99%82%E4%BB%A3,,
+1767,1,1,,,,10000,日本の歴史(詳細版),2,2,田沼意次　側用人となる,,https://ja.wikipedia.org/wiki/%E7%94%B0%E6%B2%BC%E6%84%8F%E6%AC%A1,https://upload.wikimedia.org/wikipedia/commons/2/26/Tanuma_Okitsugu2.jpg,"See page for author, Public domain, via Wikimedia Commons"
+1772,1,1,,,,10000,日本の歴史(詳細版),2,3,田沼意次　老中となる,,,,
+1774,1,1,,,,10000,日本の歴史(詳細版),2,4,『解体新書』刊行,,https://ja.wikipedia.org/wiki/%E8%A7%A3%E4%BD%93%E6%96%B0%E6%9B%B8,,
+1776,1,1,,,,10000,日本の歴史(詳細版),2,2,平賀源内　エレキテルを復元,,https://ja.wikipedia.org/wiki/%E5%B9%B3%E8%B3%80%E6%BA%90%E5%86%85,,
+1783,1,1,,,,10000,日本の歴史(詳細版),2,3,浅間山噴火(天明大噴火),,https://ja.wikipedia.org/wiki/%E5%A4%A9%E6%98%8E%E5%A4%A7%E5%99%B4%E7%81%AB,https://upload.wikimedia.org/wikipedia/commons/7/78/Tenmei_Eruption_1783_Mount_Asama_Drawing_1.png,"https://www.komoro-tour.jp/spot/volcano/history/, Public domain, via Wikimedia Commons"
+1783,1,1,1788,1,1,10000,日本の歴史(詳細版),2,4,天明の大飢饉,,https://ja.wikipedia.org/wiki/%E5%A4%A9%E6%98%8E%E3%81%AE%E5%A4%A7%E9%A3%A2%E9%A5%89,,
+1787,1,1,1793,1,1,10000,日本の歴史(詳細版),2,1,寛政の改革,,https://ja.wikipedia.org/wiki/%E5%AF%9B%E6%94%BF%E3%81%AE%E6%94%B9%E9%9D%A9,,
+1787,1,1,,,,10000,日本の歴史(詳細版),2,2,松平定信　老中筆頭に就任,,https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%B9%B3%E5%AE%9A%E4%BF%A1,https://upload.wikimedia.org/wikipedia/commons/5/5e/Matsudaira_Sadanobu.jpg,"松平定信（自画像）, Public domain, via Wikimedia Commons"
+1788,1,1,,,,10000,日本の歴史(詳細版),2,3,京都天明の大火,,https://ja.wikipedia.org/wiki/%E5%A4%A9%E6%98%8E%E3%81%AE%E5%A4%A7%E7%81%AB,,
+1792,1,1,,,,10000,日本の歴史(詳細版),2,4,島原大変肥後迷惑,,https://ja.wikipedia.org/wiki/%E5%B3%B6%E5%8E%9F%E5%A4%A7%E5%A4%89%E8%82%A5%E5%BE%8C%E8%BF%B7%E6%83%91,,
+1802,1,1,,,,10000,日本の歴史(詳細版),2,,十返舎一九『東海道中膝栗毛』,,https://ja.wikipedia.org/wiki/%E6%9D%B1%E6%B5%B7%E9%81%93%E4%B8%AD%E8%86%9D%E6%A0%97%E6%AF%9B,,
+1808,1,1,,,,10000,日本の歴史(詳細版),2,,間宮林蔵　樺太探検,,https://ja.wikipedia.org/wiki/%E9%96%93%E5%AE%AE%E6%9E%97%E8%94%B5,https://upload.wikimedia.org/wikipedia/commons/8/8e/Mamiya_Rinzo.jpg,"(Akioka Matsuoka) 松岡映丘, Public domain, via Wikimedia Commons"
+1814,1,1,,,,10000,日本の歴史(詳細版),2,,曲亭馬琴『南総里見八犬伝』,,https://ja.wikipedia.org/wiki/%E5%8D%97%E7%B7%8F%E9%87%8C%E8%A6%8B%E5%85%AB%E7%8A%AC%E4%BC%9D,,
+1821,1,1,,,,10000,日本の歴史(詳細版),2,,伊能忠敬『大日本沿海輿地全図』,,https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%97%A5%E6%9C%AC%E6%B2%BF%E6%B5%B7%E8%BC%BF%E5%9C%B0%E5%85%A8%E5%9B%B3,https://upload.wikimedia.org/wikipedia/commons/9/9a/%E4%BC%8A%E8%83%BD%E5%9B%B3%E5%85%A8%E4%BD%93%E5%9B%B3.webp,"伊能忠敬, Public domain, via Wikimedia Commons"
+1821,1,1,,,,10000,日本の歴史(詳細版),2,,シーボルト事件,,https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%BC%E3%83%9C%E3%83%AB%E3%83%88%E4%BA%8B%E4%BB%B6,,
+1831,1,1,,,,10000,日本の歴史(詳細版),2,4,葛飾北斎『富嶽三十六景』,,https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%B6%BD%E4%B8%89%E5%8D%81%E5%85%AD%E6%99%AF,,
+1834,1,1,1843,1,1,10000,日本の歴史(詳細版),2,1,天保の改革,,https://ja.wikipedia.org/wiki/%E5%A4%A9%E4%BF%9D%E3%81%AE%E6%94%B9%E9%9D%A9,,
+1833,1,1,,,,10000,日本の歴史(詳細版),2,2,歌川広重『東海道五十三次』,,https://ja.wikipedia.org/wiki/%E6%9D%B1%E6%B5%B7%E9%81%93%E4%BA%94%E5%8D%81%E4%B8%89%E6%AC%A1_(%E6%B5%AE%E4%B8%96%E7%B5%B5),,
+1834,1,1,,,,10000,日本の歴史(詳細版),2,3,水野忠邦　老中就任,,https://ja.wikipedia.org/wiki/%E6%B0%B4%E9%87%8E%E5%BF%A0%E9%82%A6,https://upload.wikimedia.org/wikipedia/commons/a/ab/Mizuno_Tadakuni.jpg,"椿　椿山, Public domain, ウィキメディア・コモンズ経由で"
+1833,1,1,1839,1,1,10000,日本の歴史(詳細版),2,4,天保の大飢饉,,https://ja.wikipedia.org/wiki/%E5%A4%A9%E4%BF%9D%E3%81%AE%E5%A4%A7%E9%A3%A2%E9%A5%89,,
+1837,1,1,,,,10000,日本の歴史(詳細版),2,2,大塩平八郎の乱,,https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%A1%A9%E5%B9%B3%E5%85%AB%E9%83%8E%E3%81%AE%E4%B9%B1,,
+1853,1,1,,,,10000,日本の歴史(詳細版),2,,ペリー来航,,https://ja.wikipedia.org/wiki/%E9%BB%92%E8%88%B9%E6%9D%A5%E8%88%AA,,
+1858,1,1,,,,10000,日本の歴史(詳細版),2,,日米修好通商条約調印,,https://ja.wikipedia.org/wiki/%E6%97%A5%E7%B1%B3%E4%BF%AE%E5%A5%BD%E9%80%9A%E5%95%86%E6%9D%A1%E7%B4%84,,
+1860,1,1,,,,10000,日本の歴史(詳細版),2,,桜田門外の変,,https://ja.wikipedia.org/wiki/%E6%A1%9C%E7%94%B0%E9%96%80%E5%A4%96%E3%81%AE%E5%A4%89,,
+1866,1,1,,,,10000,日本の歴史(詳細版),2,,薩長同盟,,https://ja.wikipedia.org/wiki/%E8%96%A9%E9%95%B7%E5%90%8C%E7%9B%9F,,
+1867,1,1,,,,10000,日本の歴史(詳細版),2,,大政奉還,,https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%94%BF%E5%A5%89%E9%82%84,https://upload.wikimedia.org/wikipedia/commons/e/e2/Taisei_H%C5%8Dkan.jpg,"邨田丹陵, Tanryō Murata, Public domain, via Wikimedia Commons"
+1868,1,1,1869,,,10000,日本の歴史(詳細版),2,,戊辰戦争,,https://ja.wikipedia.org/wiki/%E6%88%8A%E8%BE%B0%E6%88%A6%E4%BA%89,,
+1887,1,1,,,,10000,日本の歴史(詳細版),2,,西南戦争,,https://ja.wikipedia.org/wiki/%E8%A5%BF%E5%8D%97%E6%88%A6%E4%BA%89,,
+1889,1,1,,,,10000,日本の歴史(詳細版),2,,大日本帝国憲法発布,,https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%97%A5%E6%9C%AC%E5%B8%9D%E5%9B%BD%E6%86%B2%E6%B3%95,,
+1894,1,1,1895,1,1,10000,日本の歴史(詳細版),2,,日清戦争,,https://ja.wikipedia.org/wiki/%E6%97%A5%E6%B8%85%E6%88%A6%E4%BA%89,,
+1904,1,1,1905,1,1,10000,日本の歴史(詳細版),2,,日露戦争,,https://ja.wikipedia.org/wiki/%E6%97%A5%E9%9C%B2%E6%88%A6%E4%BA%89,https://upload.wikimedia.org/wikipedia/commons/d/dd/RUSSOJAPANESEWARIMAGE.jpg,"Original uploader and author was Dustandshadow at en.wikipedia, Public domain, ウィキメディア・コモンズ経由で"
+1914,7,28,1918,11,11,10000,日本の歴史(詳細版),2,1,第一次世界大戦,,https://ja.wikipedia.org/wiki/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%A6,,
+1918,1,1,,,,10000,日本の歴史(詳細版),2,2,スペイン風邪,,https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%9A%E3%82%A4%E3%83%B3%E3%81%8B%E3%81%9C,,
+1920,1,1,,,,10000,日本の歴史(詳細版),2,3,国際連盟加盟,,https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E9%80%A3%E7%9B%9F,,
+1923,1,1,,,,10000,日本の歴史(詳細版),2,,関東大震災,,https://ja.wikipedia.org/wiki/%E9%96%A2%E6%9D%B1%E5%A4%A7%E9%9C%87%E7%81%BD,,
+1930,1,1,1931,1,1,10000,日本の歴史(詳細版),2,,世界恐慌(1923)の影響を受ける(昭和恐慌),,https://ja.wikipedia.org/wiki/%E6%98%AD%E5%92%8C%E6%81%90%E6%85%8C,,
+1932,1,1,,,,10000,日本の歴史(詳細版),2,,五・一五事件,,https://ja.wikipedia.org/wiki/%E4%BA%94%E3%83%BB%E4%B8%80%E4%BA%94%E4%BA%8B%E4%BB%B6,,
+1936,2,26,,,,10000,日本の歴史(詳細版),2,,二・二六事件,,https://ja.wikipedia.org/wiki/%E4%BA%8C%E3%83%BB%E4%BA%8C%E5%85%AD%E4%BA%8B%E4%BB%B6,,
+1937,7,7,,,,10000,日本の歴史(詳細版),2,4,盧溝橋事件(日中戦争始まる),,https://ja.wikipedia.org/wiki/%E7%9B%A7%E6%BA%9D%E6%A9%8B%E4%BA%8B%E4%BB%B6,,
+1941,1,1,1945,8,15,10000,日本の歴史(詳細版),2,1,太平洋戦争,,https://ja.wikipedia.org/wiki/%E5%A4%AA%E5%B9%B3%E6%B4%8B%E6%88%A6%E4%BA%89,,
+1941,12,8,,,,10000,日本の歴史(詳細版),2,2,真珠湾攻撃,,https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%8F%A0%E6%B9%BE%E6%94%BB%E6%92%83,https://upload.wikimedia.org/wikipedia/commons/c/c4/Pearl_Harbor-_Nakajima_B5N2_over_Hickam-_80G178985.jpg,"See page for author, Public domain, via Wikimedia Commons"
+1942,6,1,,,,10000,日本の歴史(詳細版),2,3,ミッドウェー海戦,,https://ja.wikipedia.org/wiki/%E3%83%9F%E3%83%83%E3%83%89%E3%82%A6%E3%82%A7%E3%83%BC%E6%B5%B7%E6%88%A6,,
+1945,8,15,,,,10000,日本の歴史(詳細版),2,4,原爆投下　終戦,,https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%B8%82%E3%81%B8%E3%81%AE%E5%8E%9F%E5%AD%90%E7%88%86%E5%BC%BE%E6%8A%95%E4%B8%8B,https://upload.wikimedia.org/wikipedia/commons/b/b7/Atomic_cloud_over_Hiroshima.jpg,"George R. Caron, Public domain, via Wikimedia Commons"
+1947,5,3,,,,10000,日本の歴史(詳細版),2,,日本国憲法施行,,https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E5%9B%BD%E6%86%B2%E6%B3%95,,
+1956,12,18,,,,10000,日本の歴史(詳細版),2,,国際連合加盟,,https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E9%80%A3%E5%90%88%E3%81%A8%E6%97%A5%E6%9C%AC,,
+1964,10,10,,,,10000,日本の歴史(詳細版),2,,東京オリンピック開催,,https://ja.wikipedia.org/wiki/1964%E5%B9%B4%E6%9D%B1%E4%BA%AC%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%94%E3%83%83%E3%82%AF,,
+1973,1,1,,,,10000,日本の歴史(詳細版),2,,オイルショック,,https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF,,
+1986,1,1,1991,1,1,10000,日本の歴史(詳細版),2,,バブル景気,,https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%96%E3%83%AB%E6%99%AF%E6%B0%97,,
+1995,1,17,,,,10000,日本の歴史(詳細版),2,,阪神・淡路大震災,,https://ja.wikipedia.org/wiki/%E9%98%AA%E7%A5%9E%E3%83%BB%E6%B7%A1%E8%B7%AF%E5%A4%A7%E9%9C%87%E7%81%BD,,
+2011,3,11,,,,10000,日本の歴史(詳細版),2,,東日本大震災,,https://ja.wikipedia.org/wiki/%E6%9D%B1%E6%97%A5%E6%9C%AC%E5%A4%A7%E9%9C%87%E7%81%BD,,
+2021,7,23,,,,10000,日本の歴史(詳細版),2,,東京オリンピック開催,,https://ja.wikipedia.org/wiki/2020%E5%B9%B4%E6%9D%B1%E4%BA%AC%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%94%E3%83%83%E3%82%AF,,
